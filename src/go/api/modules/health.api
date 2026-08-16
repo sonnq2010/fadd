@@ -1,0 +1,16 @@
+type (
+    HealthResp {
+	    Status  string `json:"status"`
+	    Version string `json:"version"`
+    }
+)
+
+@server (
+	prefix: /api/v1
+	group:  health
+)
+
+service backend-api {
+	@handler GetHealth
+	get /health returns (HealthResp)
+}

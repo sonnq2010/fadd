@@ -1,0 +1,24 @@
+type (
+	GetUserReq {
+		ID string `path:"id"`
+	}
+
+	UserResp {
+		ID          string `json:"id"`
+		Email       string `json:"email"`
+		DisplayName string `json:"displayName"`
+		CreatedAt   string `json:"createdAt"`
+		UpdatedAt   string `json:"updatedAt"`
+	}
+)
+
+@server (
+	prefix:     /api/v1
+	group:      users
+	middleware: Auth
+)
+
+service backend-api {
+	@handler GetUser
+	get /users/:id (GetUserReq) returns (UserResp)
+}

@@ -1,0 +1,21 @@
+type APIError {
+	Code    string        `json:"code"`
+	Message string        `json:"message"`
+}
+
+type ErrorResp {
+	Success bool      `json:"success"`
+	Error   APIError  `json:"error"`
+}
+
+type EmptyResp {
+	Success bool   `json:"success"`
+	Data    string `json:"data,optional"`
+}
+
+type PaginationMeta {
+	Page       int `json:"page"`
+	PageSize   int `json:"pageSize"`
+	Total      int `json:"total"`
+	TotalPages int `json:"totalPages"`
+}

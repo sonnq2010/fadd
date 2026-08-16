@@ -1,0 +1,12 @@
+syntax = "v1"
+
+import "common.api"
+import "modules/health.api"
+import "modules/users.api"
+
+info (
+	title:   "Go Backend API"
+	desc:    "Go Backend REST API"
+	version: "v1"
+)
+

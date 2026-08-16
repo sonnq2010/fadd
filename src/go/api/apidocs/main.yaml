@@ -1,0 +1,64 @@
+basePath: /
+consumes:
+- application/json
+info:
+  title: Go Backend API
+  version: v1
+paths:
+  /api/v1/health:
+    get:
+      operationId: healthGetHealth
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+          schema:
+            properties:
+              status:
+                type: string
+              version:
+                type: string
+            type: object
+      schemes:
+      - https
+      summary: GetHealth
+  /api/v1/users/{id}:
+    get:
+      operationId: usersGetUser
+      parameters:
+      - in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+          schema:
+            properties:
+              createdAt:
+                type: string
+              displayName:
+                type: string
+              email:
+                type: string
+              id:
+                type: string
+              updatedAt:
+                type: string
+            type: object
+      schemes:
+      - https
+      summary: GetUser
+produces:
+- application/json
+schemes:
+- https
+swagger: "2.0"
+x-date: "2026-08-16 20:39:40"
+x-description: This is a goctl generated swagger file.
+x-github: https://github.com/zeromicro/go-zero
+x-go-zero-doc: https://go-zero.dev/
+x-goctl-version: 1.10.1
