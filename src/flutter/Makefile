@@ -5,3 +5,7 @@ generate:
 .PHONY: analyze
 analyze:
 	flutter analyze
+
+.PHONY: test
+test:
+	flutter test --coverage
