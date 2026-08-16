@@ -2,10 +2,11 @@
 - `make verify`: Verify the consistent state of project
 
 # Should 
-- Use caveman skill on every response
+- Use /caveman skill on every response, except /grilling session
+- Must provide the code snippets related to the functionality when declaring the task complete
 
 # Do not
-- Mofiy generated files
+- Modify DO NOT EDIT generated files
 
 # At session start (clock in)
 1. Read docs/features/<feature_name>/PROGRESS.md for current state
