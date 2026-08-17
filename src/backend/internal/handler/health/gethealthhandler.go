@@ -6,8 +6,8 @@ package health
 import (
 	"net/http"
 
-	"github.com/sonnq2010/fadd/src/go/internal/logic/health"
-	"github.com/sonnq2010/fadd/src/go/internal/svc"
+	"github.com/sonnq2010/fadd/src/backend/internal/logic/health"
+	"github.com/sonnq2010/fadd/src/backend/internal/svc"
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 

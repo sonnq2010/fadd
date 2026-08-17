@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/sonnq2010/fadd/src/go/internal/config"
-	"github.com/sonnq2010/fadd/src/go/internal/svc"
+	"github.com/sonnq2010/fadd/src/backend/internal/config"
+	"github.com/sonnq2010/fadd/src/backend/internal/svc"
 )
 
 func TestGetHealth(t *testing.T) {

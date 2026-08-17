@@ -10,7 +10,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/sonnq2010/fadd/src/go/tests/testsupport"
+	"github.com/sonnq2010/fadd/src/backend/tests/testsupport"
 )
 
 func TestPostgresUserRepo(t *testing.T) {

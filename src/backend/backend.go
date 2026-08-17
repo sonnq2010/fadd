@@ -13,9 +13,9 @@ import (
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"
 
-	"github.com/sonnq2010/fadd/src/go/internal/config"
-	"github.com/sonnq2010/fadd/src/go/internal/handler"
-	"github.com/sonnq2010/fadd/src/go/internal/svc"
+	"github.com/sonnq2010/fadd/src/backend/internal/config"
+	"github.com/sonnq2010/fadd/src/backend/internal/handler"
+	"github.com/sonnq2010/fadd/src/backend/internal/svc"
 )
 
 var configFile = flag.String("f", "etc/backend-api.yaml", "the config file")

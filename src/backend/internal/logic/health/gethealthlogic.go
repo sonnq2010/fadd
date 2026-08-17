@@ -8,8 +8,8 @@ import (
 
 	"github.com/zeromicro/go-zero/core/logx"
 
-	"github.com/sonnq2010/fadd/src/go/internal/svc"
-	"github.com/sonnq2010/fadd/src/go/internal/types"
+	"github.com/sonnq2010/fadd/src/backend/internal/svc"
+	"github.com/sonnq2010/fadd/src/backend/internal/types"
 )
 
 // GetHealthLogic returns process liveness metadata.

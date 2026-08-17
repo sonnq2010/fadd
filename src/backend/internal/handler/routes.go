@@ -6,9 +6,9 @@ package handler
 import (
 	"net/http"
 
-	health "github.com/sonnq2010/fadd/src/go/internal/handler/health"
-	users "github.com/sonnq2010/fadd/src/go/internal/handler/users"
-	"github.com/sonnq2010/fadd/src/go/internal/svc"
+	health "github.com/sonnq2010/fadd/src/backend/internal/handler/health"
+	users "github.com/sonnq2010/fadd/src/backend/internal/handler/users"
+	"github.com/sonnq2010/fadd/src/backend/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
 )

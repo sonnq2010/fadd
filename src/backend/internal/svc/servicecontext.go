@@ -10,9 +10,9 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/zeromicro/go-zero/rest"
 
-	"github.com/sonnq2010/fadd/src/go/internal/config"
-	"github.com/sonnq2010/fadd/src/go/internal/middleware"
-	"github.com/sonnq2010/fadd/src/go/internal/repository"
+	"github.com/sonnq2010/fadd/src/backend/internal/config"
+	"github.com/sonnq2010/fadd/src/backend/internal/middleware"
+	"github.com/sonnq2010/fadd/src/backend/internal/repository"
 )
 
 // ServiceContext owns dependencies shared by handlers and logic.

@@ -12,9 +12,9 @@ import (
 	"github.com/google/uuid"
 	"github.com/zeromicro/go-zero/core/logx"
 
-	"github.com/sonnq2010/fadd/src/go/internal/repository"
-	"github.com/sonnq2010/fadd/src/go/internal/svc"
-	"github.com/sonnq2010/fadd/src/go/internal/types"
+	"github.com/sonnq2010/fadd/src/backend/internal/repository"
+	"github.com/sonnq2010/fadd/src/backend/internal/svc"
+	"github.com/sonnq2010/fadd/src/backend/internal/types"
 )
 
 var (

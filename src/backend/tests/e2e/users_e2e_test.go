@@ -15,11 +15,11 @@ import (
 	"github.com/zeromicro/go-zero/core/service"
 	"github.com/zeromicro/go-zero/rest"
 
-	"github.com/sonnq2010/fadd/src/go/internal/config"
-	"github.com/sonnq2010/fadd/src/go/internal/handler"
-	"github.com/sonnq2010/fadd/src/go/internal/svc"
-	"github.com/sonnq2010/fadd/src/go/internal/types"
-	"github.com/sonnq2010/fadd/src/go/tests/testsupport"
+	"github.com/sonnq2010/fadd/src/backend/internal/config"
+	"github.com/sonnq2010/fadd/src/backend/internal/handler"
+	"github.com/sonnq2010/fadd/src/backend/internal/svc"
+	"github.com/sonnq2010/fadd/src/backend/internal/types"
+	"github.com/sonnq2010/fadd/src/backend/tests/testsupport"
 )
 
 func TestUsersVerticalSlice(t *testing.T) {

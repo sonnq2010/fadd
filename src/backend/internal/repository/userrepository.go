@@ -9,7 +9,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5"
 
-	repositorysqlc "github.com/sonnq2010/fadd/src/go/internal/repository/sqlc"
+	repositorysqlc "github.com/sonnq2010/fadd/src/backend/internal/repository/sqlc"
 )
 
 // ErrNotFound reports that a requested repository record does not exist.
