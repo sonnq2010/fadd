@@ -1,0 +1,18 @@
+{
+  "app": {
+    "name": "Application"
+  },
+  "language": {
+    "english": "English",
+    "label": "Language",
+    "vietnamese": "Vietnamese"
+  },
+  "navigation": {
+    "about": "About",
+    "mobileLabel": "Mobile",
+    "open": "Open navigation",
+    "pricing": "Pricing",
+    "primaryLabel": "Primary",
+    "title": "Navigation"
+  }
+}

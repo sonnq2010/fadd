@@ -5,8 +5,9 @@ import "modules/health.api"
 import "modules/users.api"
 
 info (
-	title:   "Go Backend API"
-	desc:    "Go Backend REST API"
-	version: "v1"
+	title:                       "Go Backend API"
+	desc:                        "Go Backend REST API"
+	version:                     "v1"
+	securityDefinitionsFromJson: `{"bearerAuth":{"type":"apiKey","in":"header","name":"Authorization","description":"Use: Bearer <token>"}}`
 )
 

@@ -16,6 +16,7 @@ type (
 	prefix:     /api/v1
 	group:      users
 	middleware: Auth
+	authType:   bearerAuth
 )
 
 service backend-api {

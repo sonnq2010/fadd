@@ -1,0 +1,18 @@
+{
+  "app": {
+    "name": "Ứng dụng"
+  },
+  "language": {
+    "english": "Tiếng Anh",
+    "label": "Ngôn ngữ",
+    "vietnamese": "Tiếng Việt"
+  },
+  "navigation": {
+    "about": "Giới thiệu",
+    "mobileLabel": "Di động",
+    "open": "Mở điều hướng",
+    "pricing": "Bảng giá",
+    "primaryLabel": "Chính",
+    "title": "Điều hướng"
+  }
+}

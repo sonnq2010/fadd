@@ -51,13 +51,21 @@ paths:
             type: object
       schemes:
       - https
+      security:
+      - bearerAuth: []
       summary: GetUser
 produces:
 - application/json
 schemes:
 - https
+securityDefinitions:
+  bearerAuth:
+    description: 'Use: Bearer <token>'
+    in: header
+    name: Authorization
+    type: apiKey
 swagger: "2.0"
-x-date: "2026-08-16 20:39:40"
+x-date: "2026-08-16 23:44:03"
 x-description: This is a goctl generated swagger file.
 x-github: https://github.com/zeromicro/go-zero
 x-go-zero-doc: https://go-zero.dev/
