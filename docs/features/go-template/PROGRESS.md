@@ -18,6 +18,7 @@ Complete as of 2026-08-16.
 - Moved shared test helpers to `tests/testsupport`.
 - Kept sqlc-generated database access under `internal/repository/sqlc`.
 - Consolidated user repository code into `userrepository.go`; shortened contracts and dependency fields to `UserRepo`.
+- Added repository VS Code gopls build flags so integration- and E2E-tagged test packages receive editor diagnostics.
 
 ## Verification
 

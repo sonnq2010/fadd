@@ -42,19 +42,9 @@ Change route files, backend `.api` sources, or locale resources and regenerate i
 5. Run `make check-i18n` before completion.
 6. Never use literal translation keys or manually edit generated declarations.
 
-# Runtime boundaries
-
-- Keep TanStack Start in CSR SPA mode with `spa.enabled` and global `defaultSsr: false` unless architecture requirements explicitly change.
-- Call the external API directly from the browser; do not add TanStack server functions or same-origin API proxy routes.
-- Use only `VITE_API_BASE_URL` for API configuration and omit `/api/v1` because generated paths include it.
-- Never put secrets in `VITE_*` variables because Vite includes them in the browser bundle.
-- Configure backend CORS for the web origin and required request headers.
-- Use TanStack Query for API/server state, Zustand for shared client state, TanStack Router for URL state, and React Hook Form for form state.
-- Keep domain logic out of route files, generated clients, and shadcn/ui primitives.
-
 # Feature workflow
 
-1. Add the route, components, feature namespace, and tests for the requested behavior.
+1. Add the route, components, feature namespace, and tests using skill /vercel-react-best-practices for the requested behavior.
 2. Define backend operations in `.api` sources before adding any API-dependent frontend behavior.
 3. Use generated TanStack Query hooks and keep state in the appropriate owner.
 4. Add unit tests, integration tests for HTTP changes, and end-to-end tests for cross-component behavior.
