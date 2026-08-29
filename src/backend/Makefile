@@ -3,7 +3,7 @@ SHELL := /bin/bash
 DATABASE_URL ?= postgres://postgres:postgres@localhost:5432/fadd?sslmode=disable
 COVERAGE_MIN ?= 80
 
-.PHONY: run gen gen-code gen-sqlc gen-swagger create-migration migrate-up migrate-down migrate-status fmt fmt-check lint test test-unit test-integration test-e2e coverage verify
+.PHONY: run gen gen-code gen-sqlc gen-swagger check-generated create-migration migrate-up migrate-down migrate-status fmt fmt-check lint test test-unit test-integration test-e2e coverage verify
 
 run:
 	go run . -f etc/backend-api.yaml
@@ -21,6 +21,9 @@ gen-sqlc:
 gen-swagger:
 	@echo "Generating Swagger documentation..."
 	goctl api swagger --api api/main.api --dir api/apidocs --yaml
+
+check-generated:
+	./tool/check_generated.sh
 
 create-migration:
 	@test -n "$(NAME)" || { echo "NAME is required"; exit 1; }
@@ -63,4 +66,4 @@ coverage:
 	coverage="$$(go tool cover -func="$$profile" | awk '/^total:/ {gsub("%", "", $$3); print $$3}')"; \
 	awk -v coverage="$$coverage" -v minimum="$(COVERAGE_MIN)" 'BEGIN { if (coverage + 0 < minimum + 0) { printf "logic coverage %.1f%% is below %.1f%%\n", coverage, minimum; exit 1 } }'
 
-verify: fmt-check lint test coverage
+verify: check-generated fmt-check lint test coverage

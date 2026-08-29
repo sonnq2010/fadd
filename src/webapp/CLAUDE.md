@@ -4,6 +4,7 @@
 - `make gen-api`: Generate TanStack Query hooks, Fetch operations, and Zod models from backend Swagger.
 - `make gen-i18n`: Extract feature-namespace selectors and generate typed i18next declarations.
 - `make check-i18n`: Verify namespace extraction and generated selector declarations are current.
+- `make check-generated`: Detect stale API client, i18n, and route-tree output without modifying the working tree.
 - `make format-check`: Check Prettier formatting.
 - `make lint`: Run ESLint with zero warnings allowed.
 - `make typecheck`: Run strict TypeScript checks.
@@ -11,7 +12,7 @@
 - `make test-integration`: Run generated-client HTTP integration tests.
 - `make test-e2e`: Run Playwright browser tests.
 - `make build`: Build client assets, the static SPA shell, and Nitro output.
-- `make verify`: Regenerate clients and run all required checks.
+- `make verify`: Check generated artifacts and run all required checks.
 
 # Generated files
 

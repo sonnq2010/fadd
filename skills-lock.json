@@ -37,6 +37,12 @@
       "skillPath": "skills/engineering/domain-modeling/SKILL.md",
       "computedHash": "683744795bdc9fbfb6c0c2122c4b8119c950e2fe5bcbbf44237dd28aaea34b67"
     },
+    "eval-harness": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "skillPath": "skills/eval-harness/SKILL.md",
+      "computedHash": "4ac1247dc6e4018ccefaf4714e4516fe675d48c77886568e6e8dae34a016360d"
+    },
     "gcp-cloud-architect": {
       "source": "alirezarezvani/claude-skills",
       "sourceType": "github",

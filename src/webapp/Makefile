@@ -1,7 +1,10 @@
-.PHONY: build check-i18n format-check gen-api gen-i18n lint test-unit test-integration test-e2e typecheck verify
+.PHONY: build check-generated check-i18n format-check gen-api gen-i18n lint test-unit test-integration test-e2e typecheck verify
 
 build:
 	npm run build
+
+check-generated:
+	npm run generated:check
 
 check-i18n:
 	npm run i18n:check

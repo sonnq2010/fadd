@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite dev",
     "api:generate": "orval --config orval.config.ts",
+    "generated:check": "./tool/check_generated.sh && npm run i18n:check",
     "i18n:generate": "i18next-cli extract && i18next-cli types",
     "i18n:check": "i18next-cli extract --ci && i18next-cli types --ci",
     "build": "vite build",
@@ -18,7 +19,7 @@
     "test:integration": "vitest run --config vitest.integration.config.ts",
     "test:e2e": "playwright test",
     "test": "npm run test:unit && npm run test:integration && npm run test:e2e",
-    "verify": "npm run api:generate && npm run i18n:generate && npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build"
+    "verify": "npm run generated:check && npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {
     "@hookform/resolvers": "5.9.0",

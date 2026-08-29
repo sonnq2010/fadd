@@ -5,6 +5,7 @@
 - `make gen-code`: Generate handlers, routes, logic scaffolds, and API types from `.api` files.
 - `make gen-sqlc`: Generate pgx repository code from migrations and SQL queries.
 - `make gen-swagger`: Generate Swagger documentation from `.api` files.
+- `make check-generated`: Detect stale goctl, sqlc, and Swagger output without modifying the working tree.
 - `make create-migration NAME=<name>`: Create a sequential Goose migration.
 - `make migrate-up|migrate-down|migrate-status DATABASE_URL=<url>`: Manage PostgreSQL migrations.
 - `make test-unit`: Run race-enabled unit tests.

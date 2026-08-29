@@ -2,6 +2,7 @@
 
 - `make gen-api-client`: Generate the Dio client from backend Swagger.
 - `make check-api-client`: Check that the committed API client is current.
+- `make check-generated`: Detect stale API client, Riverpod, and Freezed output without modifying the working tree.
 - `make gen-code`: Generate Riverpod and Freezed files.
 - `make analyze`: Analyze the generated package and Flutter app.
 - `make test`: Run Flutter tests with coverage.
