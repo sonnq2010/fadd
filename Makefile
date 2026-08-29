@@ -1,13 +1,4 @@
-.PHONY: gen-api-client gen-i18n verify
-
-gen-api-client:
-	$(MAKE) -C src/backend gen-swagger
-	npm --prefix src/webapp run api:generate
-	$(MAKE) -C src/mobileapp gen-api-client
-
-gen-i18n:
-	npm --prefix src/webapp run i18n:generate
-
+.PHONY: verify
 verify:
 	@echo "Verifying the project..."
 	$(MAKE) -C src/backend verify

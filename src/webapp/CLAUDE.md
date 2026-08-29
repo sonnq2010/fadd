@@ -26,7 +26,7 @@ Change route files, backend `.api` sources, or locale resources and regenerate i
 
 # API client workflow
 
-1. Define or update operations in `../go/api/modules` and shared types in `../go/api`.
+1. Define or update operations in `../backend/api/modules` and shared types in `../backend/api`.
 2. Run `make gen-api-client` from the repository root to regenerate Swagger and the web client.
 3. Import generated hooks or query options from `@/api-client/api`.
 4. Pass bearer authorization through generated Fetch options when the documented operation requires it.
@@ -44,9 +44,13 @@ Change route files, backend `.api` sources, or locale resources and regenerate i
 
 # Feature workflow
 
-1. Add the route, components, feature namespace, and tests using skill /vercel-react-best-practices for the requested behavior.
-2. Define backend operations in `.api` sources before adding any API-dependent frontend behavior.
-3. Use generated TanStack Query hooks and keep state in the appropriate owner.
-4. Add unit tests, integration tests for HTTP changes, and end-to-end tests for cross-component behavior.
-5. Regenerate the route tree, API client, and i18next declarations through their source workflows.
-6. Run `make verify` before completion; do not skip required test levels.
+1. Use `/tdd` and agree the public seams with the user before writing tests.
+2. Select the smallest vertical behavior slice and identify its route or UI boundary, state owner, API needs, and localization namespace.
+3. For API-dependent behavior, define backend operations in `.api` sources and regenerate the client before writing handwritten frontend integration code.
+4. Write one failing behavior test at an agreed public seam; do not test implementation details.
+5. Implement only enough to pass using `/vercel-react-best-practices`: add the required route and components, use generated TanStack Query hooks, keep state in the nearest appropriate owner, and add user-facing text through the localization workflow.
+6. Run the targeted test until it is green, then repeat the red → green loop for the next behavior slice without speculative implementation.
+7. Refactor only after the behavior is green, during review, while keeping public-interface tests passing.
+8. Add HTTP integration tests for changed client behavior and Playwright end-to-end tests for cross-component behavior.
+9. Regenerate affected artifacts—the route tree, API client, or i18next declarations—through their source workflows.
+10. Run the repository-root `make verify` before completion; do not skip required test levels.

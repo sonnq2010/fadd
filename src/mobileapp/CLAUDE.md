@@ -39,7 +39,7 @@ Backend `.api` files under `../backend/api` are the API source of truth. Change 
 2. Build one vertical behavior slice at a time: write one failing test, implement only enough to pass in domain → data → UI order, then repeat.
 3. Build domain first: define entities, abstract repository contracts, then use cases.
 4. Build data next: define data sources, implement repository contracts, and map transport models and failures at repository boundaries.
-5. Build UI last: define states, providers, then screens and widgets.
+5. Build UI last: define states, providers, then screens and widgets follow the localization workflow.
 6. Test behavior through public interfaces; do not add speculative implementation or refactor inside the red → green loop.
 7. Keep feature code under `lib/features/<feature>` and genuinely reusable infrastructure and widgets under `lib/core`.
 8. Register new screens and paths through `lib/core/router/app_router.dart` and `lib/core/router/app_routes.dart`.

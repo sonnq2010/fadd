@@ -29,16 +29,21 @@ Change `.api` or `.sql` source files and regenerate instead. goctl files marked 
 1. Create a Goose migration with `make create-migration NAME=<name>`.
 2. Add or update queries under `internal/repository/query`.
 3. Run `make gen-sqlc`.
-4. Add repository adapter behavior and tests.
-5. Never edit a committed migration; create a new migration.
+4. Write a failing PostgreSQL repository integration test.
+5. Implement the repository adapter until the test passes.
+6. Never edit a committed migration; create a new migration.
 
 # Feature workflow
 
-1. Define the route and types in `api/modules`.
-2. Run `make gen-code`.
-3. Write tests with `/tdd`.
-4. Implement logic with `/golang-pro` through a repository interface until tests pass.
-5. Add PostgreSQL integration tests for persistence changes.
-6. Add end-to-end tests for cross-component changes.
-7. Run `make gen-swagger` and update documentation.
-8. Run `make verify` before completion.
+1. Use `/tdd` and agree the public seams with the user before writing tests.
+2. Select the smallest vertical behavior slice and identify its logic, repository, persistence, and HTTP boundaries.
+3. Define the route and transport types in `api/modules`, then run `make gen-code`.
+4. Define the domain model and repository interface required by the behavior.
+5. Write one failing test against the logic public interface.
+6. Implement only enough logic to pass using `/golang-pro`; construct logic errors through `apperrors`.
+7. For persistence behavior, follow the database workflow: prepare the migration and query, run `make gen-sqlc`, write a failing repository integration test, then implement the adapter.
+8. Add an HTTP end-to-end test for new or changed public endpoint behavior.
+9. Repeat the red → green loop for the next behavior slice without speculative implementation.
+10. Refactor only after behavior is green, during review, while keeping public-interface tests passing.
+11. Run `make gen-swagger` and update documentation.
+12. Run the repository-root `make verify` before completion; do not skip required test levels.
