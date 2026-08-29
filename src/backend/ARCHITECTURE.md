@@ -19,7 +19,9 @@ backend/
 │   ├── config/                  # typed configuration
 │   ├── handler/                 # generated HTTP handlers and routes
 │   ├── logic/                   # business logic
-│   ├── middleware/              # custom middleware
+│   ├── middleware/              # transport middleware and shared context
+│   │   ├── auth/                # authentication middleware
+│   │   └── auditlog/            # structured request audit logging
 │   ├── repository/
 │   │   ├── query/               # hand-written sqlc queries
 │   │   ├── sqlc/                # generated database access

@@ -11,7 +11,7 @@ import (
 	"github.com/zeromicro/go-zero/rest"
 
 	"github.com/sonnq2010/fadd/src/backend/internal/config"
-	"github.com/sonnq2010/fadd/src/backend/internal/middleware"
+	"github.com/sonnq2010/fadd/src/backend/internal/middleware/auth"
 	"github.com/sonnq2010/fadd/src/backend/internal/repository"
 )
 
@@ -43,7 +43,7 @@ func NewServiceContextWithPool(c config.Config, pool *pgxpool.Pool) *ServiceCont
 		Config:   c,
 		DB:       pool,
 		UserRepo: repository.NewPostgresUserRepo(pool),
-		Auth:     middleware.NewAuthMiddleware().Handle,
+		Auth:     auth.NewAuthMiddleware().Handle,
 	}
 }
 
