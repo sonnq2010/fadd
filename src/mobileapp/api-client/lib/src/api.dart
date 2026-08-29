@@ -4,21 +4,21 @@
 
 import 'package:dio/dio.dart';
 import 'package:built_value/serializer.dart';
-import 'package:backend_api_client/src/serializers.dart';
-import 'package:backend_api_client/src/auth/api_key_auth.dart';
-import 'package:backend_api_client/src/auth/basic_auth.dart';
-import 'package:backend_api_client/src/auth/bearer_auth.dart';
-import 'package:backend_api_client/src/auth/oauth.dart';
-import 'package:backend_api_client/src/api/health_api.dart';
-import 'package:backend_api_client/src/api/users_api.dart';
+import 'package:api_client/src/serializers.dart';
+import 'package:api_client/src/auth/api_key_auth.dart';
+import 'package:api_client/src/auth/basic_auth.dart';
+import 'package:api_client/src/auth/bearer_auth.dart';
+import 'package:api_client/src/auth/oauth.dart';
+import 'package:api_client/src/api/health_api.dart';
+import 'package:api_client/src/api/users_api.dart';
 
-class BackendApiClient {
+class ApiClient {
   static const String basePath = r'http://localhost';
 
   final Dio dio;
   final Serializers serializers;
 
-  BackendApiClient({
+  ApiClient({
     Dio? dio,
     Serializers? serializers,
     String? basePathOverride,

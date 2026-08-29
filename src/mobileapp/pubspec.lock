@@ -33,6 +33,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.13.4"
+  api_client:
+    dependency: "direct main"
+    description:
+      path: api-client
+      relative: true
+    source: path
+    version: "0.1.0"
   app_links:
     dependency: transitive
     description:
@@ -81,13 +88,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.13.0"
-  backend_api_client:
-    dependency: "direct main"
-    description:
-      path: api-client
-      relative: true
-    source: path
-    version: "0.1.0"
   boolean_selector:
     dependency: transitive
     description:

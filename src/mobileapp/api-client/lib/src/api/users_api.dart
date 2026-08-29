@@ -8,8 +8,8 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:backend_api_client/src/api_util.dart';
-import 'package:backend_api_client/src/model/users_get_user200_response.dart';
+import 'package:api_client/src/api_util.dart';
+import 'package:api_client/src/model/users_get_user200_response.dart';
 
 class UsersApi {
   final Dio _dio;

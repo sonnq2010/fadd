@@ -8,7 +8,7 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:backend_api_client/src/model/health_get_health200_response.dart';
+import 'package:api_client/src/model/health_get_health200_response.dart';
 
 class HealthApi {
   final Dio _dio;

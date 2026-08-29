@@ -1,5 +1,6 @@
+import 'package:api_client/api_client.dart';
+import 'package:mobileapp/core/network/api_client.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:mobileapp/core/network/supabase_client.dart';
 import 'package:mobileapp/features/auth/domain/entities/user_entity.dart';
 
 part 'auth_remote_data_source.g.dart';
@@ -10,13 +11,13 @@ abstract class AuthRemoteDataSource {
 
 @riverpod
 AuthRemoteDataSource authRemoteDataSource(Ref ref) {
-  return AuthRemoteDataSourceImpl(ref.read(supabaseClientProvider));
+  return AuthRemoteDataSourceImpl(ref.read(apiClientProvider));
 }
 
 class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   AuthRemoteDataSourceImpl(this.client);
 
-  final SupabaseClient client;
+  final ApiClient client;
 
   @override
   Future<UserEntity> login(String email, String password) async {

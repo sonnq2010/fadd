@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  backend_api_client:
+  api_client:
     path: api-client
 
   # The following adds the Cupertino Icons font to your application.

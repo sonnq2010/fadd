@@ -100,5 +100,6 @@ generate_into "$temporary_dir/api-client"
 diff -ru \
   --exclude=.dart_tool \
   --exclude=build \
+  --exclude=pubspec.lock \
   "$OUTPUT_DIR" \
   "$temporary_dir/api-client"

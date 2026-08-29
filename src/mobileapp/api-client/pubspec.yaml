@@ -1,4 +1,4 @@
-name: backend_api_client
+name: api_client
 version: 0.1.0
 description: Generated Dio client for the FADD backend API
 homepage: homepage

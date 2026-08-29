@@ -2,7 +2,7 @@
 .openapi-generator-ignore
 README.md
 analysis_options.yaml
-lib/backend_api_client.dart
+lib/api_client.dart
 lib/src/api.dart
 lib/src/api/health_api.dart
 lib/src/api/users_api.dart

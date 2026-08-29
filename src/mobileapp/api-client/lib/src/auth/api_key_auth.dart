@@ -3,7 +3,7 @@
 //
 
 import 'package:dio/dio.dart';
-import 'package:backend_api_client/src/auth/auth.dart';
+import 'package:api_client/src/auth/auth.dart';
 
 class ApiKeyAuthInterceptor extends AuthInterceptor {
   final Map<String, String> apiKeys = {};

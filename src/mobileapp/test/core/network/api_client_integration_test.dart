@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:backend_api_client/backend_api_client.dart';
+import 'package:api_client/api_client.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mobileapp/core/exceptions/failure.dart';
@@ -9,12 +9,12 @@ import 'package:mobileapp/core/exceptions/failure.dart';
 void main() {
   late HttpServer server;
   late Future<void> Function(HttpRequest request) handleRequest;
-  late BackendApiClient client;
+  late ApiClient client;
 
   setUp(() async {
     server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
     server.listen((request) => handleRequest(request));
-    client = BackendApiClient(
+    client = ApiClient(
       basePathOverride: 'http://${server.address.host}:${server.port}',
     );
   });

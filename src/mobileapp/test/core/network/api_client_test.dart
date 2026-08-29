@@ -1,4 +1,4 @@
-import 'package:backend_api_client/backend_api_client.dart';
+import 'package:api_client/api_client.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mobileapp/core/configs/app_config.dart';
@@ -11,12 +11,12 @@ void main() {
 
     final client = container.read(apiClientProvider);
 
-    expect(client, isA<BackendApiClient>());
+    expect(client, isA<ApiClient>());
     expect(client.dio.options.baseUrl, AppConfig.apiBaseUrl);
   });
 
   test('can be overridden by feature tests', () {
-    final override = BackendApiClient(basePathOverride: 'http://localhost');
+    final override = ApiClient(basePathOverride: 'http://localhost');
     final container = ProviderContainer(
       overrides: [apiClientProvider.overrideWithValue(override)],
     );
