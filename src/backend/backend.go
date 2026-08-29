@@ -40,6 +40,7 @@ func main() {
 		rest.WithNotAllowedHandler(auditMiddleware.Handle(methodNotAllowed)),
 	)
 	defer server.Stop()
+	handler.ConfigureErrorHandler()
 
 	startupContext, cancelStartup := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancelStartup()

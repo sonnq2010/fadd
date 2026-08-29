@@ -6,10 +6,11 @@ package users
 import (
 	"context"
 	"errors"
-	"fmt"
 	"time"
 
 	"github.com/google/uuid"
+
+	"github.com/sonnq2010/fadd/src/backend/internal/apperrors"
 	"github.com/zeromicro/go-zero/core/logx"
 
 	"github.com/sonnq2010/fadd/src/backend/internal/repository"
@@ -43,20 +44,20 @@ func NewGetUserLogic(ctx context.Context, svcCtx *svc.ServiceContext) *GetUserLo
 // GetUser validates a user ID and returns its API representation.
 func (l *GetUserLogic) GetUser(req *types.GetUserReq) (*types.UserResp, error) {
 	if req == nil {
-		return nil, ErrInvalidUserID
+		return nil, apperrors.InvalidUserID(ErrInvalidUserID)
 	}
 
 	id, err := uuid.Parse(req.ID)
 	if err != nil {
-		return nil, ErrInvalidUserID
+		return nil, apperrors.InvalidUserID(ErrInvalidUserID)
 	}
 
 	user, err := l.svcCtx.UserRepo.GetByID(l.ctx, id)
 	if errors.Is(err, repository.ErrNotFound) {
-		return nil, ErrUserNotFound
+		return nil, apperrors.UserNotFound(ErrUserNotFound)
 	}
 	if err != nil {
-		return nil, fmt.Errorf("get user: %w", err)
+		return nil, apperrors.WrapInternal("get user", err)
 	}
 
 	return &types.UserResp{

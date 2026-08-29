@@ -1,0 +1,3 @@
+# Logic Errors Use Application Errors
+
+Logic functions must return errors through `apperrors` so the centralized HTTP error handler can produce stable status codes and safe API responses while retaining the original cause for business and audit logs. Generic error behavior stays in `apperrors/errors.go`, while public error codes and constructors are organized by domain (for example, `apperrors/users.go`). An AST contract test scans every package under `internal/logic` and fails when a logic function returns a non-nil error without constructing it through `apperrors`; feature tests remain responsible for verifying that each business case maps to the correct code and status.

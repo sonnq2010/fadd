@@ -15,6 +15,10 @@ Implemented on 2026-08-29.
 - Wired the middleware globally without editing generated route files.
 - Disabled go-zero's generic access logger so the audit event is canonical.
 - Added unit coverage for request metadata, redaction, identity, status levels, and errors.
+- Added centralized error mapping and business error logging with the original error cause.
+- Added regression assertions requiring user logic failures to return `apperrors.AppError` with stable codes.
+- Added an AST contract test scanning all current and future logic packages for non-`apperrors` returned errors.
+- Organized application error constructors by domain under `internal/apperrors`.
 
 ## Verification
 

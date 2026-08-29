@@ -2,6 +2,8 @@ package auditlog
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"net/http/httptest"
@@ -143,5 +145,25 @@ func TestResponseError(t *testing.T) {
 	code, message := responseError([]byte(`{"error":{"code":"BAD_REQUEST","message":"invalid input"}}`))
 	if code != "BAD_REQUEST" || message != "invalid input" {
 		t.Fatalf("error = %q, %q", code, message)
+	}
+}
+
+func TestRequestAuditMiddlewareUsesOriginalErrorForAuditMessage(t *testing.T) {
+	logger := new(capturedAudit)
+	handler := newRequestAuditMiddleware(logger).Handle(func(w http.ResponseWriter, r *http.Request) {
+		middleware.RecordError(r.Context(), fmt.Errorf("query user: %w", errors.New("database unavailable")))
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusInternalServerError)
+		_, _ = w.Write([]byte(`{"success":false,"error":{"code":"INTERNAL_ERROR","message":"internal server error"}}`))
+	})
+
+	recorder := httptest.NewRecorder()
+	handler(recorder, httptest.NewRequest(http.MethodGet, "/users/1", nil))
+
+	if logger.fields["error_code"] != "INTERNAL_ERROR" {
+		t.Fatalf("error code = %v", logger.fields["error_code"])
+	}
+	if logger.fields["error_message"] != "query user: database unavailable" {
+		t.Fatalf("error message = %v", logger.fields["error_message"])
 	}
 }

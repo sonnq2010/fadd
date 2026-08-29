@@ -8,6 +8,7 @@ import (
 
 	"github.com/google/uuid"
 
+	"github.com/sonnq2010/fadd/src/backend/internal/apperrors"
 	"github.com/sonnq2010/fadd/src/backend/internal/repository"
 	"github.com/sonnq2010/fadd/src/backend/internal/svc"
 	"github.com/sonnq2010/fadd/src/backend/internal/types"
@@ -40,6 +41,7 @@ func TestGetUser(t *testing.T) {
 		user           repository.User
 		repositoryErr  error
 		wantErr        error
+		wantCode       string
 		wantRepository bool
 		checkResponse  func(*testing.T, *types.UserResp)
 	}{
@@ -74,19 +76,22 @@ func TestGetUser(t *testing.T) {
 			},
 		},
 		{
-			name:    "nil request",
-			wantErr: ErrInvalidUserID,
+			name:     "nil request",
+			wantErr:  ErrInvalidUserID,
+			wantCode: apperrors.CodeInvalidUserID,
 		},
 		{
-			name:    "invalid id",
-			request: &types.GetUserReq{ID: "not-a-uuid"},
-			wantErr: ErrInvalidUserID,
+			name:     "invalid id",
+			request:  &types.GetUserReq{ID: "not-a-uuid"},
+			wantErr:  ErrInvalidUserID,
+			wantCode: apperrors.CodeInvalidUserID,
 		},
 		{
 			name:           "not found",
 			request:        &types.GetUserReq{ID: id.String()},
 			repositoryErr:  repository.ErrNotFound,
 			wantErr:        ErrUserNotFound,
+			wantCode:       apperrors.CodeUserNotFound,
 			wantRepository: true,
 		},
 		{
@@ -94,6 +99,7 @@ func TestGetUser(t *testing.T) {
 			request:        &types.GetUserReq{ID: id.String()},
 			repositoryErr:  repositoryError,
 			wantErr:        repositoryError,
+			wantCode:       apperrors.CodeInternalError,
 			wantRepository: true,
 		},
 	}
@@ -111,6 +117,15 @@ func TestGetUser(t *testing.T) {
 			response, err := logic.GetUser(test.request)
 			if !errors.Is(err, test.wantErr) {
 				t.Fatalf("GetUser error = %v, want %v", err, test.wantErr)
+			}
+			if test.wantCode != "" {
+				var appErr *apperrors.AppError
+				if !errors.As(err, &appErr) {
+					t.Fatalf("GetUser error = %T, want *apperrors.AppError", err)
+				}
+				if appErr.Code != test.wantCode {
+					t.Fatalf("application error code = %q, want %q", appErr.Code, test.wantCode)
+				}
 			}
 			if fakeRepository.called != test.wantRepository {
 				t.Fatalf("repository called = %t, want %t", fakeRepository.called, test.wantRepository)

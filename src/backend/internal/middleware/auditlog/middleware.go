@@ -12,6 +12,8 @@ import (
 	"time"
 
 	"github.com/google/uuid"
+
+	"github.com/sonnq2010/fadd/src/backend/internal/apperrors"
 	"github.com/zeromicro/go-zero/core/logx"
 	"github.com/zeromicro/go-zero/rest/httpx"
 
@@ -52,6 +54,7 @@ func (m *RequestAuditMiddleware) Handle(next http.HandlerFunc) http.HandlerFunc 
 		w.Header().Set(requestIDHeader, requestID)
 
 		ctx := middleware.WithRequestID(r.Context(), requestID)
+		ctx, _ = middleware.WithAuditState(ctx)
 		r = r.WithContext(ctx)
 		requestBody := captureRequestBody(r)
 		started := time.Now()
@@ -138,6 +141,9 @@ func buildAuditEvent(r *http.Request, w *auditResponseWriter, requestBody string
 	}
 	if event.StatusCode >= http.StatusBadRequest {
 		event.ErrorCode, event.ErrorMessage = responseError(w.body.Bytes())
+		if err := middleware.ErrorFromAuditState(r.Context()); err != nil {
+			event.ErrorMessage = apperrors.Cause(err).Error()
+		}
 	}
 	return event
 }

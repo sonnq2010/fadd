@@ -16,9 +16,10 @@ backend/
 ├── etc/
 │   └── backend-api.yaml         # local service configuration
 ├── internal/
+│   ├── apperrors/               # base error contract and domain constructors
 │   ├── config/                  # typed configuration
-│   ├── handler/                 # generated HTTP handlers and routes
-│   ├── logic/                   # business logic
+│   ├── handler/                 # generated routes and centralized HTTP error mapping
+│   ├── logic/                   # business logic and error contract test
 │   ├── middleware/              # transport middleware and shared context
 │   │   ├── auth/                # authentication middleware
 │   │   └── auditlog/            # structured request audit logging
