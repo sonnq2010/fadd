@@ -1,7 +1,7 @@
 .PHONY: gen-api-client gen-i18n verify
 
 gen-api-client:
-	$(MAKE) -C src/go gen-swagger
+	$(MAKE) -C src/backend gen-swagger
 	npm --prefix src/webapp run api:generate
 
 gen-i18n:
@@ -9,5 +9,5 @@ gen-i18n:
 
 verify:
 	@echo "Verifying the project..."
-	$(MAKE) -C src/go verify
+	$(MAKE) -C src/backend verify
 	$(MAKE) -C src/webapp verify

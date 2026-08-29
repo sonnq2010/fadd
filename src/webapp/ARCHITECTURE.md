@@ -30,7 +30,7 @@ webapp/
 │   └── styles.css                 # Tailwind theme and global styles
 ├── tests/
 │   └── e2e/                       # Playwright browser tests
-├── environment.example            # browser-visible environment template
+├── .env.example                   # browser-visible environment template
 ├── i18next.config.ts              # extraction and selector type generation
 ├── orval.config.ts                # backend contract client generation
 ├── vite.config.ts                 # Vite and TanStack Start SPA configuration

@@ -15,6 +15,18 @@ func TestApplyEnvironment(t *testing.T) {
 	}
 }
 
+func TestApplyEnvironmentOverridesRuntimePort(t *testing.T) {
+	t.Setenv("PORT", "8080")
+	configuration := Config{}
+	configuration.Port = 8888
+
+	configuration.ApplyEnvironment()
+
+	if configuration.Port != 8080 {
+		t.Fatalf("port = %d, want 8080", configuration.Port)
+	}
+}
+
 func TestApplyEnvironmentKeepsFileValueWhenEnvironmentIsEmpty(t *testing.T) {
 	t.Setenv("DATABASE_URL", "")
 	configuration := Config{

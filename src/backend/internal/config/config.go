@@ -5,6 +5,7 @@ package config
 
 import (
 	"os"
+	"strconv"
 
 	"github.com/zeromicro/go-zero/rest"
 )
@@ -25,5 +26,8 @@ type Config struct {
 func (c *Config) ApplyEnvironment() {
 	if dataSource := os.Getenv("DATABASE_URL"); dataSource != "" {
 		c.Database.DataSource = dataSource
+	}
+	if port, err := strconv.Atoi(os.Getenv("PORT")); err == nil && port > 0 {
+		c.Port = port
 	}
 }

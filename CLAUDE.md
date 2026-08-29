@@ -2,21 +2,24 @@
 - `make verify`: Verify the consistent state of project
 
 # Should 
-- Use /caveman skill on every response, except /grilling session
-- Must provide the code snippets related to the functionality when declaring the task complete
+- Follow YAGNI principles
+- Be concise and easy for humans to understand. If you're about to write something a human wouldn't understand, better not write it.
+- Provide the code snippets related to the functionality when declaring the task complete
 
 # Do not
-- Modify DO NOT EDIT generated files
+- 
 
 # At session start (clock in)
-1. Read docs/features/<feature_name>/PROGRESS.md for current state
-2. Read docs/adr/ for important decisions
-3. Run make verify to confirm repo is in consistent state
-4. Continue from docs/features/<feature_name>/PROGRESS.md "Next Steps" section
+1. Read docs/adr/ for important decisions
 
-# Before session end (clock out)
+# Before compacting session
 1. Update docs/features/<feature_name>/PROGRESS.md
-2. Run make verify to confirm consistent state
+2. Run `make verify` to confirm consistent state
+
+# Resuming after compaction
+1. Read docs/features/<feature_name>/PROGRESS.md for current state
+3. Run `make verify` to confirm repo is in consistent state
+4. Continue from docs/features/<feature_name>/PROGRESS.md "Next Steps" section
 
 # Definition of Done
 - All lint + typecheck passed

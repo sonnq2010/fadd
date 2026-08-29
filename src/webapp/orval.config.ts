@@ -3,7 +3,7 @@ import { defineConfig } from 'orval'
 export default defineConfig({
   backend: {
     input: {
-      target: '../go/api/apidocs/main.yaml',
+      target: '../backend/api/apidocs/main.yaml',
     },
     output: {
       baseUrl: {

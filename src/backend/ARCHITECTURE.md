@@ -2,12 +2,12 @@
 
 ## Overview
 
-`src/go` is a go-zero REST service backed by PostgreSQL. Goose migrations define the database schema, sqlc generates type-safe pgx queries, and repository interfaces keep business logic independent from generated database code.
+`src/backend` is a go-zero REST service backed by PostgreSQL. Goose migrations define the database schema, sqlc generates type-safe pgx queries, and repository interfaces keep business logic independent from generated database code.
 
 ## Project structure
 
 ```text
-go/
+backend/
 ├── api/
 │   ├── apidocs/                 # generated Swagger document
 │   ├── modules/                 # go-zero API modules
