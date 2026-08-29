@@ -1,11 +1,20 @@
-.PHONY: generate
-generate:
-	dart run build_runner build --delete-conflicting-outputs
+.PHONY: gen-code gen-api-client check-api-client analyze test verify
 
-.PHONY: analyze
+gen-code:
+	fvm dart run build_runner build --delete-conflicting-outputs
+
+gen-api-client:
+	./tool/generate_api_client.sh
+	fvm flutter pub get
+
+check-api-client:
+	./tool/generate_api_client.sh --check
+
 analyze:
-	flutter analyze
+	fvm dart analyze api-client
+	fvm flutter analyze
 
-.PHONY: test
 test:
-	flutter test --coverage
+	fvm flutter test --coverage
+
+verify: check-api-client gen-code analyze test

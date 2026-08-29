@@ -8,6 +8,7 @@ type (
 @server (
 	prefix: /api/v1
 	group:  health
+	tags:   "health"
 )
 
 service backend-api {

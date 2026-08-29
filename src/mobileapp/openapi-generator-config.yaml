@@ -1,0 +1,7 @@
+pubName: backend_api_client
+pubVersion: 0.1.0
+pubDescription: Generated Dio client for the FADD backend API
+pubPublishTo: none
+serializationLibrary: built_value
+hideGenerationTimestamp: true
+enumUnknownDefaultCase: true
