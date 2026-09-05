@@ -37,6 +37,7 @@ abstract class AppTypography {
 
   static TextTheme get dark => TextTheme(
     displayLarge: defaultDarkStyle.withSize(52),
+    displayMedium: defaultDarkStyle.withSize(40),
     displaySmall: defaultDarkStyle.withSize(32),
     headlineLarge: defaultDarkStyle.withSize(32),
     headlineMedium: defaultDarkStyle.withSize(28),
