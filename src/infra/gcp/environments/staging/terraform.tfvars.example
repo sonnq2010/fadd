@@ -1,0 +1,7 @@
+project_id       = "fadd-staging-project"
+enable_workloads = false
+database_credential_version = 1
+
+# Set these after pushing images. Production requires digest-pinned values.
+api_image   = "asia-northeast1-docker.pkg.dev/fadd-staging-project/fadd-staging-api/api@sha256:0000000000000000000000000000000000000000000000000000000000000000"
+migration_image = "asia-northeast1-docker.pkg.dev/fadd-staging-project/fadd-staging-migration/migration@sha256:0000000000000000000000000000000000000000000000000000000000000000"

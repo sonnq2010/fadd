@@ -3,6 +3,8 @@ import 'package:mobileapp/core/constants/theme_constant.dart';
 import 'package:mobileapp/core/theme/app_color_scheme.dart';
 
 abstract class AppTypography {
+  const AppTypography._();
+
   static TextStyle get defaultLightStyle => TextStyle(
     fontFamily: ThemeConstant.fontFamily,
     fontWeight: FontWeight.w400,

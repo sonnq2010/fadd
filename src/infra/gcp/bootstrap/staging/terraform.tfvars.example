@@ -1,0 +1,2 @@
+project_id        = "fadd-staging-project"
+state_bucket_name = "fadd-staging-terraform-state"

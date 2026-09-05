@@ -1,12 +1,18 @@
 SHELL := /bin/bash
 
-DATABASE_URL ?= postgres://postgres:postgres@localhost:5432/fadd?sslmode=disable
 COVERAGE_MIN ?= 80
+
+ENV_FILE ?= .env
+
+ifneq (,$(wildcard $(ENV_FILE)))
+include $(ENV_FILE)
+export
+endif
 
 .PHONY: run gen gen-code gen-sqlc gen-swagger check-generated create-migration migrate-up migrate-down migrate-status fmt fmt-check lint test test-unit test-integration test-e2e coverage verify
 
 run:
-	go run . -f etc/backend-api.yaml
+	go run . -f etc/config.yaml
 
 gen: gen-code gen-sqlc gen-swagger
 
@@ -30,13 +36,13 @@ create-migration:
 	go tool goose -dir migrations -s create "$(NAME)" sql
 
 migrate-up:
-	go tool goose -dir migrations postgres "$(DATABASE_URL)" up
+	@go run ./cmd/migrate up
 
 migrate-down:
-	go tool goose -dir migrations postgres "$(DATABASE_URL)" down
+	@go run ./cmd/migrate down
 
 migrate-status:
-	go tool goose -dir migrations postgres "$(DATABASE_URL)" status
+	@go run ./cmd/migrate status
 
 fmt:
 	gofmt -w $$(find . -name '*.go')

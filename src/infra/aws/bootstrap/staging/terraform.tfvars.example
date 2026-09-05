@@ -1,0 +1,2 @@
+expected_account_id = "000000000000"
+state_bucket_name    = "fadd-staging-terraform-state-000000000000"

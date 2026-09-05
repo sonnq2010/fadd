@@ -1,0 +1,16 @@
+# Terraform local data and state
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Local Terraform configuration may contain credentials or account details
+**/backend.hcl
+**/*.tfvars
+!**/*.tfvars.example
+!**/backend.hcl.example
+
+# Lock files belong to root modules, not reusable modules
+*/modules/**/.terraform.lock.hcl

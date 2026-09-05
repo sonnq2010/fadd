@@ -20,7 +20,7 @@ import (
 	"github.com/sonnq2010/fadd/src/backend/internal/svc"
 )
 
-var configFile = flag.String("f", "etc/backend-api.yaml", "the config file")
+var configFile = flag.String("f", "etc/config.yaml", "the config file")
 
 func methodNotAllowed(w http.ResponseWriter, _ *http.Request) {
 	http.Error(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
@@ -31,7 +31,9 @@ func main() {
 
 	var c config.Config
 	conf.MustLoad(*configFile, &c)
-	c.ApplyEnvironment()
+	if err := c.ApplyEnvironment(); err != nil {
+		log.Fatalf("apply environment: %v", err)
+	}
 	c.Middlewares.Log = false
 
 	auditMiddleware := auditlog.NewRequestAuditMiddleware()

@@ -7,7 +7,7 @@
 - `make gen-swagger`: Generate Swagger documentation from `.api` files.
 - `make check-generated`: Detect stale goctl, sqlc, and Swagger output without modifying the working tree.
 - `make create-migration NAME=<name>`: Create a sequential Goose migration.
-- `make migrate-up|migrate-down|migrate-status DATABASE_URL=<url>`: Manage PostgreSQL migrations.
+- `make migrate-up|migrate-down|migrate-status`: Manage PostgreSQL migrations using `POSTGRES_*` from the process environment.
 - `make test-unit`: Run race-enabled unit tests.
 - `make test-integration`: Run PostgreSQL repository integration tests.
 - `make test-e2e`: Run cross-layer HTTP tests.

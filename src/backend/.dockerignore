@@ -1,0 +1,7 @@
+.git
+.coverage
+.env
+*.out
+Dockerfile
+README.md
+tests
