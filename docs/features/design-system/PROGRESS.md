@@ -34,8 +34,26 @@ Icon section was explicitly excluded as per requirements.
 7. **Gradient**:
    - `brand`, `brandSubtle`, `overlayScrim`
 
+## Architecture & Integration (Mobile App)
+
+1. **ThemeExtensions**:
+   - Both `AppColors` and `AppTypography` extend `ThemeExtension<T>` with immutable fields, `copyWith`, and `lerp`.
+   - Accessible everywhere via `BuildContext` extensions: `context.colors` and `context.typography`.
+2. **ColorScheme Strategy**:
+   - Uses `ColorScheme.fromSeed` (seeded with `AppPrimitives.blue500`) for both Light and Dark modes.
+   - Core roles (`primary`, `surface`, `error`, `outline`, etc.) are explicitly overridden to match Figma tokens.
+   - `surfaceTint` is set to `Colors.transparent` to disable unwanted Material 3 elevation color overlay.
+   - Material 3 container roles (`surfaceContainer*`) are fully generated, ensuring compatibility with default Flutter widgets.
+3. **Design System Enforcement (Custom Lints)**:
+   - Implemented `app_lints` package (`tool/app_lints`) with `custom_lint` / `custom_lint_builder`.
+   - `avoid_direct_theme_color_scheme`: Blocks `Theme.of(context).colorScheme` with `ERROR` severity, directing developers to `context.colors`.
+   - `avoid_direct_theme_text_theme`: Blocks `Theme.of(context).textTheme` with `ERROR` severity, directing developers to `context.typography`.
+   - Integrated into `src/mobileapp/Makefile` under `analyze` (`fvm dart run custom_lint`), blocking violations in CI and real-time in VS Code.
+4. **Analysis Options**:
+   - Standardized `analysis_options.yaml` with safety, performance (const constructors), and clean code style rules.
+
 ## Verification
 
-- Mobile App: `fvm flutter analyze` and `fvm flutter test` pass with 100% coverage on new tokens
-- Web App: `npm run lint`, `npm run typecheck`, `npm run test`, `npm run build` pass
-- Root: `make verify` passes across all projects (backend, webapp, mobileapp, infra)
+- Mobile App: `fvm flutter analyze`, `fvm dart run custom_lint`, and `fvm flutter test` (20 unit tests) pass.
+- Web App: `npm run lint`, `npm run typecheck`, `npm run test`, `npm run build` pass.
+- Root: `make verify` passes across all projects (backend, webapp, mobileapp, infra).
