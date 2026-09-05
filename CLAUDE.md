@@ -14,12 +14,10 @@
 
 # Before compacting session
 1. Update docs/features/<feature_name>/PROGRESS.md
-2. Run `make verify` to confirm consistent state
 
 # Resuming after compaction
 1. Read docs/features/<feature_name>/PROGRESS.md for current state
-3. Run `make verify` to confirm repo is in consistent state
-4. Continue from docs/features/<feature_name>/PROGRESS.md "Next Steps" section
+2. Continue from docs/features/<feature_name>/PROGRESS.md "Next Steps" section
 
 # Definition of Done
 - All lint + typecheck passed
