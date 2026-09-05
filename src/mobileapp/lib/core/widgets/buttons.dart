@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:mobileapp/core/theme/app_color.dart';
+import 'package:mobileapp/core/theme/app_radius.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
+import 'package:mobileapp/core/theme/app_typography.dart';
 
 /// Design-system button: Primary / Secondary / Outline / Ghost / Destructive
 /// x Large / Medium / Small, with optional leading + trailing icon.
@@ -70,12 +73,12 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
+    final appColors = context.colors;
     final tokens = _sizeTokens[size]!;
-    final colors = _colorsFor(scheme, variant);
+    final colors = _colorsFor(appColors, variant);
 
-    final disabledBackground = scheme.onSurface.withValues(alpha: 0.12);
-    final disabledForeground = scheme.onSurface.withValues(alpha: 0.38);
+    final disabledBackground = appColors.background.disabled;
+    final disabledForeground = appColors.text.disabled;
 
     final button = ElevatedButton(
       onPressed: onPressed,
@@ -117,7 +120,11 @@ class AppButton extends StatelessWidget {
           return null;
         }),
         textStyle: WidgetStatePropertyAll(
-          TextStyle(fontSize: tokens.fontSize, fontWeight: FontWeight.w600),
+          TextStyle(
+            fontFamily: AppTypography.fontFamily,
+            fontSize: tokens.fontSize,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
       child: Row(
@@ -163,7 +170,7 @@ const Map<AppButtonSize, _SizeTokens> _sizeTokens = {
   AppButtonSize.large: _SizeTokens(
     height: 48,
     padding: EdgeInsets.symmetric(horizontal: 24),
-    radius: 12,
+    radius: AppRadius.lg,
     fontSize: 16,
     iconSize: 18,
   ),
@@ -177,13 +184,13 @@ const Map<AppButtonSize, _SizeTokens> _sizeTokens = {
   AppButtonSize.small: _SizeTokens(
     height: 32,
     padding: EdgeInsets.symmetric(horizontal: 14),
-    radius: 8,
+    radius: AppRadius.md,
     fontSize: 13,
     iconSize: 14,
   ),
 };
 
-// ---------------- Variant colors (sourced from ColorScheme) ----------------
+// ---------------- Variant colors (sourced from AppColors) ----------------
 
 class _VariantColors {
   const _VariantColors({
@@ -197,33 +204,33 @@ class _VariantColors {
   final Color? border;
 }
 
-_VariantColors _colorsFor(ColorScheme scheme, AppButtonVariant variant) {
+_VariantColors _colorsFor(AppColors colors, AppButtonVariant variant) {
   switch (variant) {
     case AppButtonVariant.primary:
       return _VariantColors(
-        background: scheme.primary,
-        foreground: scheme.onPrimary,
+        background: colors.background.brand,
+        foreground: colors.text.onBrand,
       );
     case AppButtonVariant.secondary:
       return _VariantColors(
-        background: scheme.secondaryContainer,
-        foreground: scheme.onSecondaryContainer,
+        background: colors.background.secondary,
+        foreground: colors.text.primary,
       );
     case AppButtonVariant.outline:
       return _VariantColors(
         background: Colors.transparent,
-        foreground: scheme.primary,
-        border: scheme.outline,
+        foreground: colors.text.brand,
+        border: colors.border.defaultColor,
       );
     case AppButtonVariant.ghost:
       return _VariantColors(
         background: Colors.transparent,
-        foreground: scheme.primary,
+        foreground: colors.text.brand,
       );
     case AppButtonVariant.destructive:
       return _VariantColors(
-        background: scheme.error,
-        foreground: scheme.onError,
+        background: colors.background.error,
+        foreground: colors.text.onBrand,
       );
   }
 }

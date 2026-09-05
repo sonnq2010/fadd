@@ -7,76 +7,104 @@ class AppPrimitives {
   AppPrimitives._();
 
   // Blue
-  static const blue50 = Color(0xFFE8F0FE);
-  static const blue100 = Color(0xFFC9DDFC);
-  static const blue200 = Color(0xFFA0C4FA);
-  static const blue300 = Color(0xFF74A8F7);
-  static const blue400 = Color(0xFF4A8CF0);
-  static const blue500 = Color(0xFF2E6FE0);
-  static const blue600 = Color(0xFF2257C4);
-  static const blue700 = Color(0xFF1B44A0);
-  static const blue900 = Color(0xFF122C68);
+  static const blue50 = Color(0xFFEFF6FF);
+  static const blue100 = Color(0xFFDBEAFE);
+  static const blue200 = Color(0xFFBFDBFE);
+  static const blue300 = Color(0xFF93C5FD);
+  static const blue400 = Color(0xFF60A5FA);
+  static const blue500 = Color(0xFF3B82F6);
+  static const blue600 = Color(0xFF2563EB);
+  static const blue700 = Color(0xFF1D4ED8);
+  static const blue800 = Color(0xFF1E40AF);
+  static const blue900 = Color(0xFF1E3A8A);
 
-  // Grey
-  static const grey50 = Color(0xFFF7F8FA);
-  static const grey100 = Color(0xFFE7E9EE);
-  static const grey200 = Color(0xFFD3D7DE);
-  static const grey300 = Color(0xFFB7BDC8);
-  static const grey500 = Color(0xFF6E7684);
-  static const grey600 = Color(0xFF565D6A);
-  static const grey700 = Color(0xFF3F4451);
-  static const grey800 = Color(0xFF2A2E38);
-  static const grey900 = Color(
-    0xFFFFFFFF,
-  ); // trong ảnh swatch này gần như trắng
+  // Violet
+  static const violet50 = Color(0xFFF5F3FF);
+  static const violet100 = Color(0xFFEDE9FE);
+  static const violet200 = Color(0xFFDDD6FE);
+  static const violet300 = Color(0xFFC4B5FD);
+  static const violet400 = Color(0xFFA78BFA);
+  static const violet500 = Color(0xFF8B5CF6);
+  static const violet600 = Color(0xFF7C3AED);
+  static const violet700 = Color(0xFF6D28D9);
+  static const violet800 = Color(0xFF5B21B6);
+  static const violet900 = Color(0xFF4C1D95);
+
+  // Gray
+  static const gray50 = Color(0xFFF8FAFC);
+  static const gray100 = Color(0xFFF1F5F9);
+  static const gray200 = Color(0xFFE2E8F0);
+  static const gray300 = Color(0xFFCBD5E1);
+  static const gray400 = Color(0xFF94A3B8);
+  static const gray500 = Color(0xFF64748B);
+  static const gray600 = Color(0xFF475569);
+  static const gray700 = Color(0xFF334155);
+  static const gray800 = Color(0xFF1E293B);
+  static const gray900 = Color(0xFF0F172A);
 
   // Green
-  static const green50 = Color(0xFFE7F8EE);
-  static const green100 = Color(0xFFC5EFD4);
-  static const green200 = Color(0xFF97E0AF);
-  static const green300 = Color(0xFF65CC85);
-  static const green400 = Color(0xFF3DB868);
-  static const green500 = Color(0xFF29A354);
-  static const green600 = Color(0xFF1F8843);
-  static const green700 = Color(0xFF196E37);
-  static const green800 = Color(0xFF14562C);
+  static const green50 = Color(0xFFF0FDF4);
+  static const green100 = Color(0xFFDCFCE7);
+  static const green200 = Color(0xFFBBF7D0);
+  static const green300 = Color(0xFF86EFAC);
+  static const green400 = Color(0xFF4ADE80);
+  static const green500 = Color(0xFF22C55E);
+  static const green600 = Color(0xFF16A34A);
+  static const green700 = Color(0xFF15803D);
+  static const green800 = Color(0xFF166534);
+  static const green900 = Color(0xFF14532D);
 
   // Amber
-  static const amber50 = Color(0xFFFFF7E0);
-  static const amber100 = Color(0xFFFFE9B3);
-  static const amber200 = Color(0xFFFFD675);
-  static const amber300 = Color(0xFFFFC13D);
-  static const amber400 = Color(0xFFF7A81E);
-  static const amber500 = Color(0xFFE38F0F);
-  static const amber600 = Color(0xFFC1740A);
-  static const amber700 = Color(0xFF9C5C08);
-  static const amber800 = Color(0xFF7A4707);
+  static const amber50 = Color(0xFFFFFBEB);
+  static const amber100 = Color(0xFFFEF3C7);
+  static const amber200 = Color(0xFFFDE68A);
+  static const amber300 = Color(0xFFFCD34D);
+  static const amber400 = Color(0xFFFBBF24);
+  static const amber500 = Color(0xFFF59E0B);
+  static const amber600 = Color(0xFFD97706);
+  static const amber700 = Color(0xFFB45309);
+  static const amber800 = Color(0xFF92400E);
+  static const amber900 = Color(0xFF78350F);
 
   // Red
-  static const red50 = Color(0xFFFDECEC);
-  static const red100 = Color(0xFFF9CFCF);
-  static const red200 = Color(0xFFF2A6A6);
-  static const red300 = Color(0xFFEA7B7B);
-  static const red400 = Color(0xFFE05555);
-  static const red500 = Color(0xFFD33636);
-  static const red600 = Color(0xFFB02828);
-  static const red700 = Color(0xFF8E2020);
-  static const red800 = Color(0xFF6E1919);
+  static const red50 = Color(0xFFFEF2F2);
+  static const red100 = Color(0xFFFEE2E2);
+  static const red200 = Color(0xFFFECACA);
+  static const red300 = Color(0xFFFCA5A5);
+  static const red400 = Color(0xFFF87171);
+  static const red500 = Color(0xFFEF4444);
+  static const red600 = Color(0xFFDC2626);
+  static const red700 = Color(0xFFB91C1C);
+  static const red800 = Color(0xFF991B1B);
+  static const red900 = Color(0xFF7F1D1D);
 
   // Cyan
-  static const cyan50 = Color(0xFFE3F8FB);
-  static const cyan100 = Color(0xFFB9EDF4);
-  static const cyan200 = Color(0xFF87DFEC);
-  static const cyan300 = Color(0xFF54CEE0);
-  static const cyan400 = Color(0xFF2FB9CE);
-  static const cyan500 = Color(0xFF1E9DB1);
-  static const cyan600 = Color(0xFF187E90);
-  static const cyan700 = Color(0xFF146372);
-  static const cyan800 = Color(0xFF104E5A);
+  static const cyan50 = Color(0xFFECFEFF);
+  static const cyan100 = Color(0xFFCFFAFE);
+  static const cyan200 = Color(0xFFA5F3FC);
+  static const cyan300 = Color(0xFF67E8F9);
+  static const cyan400 = Color(0xFF22D3EE);
+  static const cyan500 = Color(0xFF06B6D4);
+  static const cyan600 = Color(0xFF0891B2);
+  static const cyan700 = Color(0xFF0E7490);
+  static const cyan800 = Color(0xFF155E75);
+  static const cyan900 = Color(0xFF164E63);
+
+  // Base & Alpha
+  static const white1000 = Color(0xFFFFFFFF);
+  static const black1000 = Color(0xFF000000);
+  static const blackAlpha8 = Color(0x14000000); // 8% opacity
+  static const blackAlpha16 = Color(0x29000000); // 16% opacity
+  static const blackAlpha24 = Color(0x3D000000); // 24% opacity
+  static const blackAlpha40 = Color(0x66000000); // 40% opacity
+  static const blackAlpha60 = Color(0x99000000); // 60% opacity
+  static const whiteAlpha8 = Color(0x14FFFFFF); // 8% opacity
+  static const whiteAlpha16 = Color(0x29FFFFFF); // 16% opacity
+  static const blueAlpha12 = Color(0x1F3B82F6); // 12% opacity
 }
 
 /// ---------------------------------------------------------------------------
-/// 2. SEMANTIC TOKENS — chia theo nhóm để copyWith/lerp gọn, dễ maintain
+/// 2. SEMANTIC TOKENS
 /// ---------------------------------------------------------------------------
 
 @immutable
@@ -119,34 +147,64 @@ class AppBackgroundColors {
   final Color info, infoHover, infoPressed, infoSubtle;
   final Color selected, inverse;
 
-  static const dark = AppBackgroundColors(
-    primary: Color(0xFF0B1120), // nền tổng thể (gần trùng bg trang Figma)
-    secondary: AppPrimitives.grey700,
-    secondaryHover: AppPrimitives.grey600,
-    tertiary: AppPrimitives.grey700,
-    disabled: AppPrimitives.grey800,
-    brand: AppPrimitives.blue600,
-    brandHover: AppPrimitives.blue500,
+  static const light = AppBackgroundColors(
+    primary: AppPrimitives.white1000,
+    secondary: AppPrimitives.gray50,
+    secondaryHover: AppPrimitives.gray100,
+    tertiary: AppPrimitives.gray100,
+    disabled: AppPrimitives.gray100,
+    brand: AppPrimitives.blue500,
+    brandHover: AppPrimitives.blue600,
     brandPressed: AppPrimitives.blue700,
-    brandSubtle: AppPrimitives.blue900,
-    success: AppPrimitives.green600,
-    successHover: AppPrimitives.green500,
+    brandSubtle: AppPrimitives.blue50,
+    success: AppPrimitives.green500,
+    successHover: AppPrimitives.green600,
     successPressed: AppPrimitives.green700,
-    successSubtle: AppPrimitives.green800,
+    successSubtle: AppPrimitives.green50,
+    warning: AppPrimitives.amber500,
+    warningHover: AppPrimitives.amber600,
+    warningPressed: AppPrimitives.amber700,
+    warningSubtle: AppPrimitives.amber50,
+    error: AppPrimitives.red500,
+    errorHover: AppPrimitives.red600,
+    errorPressed: AppPrimitives.red700,
+    errorSubtle: AppPrimitives.red50,
+    info: AppPrimitives.cyan500,
+    infoHover: AppPrimitives.cyan600,
+    infoPressed: AppPrimitives.cyan700,
+    infoSubtle: AppPrimitives.cyan50,
+    selected: AppPrimitives.blue100,
+    inverse: AppPrimitives.gray900,
+  );
+
+  static const dark = AppBackgroundColors(
+    primary: AppPrimitives.gray900,
+    secondary: AppPrimitives.gray800,
+    secondaryHover: AppPrimitives.gray700,
+    tertiary: AppPrimitives.gray700,
+    disabled: AppPrimitives.gray800,
+    brand: AppPrimitives.blue500,
+    brandHover: AppPrimitives.blue400,
+    brandPressed: AppPrimitives.blue300,
+    brandSubtle: AppPrimitives.blue900,
+    success: AppPrimitives.green500,
+    successHover: AppPrimitives.green400,
+    successPressed: AppPrimitives.green300,
+    successSubtle: AppPrimitives.green900,
     warning: AppPrimitives.amber500,
     warningHover: AppPrimitives.amber400,
-    warningPressed: AppPrimitives.amber600,
-    warningSubtle: AppPrimitives.amber800,
+    warningPressed: AppPrimitives.amber300,
+    warningSubtle: AppPrimitives.amber900,
     error: AppPrimitives.red500,
     errorHover: AppPrimitives.red400,
-    errorPressed: AppPrimitives.red600,
-    errorSubtle: AppPrimitives.red800,
+    errorPressed: AppPrimitives.red300,
+    errorSubtle: AppPrimitives.red900,
     info: AppPrimitives.cyan500,
     infoHover: AppPrimitives.cyan400,
-    infoPressed: AppPrimitives.cyan600,
-    infoSubtle: AppPrimitives.cyan800,
-    selected: AppPrimitives.blue700,
-    inverse: AppPrimitives.grey900,
+    infoPressed: AppPrimitives.cyan300,
+    infoSubtle: AppPrimitives.cyan900,
+    selected: AppPrimitives.blue800,
+    inverse: AppPrimitives.white1000,
   );
 
   AppBackgroundColors lerp(AppBackgroundColors o, double t) =>
@@ -202,15 +260,30 @@ class AppTextColors {
   final Color onBrand, brand, placeholder, inverse;
   final Color success, warning, error, info;
 
+  static const light = AppTextColors(
+    primary: AppPrimitives.gray900,
+    secondary: AppPrimitives.gray600,
+    tertiary: AppPrimitives.gray400,
+    disabled: AppPrimitives.gray300,
+    onBrand: AppPrimitives.white1000,
+    brand: AppPrimitives.blue600,
+    placeholder: AppPrimitives.gray400,
+    inverse: AppPrimitives.white1000,
+    success: AppPrimitives.green700,
+    warning: AppPrimitives.amber700,
+    error: AppPrimitives.red700,
+    info: AppPrimitives.cyan700,
+  );
+
   static const dark = AppTextColors(
-    primary: AppPrimitives.grey900,
-    secondary: AppPrimitives.grey300,
-    tertiary: AppPrimitives.grey600,
-    disabled: AppPrimitives.grey700,
-    onBrand: AppPrimitives.grey900,
+    primary: AppPrimitives.white1000,
+    secondary: AppPrimitives.gray300,
+    tertiary: AppPrimitives.gray500,
+    disabled: AppPrimitives.gray600,
+    onBrand: AppPrimitives.white1000,
     brand: AppPrimitives.blue400,
-    placeholder: AppPrimitives.grey600,
-    inverse: AppPrimitives.grey800,
+    placeholder: AppPrimitives.gray500,
+    inverse: AppPrimitives.gray900,
     success: AppPrimitives.green400,
     warning: AppPrimitives.amber400,
     error: AppPrimitives.red400,
@@ -240,28 +313,41 @@ class AppBorderColors {
     required this.subtle,
     required this.strong,
     required this.disabled,
-    required this.focus,
     required this.brand,
+    required this.focus,
     required this.success,
     required this.warning,
     required this.error,
     required this.info,
   });
 
-  final Color defaultColor, subtle, strong, disabled, focus;
-  final Color brand, success, warning, error, info;
+  final Color defaultColor, subtle, strong, disabled;
+  final Color brand, focus, success, warning, error, info;
+
+  static const light = AppBorderColors(
+    defaultColor: AppPrimitives.gray200,
+    subtle: AppPrimitives.gray100,
+    strong: AppPrimitives.gray300,
+    disabled: AppPrimitives.gray200,
+    brand: AppPrimitives.blue500,
+    focus: AppPrimitives.blue500,
+    success: AppPrimitives.green500,
+    warning: AppPrimitives.amber500,
+    error: AppPrimitives.red500,
+    info: AppPrimitives.cyan500,
+  );
 
   static const dark = AppBorderColors(
-    defaultColor: AppPrimitives.grey700,
-    subtle: AppPrimitives.grey800,
-    strong: AppPrimitives.grey500,
-    disabled: AppPrimitives.grey800,
+    defaultColor: AppPrimitives.gray700,
+    subtle: AppPrimitives.gray800,
+    strong: AppPrimitives.gray600,
+    disabled: AppPrimitives.gray700,
+    brand: AppPrimitives.blue400,
     focus: AppPrimitives.blue400,
-    brand: AppPrimitives.blue600,
-    success: AppPrimitives.green600,
-    warning: AppPrimitives.amber600,
-    error: AppPrimitives.red600,
-    info: AppPrimitives.cyan500,
+    success: AppPrimitives.green400,
+    warning: AppPrimitives.amber400,
+    error: AppPrimitives.red400,
+    info: AppPrimitives.cyan400,
   );
 
   AppBorderColors lerp(AppBorderColors o, double t) => AppBorderColors(
@@ -269,8 +355,8 @@ class AppBorderColors {
     subtle: Color.lerp(subtle, o.subtle, t)!,
     strong: Color.lerp(strong, o.strong, t)!,
     disabled: Color.lerp(disabled, o.disabled, t)!,
-    focus: Color.lerp(focus, o.focus, t)!,
     brand: Color.lerp(brand, o.brand, t)!,
+    focus: Color.lerp(focus, o.focus, t)!,
     success: Color.lerp(success, o.success, t)!,
     warning: Color.lerp(warning, o.warning, t)!,
     error: Color.lerp(error, o.error, t)!,
@@ -285,8 +371,8 @@ class AppIconColors {
     required this.secondary,
     required this.tertiary,
     required this.disabled,
-    required this.brand,
     required this.onBrand,
+    required this.brand,
     required this.inverse,
     required this.success,
     required this.warning,
@@ -295,21 +381,35 @@ class AppIconColors {
   });
 
   final Color primary, secondary, tertiary, disabled;
-  final Color brand, onBrand, inverse;
+  final Color onBrand, brand, inverse;
   final Color success, warning, error, info;
 
+  static const light = AppIconColors(
+    primary: AppPrimitives.gray700,
+    secondary: AppPrimitives.gray400,
+    tertiary: AppPrimitives.gray400,
+    disabled: AppPrimitives.gray300,
+    onBrand: AppPrimitives.white1000,
+    brand: AppPrimitives.blue600,
+    inverse: AppPrimitives.white1000,
+    success: AppPrimitives.green600,
+    warning: AppPrimitives.amber600,
+    error: AppPrimitives.red600,
+    info: AppPrimitives.cyan600,
+  );
+
   static const dark = AppIconColors(
-    primary: AppPrimitives.grey300,
-    secondary: AppPrimitives.grey500,
-    tertiary: AppPrimitives.grey600,
-    disabled: AppPrimitives.grey700,
-    brand: AppPrimitives.blue500,
-    onBrand: AppPrimitives.grey900,
-    inverse: AppPrimitives.grey800,
-    success: AppPrimitives.green500,
-    warning: AppPrimitives.amber500,
-    error: AppPrimitives.red500,
-    info: AppPrimitives.cyan500,
+    primary: AppPrimitives.gray200,
+    secondary: AppPrimitives.gray500,
+    tertiary: AppPrimitives.gray500,
+    disabled: AppPrimitives.gray600,
+    onBrand: AppPrimitives.white1000,
+    brand: AppPrimitives.blue400,
+    inverse: AppPrimitives.gray900,
+    success: AppPrimitives.green400,
+    warning: AppPrimitives.amber400,
+    error: AppPrimitives.red400,
+    info: AppPrimitives.cyan400,
   );
 
   AppIconColors lerp(AppIconColors o, double t) => AppIconColors(
@@ -317,8 +417,8 @@ class AppIconColors {
     secondary: Color.lerp(secondary, o.secondary, t)!,
     tertiary: Color.lerp(tertiary, o.tertiary, t)!,
     disabled: Color.lerp(disabled, o.disabled, t)!,
-    brand: Color.lerp(brand, o.brand, t)!,
     onBrand: Color.lerp(onBrand, o.onBrand, t)!,
+    brand: Color.lerp(brand, o.brand, t)!,
     inverse: Color.lerp(inverse, o.inverse, t)!,
     success: Color.lerp(success, o.success, t)!,
     warning: Color.lerp(warning, o.warning, t)!,
@@ -339,12 +439,20 @@ class AppOverlayColors {
 
   final Color scrim, backdrop, hover, pressed, selected;
 
-  static final dark = AppOverlayColors(
-    scrim: Colors.black.withOpacity(0.72),
-    backdrop: Colors.black.withOpacity(0.50),
-    hover: Colors.white.withOpacity(0.06),
-    pressed: Colors.white.withOpacity(0.12),
-    selected: AppPrimitives.blue600.withOpacity(0.16),
+  static const light = AppOverlayColors(
+    scrim: AppPrimitives.blackAlpha60,
+    backdrop: AppPrimitives.blackAlpha40,
+    hover: AppPrimitives.blackAlpha8,
+    pressed: AppPrimitives.blackAlpha16,
+    selected: AppPrimitives.blueAlpha12,
+  );
+
+  static const dark = AppOverlayColors(
+    scrim: AppPrimitives.blackAlpha60,
+    backdrop: AppPrimitives.blackAlpha60,
+    hover: AppPrimitives.whiteAlpha8,
+    pressed: AppPrimitives.whiteAlpha16,
+    selected: AppPrimitives.blueAlpha12,
   );
 
   AppOverlayColors lerp(AppOverlayColors o, double t) => AppOverlayColors(
@@ -357,7 +465,7 @@ class AppOverlayColors {
 }
 
 /// ---------------------------------------------------------------------------
-/// 3. THEME EXTENSION — gộp 5 nhóm trên, đăng ký vào ThemeData
+/// 3. THEME EXTENSION
 /// ---------------------------------------------------------------------------
 @immutable
 class AppColors extends ThemeExtension<AppColors> {
@@ -375,7 +483,15 @@ class AppColors extends ThemeExtension<AppColors> {
   final AppIconColors icon;
   final AppOverlayColors overlay;
 
-  static final dark = AppColors(
+  static const light = AppColors(
+    background: AppBackgroundColors.light,
+    text: AppTextColors.light,
+    border: AppBorderColors.light,
+    icon: AppIconColors.light,
+    overlay: AppOverlayColors.light,
+  );
+
+  static const dark = AppColors(
     background: AppBackgroundColors.dark,
     text: AppTextColors.dark,
     border: AppBorderColors.dark,
@@ -413,44 +529,8 @@ class AppColors extends ThemeExtension<AppColors> {
   }
 }
 
-/// Truy cập nhanh: `context.colors.background.brand`
+/// Helper extension: `context.colors.background.brand`
 extension AppColorsX on BuildContext {
-  AppColors get colors => Theme.of(this).extension<AppColors>()!;
+  AppColors get colors =>
+      Theme.of(this).extension<AppColors>() ?? AppColors.light;
 }
-
-/// ---------------------------------------------------------------------------
-/// 4. ĐĂNG KÝ VÀO ThemeData
-/// ---------------------------------------------------------------------------
-final darkTheme = ThemeData(
-  brightness: Brightness.dark,
-  extensions: [AppColors.dark],
-  // ⚠️ KHÔNG dùng ColorScheme.dark(...) rồi chỉ set vài field — field nào
-  // bỏ trống sẽ rơi về default cứng của Material 2 (tím/xanh ngọc), lệch
-  // hẳn với brand blue/navy của bạn.
-  //
-  // Đúng cách cho Material 3: fromSeed() sinh đủ ~30 role hài hòa từ 1 màu
-  // seed, sau đó copyWith() để ép cứng những role cần khớp chính xác với
-  // Figma (primary, error, surface...).
-  colorScheme:
-      ColorScheme.fromSeed(
-        seedColor: AppPrimitives.blue600,
-        brightness: Brightness.dark,
-      ).copyWith(
-        primary: AppPrimitives.blue600,
-        onPrimary: AppPrimitives.grey900,
-        error: AppPrimitives.red500,
-        onError: AppPrimitives.grey900,
-        surface: const Color(0xFF0B1120),
-        onSurface: AppPrimitives.grey900,
-      ),
-);
-
-/// Ví dụ dùng:
-///
-/// Container(
-///   color: context.colors.background.brandSubtle,
-///   child: Text(
-///     'Đã lưu',
-///     style: TextStyle(color: context.colors.text.success),
-///   ),
-/// )

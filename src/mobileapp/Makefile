@@ -18,6 +18,7 @@ check-generated: check-api-client check-code
 analyze:
 	fvm dart analyze api-client
 	fvm flutter analyze
+	fvm dart run custom_lint
 
 test:
 	fvm flutter test --coverage

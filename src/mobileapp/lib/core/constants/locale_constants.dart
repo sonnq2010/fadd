@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-abstract class LocaleConstant {
+abstract class LocaleConstants {
   static const String translationsPath = 'assets/translations';
 
   static const List<Locale> supportedLocales = [

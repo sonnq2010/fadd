@@ -33,5 +33,6 @@ void main() async {
     // ),
   );
 
+  // ignore: missing_provider_scope
   runApp(const App());
 }

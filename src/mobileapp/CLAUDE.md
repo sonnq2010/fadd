@@ -31,7 +31,7 @@ Backend `.api` files under `../backend/api` are the API source of truth. Change 
 
 1. Keep matching keys in `assets/translations/en.json` and `assets/translations/vi.json`.
 2. Use EasyLocalization from presentation code instead of hardcoded user-facing text.
-3. When adding a locale, update `lib/core/constants/locale_constant.dart` and asset configuration as needed.
+3. When adding a locale, update `lib/core/constants/locale_constants.dart` and asset configuration as needed.
 4. Add tests for behavior that depends on translated output or locale selection.
 
 # Feature workflow

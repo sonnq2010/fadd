@@ -1,0 +1,11 @@
+name: app_lints
+version: 1.0.0
+description: "Custom lint rules for mobileapp design system."
+publish_to: 'none'
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  analyzer: any
+  custom_lint_builder: ^0.8.0
