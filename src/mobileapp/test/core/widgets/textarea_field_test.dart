@@ -59,6 +59,28 @@ void main() {
       expect(changed, 'Line 1\nLine 2\nLine 3');
     });
 
+    testWidgets('shows the reusable focus ring when focused', (tester) async {
+      final focusNode = FocusNode();
+      addTearDown(focusNode.dispose);
+
+      await tester.pumpWidget(
+        buildTestableWidget(AppTextareaField(focusNode: focusNode)),
+      );
+
+      expect(
+        tester.widget<AppFocusRing>(find.byType(AppFocusRing)).visible,
+        isFalse,
+      );
+
+      focusNode.requestFocus();
+      await tester.pump();
+
+      expect(
+        tester.widget<AppFocusRing>(find.byType(AppFocusRing)).visible,
+        isTrue,
+      );
+    });
+
     testWidgets('disabled field sets TextField enabled to false', (
       tester,
     ) async {

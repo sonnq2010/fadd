@@ -79,6 +79,28 @@ void main() {
       expect(changedValue, 'Hello world');
     });
 
+    testWidgets('shows the reusable focus ring when focused', (tester) async {
+      final focusNode = FocusNode();
+      addTearDown(focusNode.dispose);
+
+      await tester.pumpWidget(
+        buildTestableWidget(AppInputField(focusNode: focusNode)),
+      );
+
+      expect(
+        tester.widget<AppFocusRing>(find.byType(AppFocusRing)).visible,
+        isFalse,
+      );
+
+      focusNode.requestFocus();
+      await tester.pump();
+
+      expect(
+        tester.widget<AppFocusRing>(find.byType(AppFocusRing)).visible,
+        isTrue,
+      );
+    });
+
     testWidgets('disabled field sets TextField enabled to false', (
       tester,
     ) async {
@@ -114,6 +136,33 @@ void main() {
           ),
         );
         expect(container.constraints?.maxHeight ?? 0, expectedHeight);
+      }
+    });
+
+    testWidgets('centers text vertically for all sizes', (tester) async {
+      for (final size in AppInputSize.values) {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            AppInputField(size: size, initialValue: 'Centered text'),
+          ),
+        );
+
+        final textField = tester.widget<TextField>(find.byType(TextField));
+        final containerFinder = find
+            .descendant(
+              of: find.byType(AppInputField),
+              matching: find.byType(Container),
+            )
+            .first;
+        final container = tester.widget<Container>(containerFinder);
+        final padding = container.padding!.resolve(TextDirection.ltr);
+
+        expect(textField.textAlignVertical, TextAlignVertical.center);
+        expect(padding.vertical, 0);
+        expect(
+          tester.getCenter(find.byType(TextField)).dy,
+          closeTo(tester.getCenter(containerFinder).dy, 0.01),
+        );
       }
     });
 

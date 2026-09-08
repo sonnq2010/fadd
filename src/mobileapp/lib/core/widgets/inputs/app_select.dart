@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_radius.dart';
-import 'package:mobileapp/core/theme/app_shadow.dart';
+import 'package:mobileapp/core/widgets/inputs/app_focus_ring.dart';
 
 enum AppSelectSize { large, medium, small }
 
@@ -86,20 +86,15 @@ class _AppSelectState<T> extends State<AppSelect<T>> {
         : typography.labelMedium;
     final labelColor = isEnabled ? colors.text.secondary : colors.text.disabled;
 
-    Color borderColor;
-    List<BoxShadow>? boxShadow;
+    final Color borderColor;
     if (!isEnabled) {
       borderColor = colors.border.disabled;
-      boxShadow = null;
     } else if (isError) {
       borderColor = colors.border.error;
-      boxShadow = null;
     } else if (_isFocused) {
       borderColor = colors.border.focus;
-      boxShadow = AppShadows.focusRing;
     } else {
       borderColor = colors.border.defaultColor;
-      boxShadow = null;
     }
 
     final backgroundColor = isEnabled
@@ -147,46 +142,51 @@ class _AppSelectState<T> extends State<AppSelect<T>> {
           ),
           const Gap(6),
         ],
-        Container(
-          height: tokens.height,
-          padding: tokens.padding,
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(tokens.radius),
-            border: Border.all(color: borderColor, width: 1.5),
-            boxShadow: boxShadow,
-          ),
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<T>(
-              focusNode: _focusNode,
-              value: widget.value,
-              isExpanded: true,
-              isDense: true,
-              hint: Text(
-                displayText,
-                style: textStyle.withColor(textColor),
-                overflow: TextOverflow.ellipsis,
-              ),
-              icon: Icon(
-                LucideIcons.chevronDown,
-                size: 16,
-                color: iconColor,
-              ),
-              dropdownColor: colors.background.primary,
-              borderRadius: BorderRadius.circular(AppRadius.md),
-              items: widget.items.map((item) {
-                return DropdownMenuItem<T>(
-                  value: item.value,
-                  enabled: item.enabled,
-                  child: Text(
-                    item.label,
-                    style: textStyle.withColor(
-                      item.enabled ? colors.text.primary : colors.text.disabled,
+        AppFocusRing(
+          visible: isEnabled && !isError && _isFocused,
+          radius: tokens.radius,
+          child: Container(
+            height: tokens.height,
+            padding: tokens.padding,
+            decoration: BoxDecoration(
+              color: backgroundColor,
+              borderRadius: BorderRadius.circular(tokens.radius),
+              border: Border.all(color: borderColor, width: 1.5),
+            ),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<T>(
+                focusNode: _focusNode,
+                value: widget.value,
+                isExpanded: true,
+                isDense: true,
+                hint: Text(
+                  displayText,
+                  style: textStyle.withColor(textColor),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                icon: Icon(
+                  LucideIcons.chevronDown,
+                  size: 16,
+                  color: iconColor,
+                ),
+                dropdownColor: colors.background.primary,
+                borderRadius: BorderRadius.circular(AppRadius.md),
+                items: widget.items.map((item) {
+                  return DropdownMenuItem<T>(
+                    value: item.value,
+                    enabled: item.enabled,
+                    child: Text(
+                      item.label,
+                      style: textStyle.withColor(
+                        item.enabled
+                            ? colors.text.primary
+                            : colors.text.disabled,
+                      ),
                     ),
-                  ),
-                );
-              }).toList(),
-              onChanged: isEnabled ? widget.onChanged : null,
+                  );
+                }).toList(),
+                onChanged: isEnabled ? widget.onChanged : null,
+              ),
             ),
           ),
         ),

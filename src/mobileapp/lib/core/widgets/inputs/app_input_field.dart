@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_radius.dart';
-import 'package:mobileapp/core/theme/app_shadow.dart';
+import 'package:mobileapp/core/widgets/inputs/app_focus_ring.dart';
 
 /// Text input field for forms:
 /// Sizes: Small (36px), Medium (40px), Large (48px), all with 8px radius.
@@ -119,20 +119,15 @@ class _AppInputFieldState extends State<AppInputField> {
     final labelColor = isEnabled ? colors.text.secondary : colors.text.disabled;
 
     // Border & Shadow
-    Color borderColor;
-    List<BoxShadow>? boxShadow;
+    final Color borderColor;
     if (!isEnabled) {
       borderColor = colors.border.disabled;
-      boxShadow = null;
     } else if (isError) {
       borderColor = colors.border.error;
-      boxShadow = null;
     } else if (_isFocused) {
       borderColor = colors.border.focus;
-      boxShadow = AppShadows.focusRing;
     } else {
       borderColor = colors.border.defaultColor;
-      boxShadow = null;
     }
 
     final backgroundColor = isEnabled
@@ -174,63 +169,67 @@ class _AppInputFieldState extends State<AppInputField> {
           ),
           const Gap(6), // 6px gap from Figma
         ],
-        Container(
-          height: tokens.height,
-          padding: tokens.padding,
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(tokens.radius),
-            border: Border.all(color: borderColor, width: 1.5),
-            boxShadow: boxShadow,
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              if (widget.leadingIcon != null) ...[
-                Icon(
-                  widget.leadingIcon,
-                  size: 16, // 16px icon from Figma
-                  color: iconColor,
-                ),
-                const Gap(8), // 8px gap
-              ],
-              Expanded(
-                child: TextField(
-                  controller: _controller,
-                  focusNode: _focusNode,
-                  enabled: isEnabled,
-                  readOnly: widget.readOnly,
-                  obscureText: widget.obscureText,
-                  autofocus: widget.autofocus,
-                  keyboardType: widget.keyboardType,
-                  onChanged: widget.onChanged,
-                  onSubmitted: widget.onSubmitted,
-                  style: textStyle.withColor(textColor),
-                  decoration: InputDecoration(
-                    isDense: true,
-                    contentPadding: EdgeInsets.zero,
-                    border: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    errorBorder: InputBorder.none,
-                    disabledBorder: InputBorder.none,
-                    hintText: widget.placeholder,
-                    hintStyle: textStyle.withColor(hintColor),
-                  ),
-                ),
-              ),
-              if (widget.trailingIcon != null) ...[
-                const Gap(8), // 8px gap
-                GestureDetector(
-                  onTap: isEnabled ? widget.onTrailingIconPressed : null,
-                  child: Icon(
-                    widget.trailingIcon,
+        AppFocusRing(
+          visible: isEnabled && !isError && _isFocused,
+          radius: tokens.radius,
+          child: Container(
+            height: tokens.height,
+            padding: tokens.padding,
+            decoration: BoxDecoration(
+              color: backgroundColor,
+              borderRadius: BorderRadius.circular(tokens.radius),
+              border: Border.all(color: borderColor, width: 1.5),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                if (widget.leadingIcon != null) ...[
+                  Icon(
+                    widget.leadingIcon,
                     size: 16, // 16px icon from Figma
                     color: iconColor,
                   ),
+                  const Gap(8), // 8px gap
+                ],
+                Expanded(
+                  child: TextField(
+                    controller: _controller,
+                    focusNode: _focusNode,
+                    enabled: isEnabled,
+                    readOnly: widget.readOnly,
+                    obscureText: widget.obscureText,
+                    autofocus: widget.autofocus,
+                    keyboardType: widget.keyboardType,
+                    onChanged: widget.onChanged,
+                    onSubmitted: widget.onSubmitted,
+                    style: textStyle.withColor(textColor),
+                    textAlignVertical: TextAlignVertical.center,
+                    decoration: InputDecoration(
+                      isDense: true,
+                      contentPadding: EdgeInsets.zero,
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                      hintText: widget.placeholder,
+                      hintStyle: textStyle.withColor(hintColor),
+                    ),
+                  ),
                 ),
+                if (widget.trailingIcon != null) ...[
+                  const Gap(8), // 8px gap
+                  GestureDetector(
+                    onTap: isEnabled ? widget.onTrailingIconPressed : null,
+                    child: Icon(
+                      widget.trailingIcon,
+                      size: 16, // 16px icon from Figma
+                      color: iconColor,
+                    ),
+                  ),
+                ],
               ],
-            ],
+            ),
           ),
         ),
         if (isError) ...[
@@ -269,16 +268,16 @@ const Map<AppInputSize, _InputTokens> _inputTokens = {
   AppInputSize.large: _InputTokens(
     height: 48,
     radius: AppRadius.md, // 8px from Figma
-    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+    padding: EdgeInsets.symmetric(horizontal: 16),
   ),
   AppInputSize.medium: _InputTokens(
     height: 40,
     radius: AppRadius.md, // 8px from Figma
-    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+    padding: EdgeInsets.symmetric(horizontal: 12),
   ),
   AppInputSize.small: _InputTokens(
     height: 36,
     radius: AppRadius.md, // 8px from Figma
-    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+    padding: EdgeInsets.symmetric(horizontal: 8),
   ),
 };

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_radius.dart';
-import 'package:mobileapp/core/theme/app_shadow.dart';
+import 'package:mobileapp/core/widgets/inputs/app_focus_ring.dart';
 
 class AppTextareaField extends StatefulWidget {
   const AppTextareaField({
@@ -98,20 +98,15 @@ class _AppTextareaFieldState extends State<AppTextareaField> {
     final labelStyle = typography.labelMedium;
     final labelColor = isEnabled ? colors.text.secondary : colors.text.disabled;
 
-    Color borderColor;
-    List<BoxShadow>? boxShadow;
+    final Color borderColor;
     if (!isEnabled) {
       borderColor = colors.border.disabled;
-      boxShadow = null;
     } else if (isError) {
       borderColor = colors.border.error;
-      boxShadow = null;
     } else if (_isFocused) {
       borderColor = colors.border.focus;
-      boxShadow = AppShadows.focusRing;
     } else {
       borderColor = colors.border.defaultColor;
-      boxShadow = null;
     }
 
     final backgroundColor = isEnabled
@@ -134,36 +129,39 @@ class _AppTextareaFieldState extends State<AppTextareaField> {
           ),
           const Gap(6),
         ],
-        Container(
-          constraints: BoxConstraints(minHeight: widget.minHeight),
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(AppRadius.md),
-            border: Border.all(color: borderColor, width: 1.5),
-            boxShadow: boxShadow,
-          ),
-          child: TextField(
-            controller: _controller,
-            focusNode: _focusNode,
-            enabled: isEnabled,
-            readOnly: widget.readOnly,
-            minLines: widget.minLines,
-            maxLines: widget.maxLines,
-            keyboardType: TextInputType.multiline,
-            onChanged: widget.onChanged,
-            onSubmitted: widget.onSubmitted,
-            style: typography.bodySmall.withColor(textColor),
-            decoration: InputDecoration(
-              isDense: true,
-              contentPadding: EdgeInsets.zero,
-              border: InputBorder.none,
-              focusedBorder: InputBorder.none,
-              enabledBorder: InputBorder.none,
-              errorBorder: InputBorder.none,
-              disabledBorder: InputBorder.none,
-              hintText: widget.placeholder,
-              hintStyle: typography.bodySmall.withColor(hintColor),
+        AppFocusRing(
+          visible: isEnabled && !isError && _isFocused,
+          radius: AppRadius.md,
+          child: Container(
+            constraints: BoxConstraints(minHeight: widget.minHeight),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            decoration: BoxDecoration(
+              color: backgroundColor,
+              borderRadius: BorderRadius.circular(AppRadius.md),
+              border: Border.all(color: borderColor, width: 1.5),
+            ),
+            child: TextField(
+              controller: _controller,
+              focusNode: _focusNode,
+              enabled: isEnabled,
+              readOnly: widget.readOnly,
+              minLines: widget.minLines,
+              maxLines: widget.maxLines,
+              keyboardType: TextInputType.multiline,
+              onChanged: widget.onChanged,
+              onSubmitted: widget.onSubmitted,
+              style: typography.bodySmall.withColor(textColor),
+              decoration: InputDecoration(
+                isDense: true,
+                contentPadding: EdgeInsets.zero,
+                border: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                errorBorder: InputBorder.none,
+                disabledBorder: InputBorder.none,
+                hintText: widget.placeholder,
+                hintStyle: typography.bodySmall.withColor(hintColor),
+              ),
             ),
           ),
         ),
