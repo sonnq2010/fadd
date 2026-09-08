@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobileapp/core/widgets/buttons/buttons.dart';
 import 'package:mobileapp/core/widgets/data_display/data_display.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class CardSection extends StatelessWidget {
   const CardSection({super.key});
@@ -10,8 +11,8 @@ class CardSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ComponentCard(
-      title: 'global_components.card_title'.tr(),
-      description: 'global_components.card_desc'.tr(),
+      title: LocaleKeys.global_components_card_title.tr(),
+      description: LocaleKeys.global_components_card_desc.tr(),
       child: Center(
         child: AppCard(
           badge: const AppBadge(

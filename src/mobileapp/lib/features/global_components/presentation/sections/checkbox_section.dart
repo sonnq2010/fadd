@@ -4,6 +4,7 @@ import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/selection/selection.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class CheckboxSection extends StatelessWidget {
   const CheckboxSection({super.key});
@@ -20,8 +21,8 @@ class CheckboxSection extends StatelessWidget {
     ];
 
     return ComponentCard(
-      title: 'global_components.checkbox_title'.tr(),
-      description: 'global_components.checkbox_desc'.tr(),
+      title: LocaleKeys.global_components_checkbox_title.tr(),
+      description: LocaleKeys.global_components_checkbox_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,13 +43,13 @@ class CheckboxSection extends StatelessWidget {
               children: [
                 // 1. Default
                 AppCheckbox(
-                  label: 'global_components.checkbox_label'.tr(),
+                  label: LocaleKeys.global_components_checkbox_label.tr(),
                   value: value,
                   onChanged: (_) {},
                 ),
                 // 2. Disabled
                 AppCheckbox(
-                  label: 'global_components.checkbox_label'.tr(),
+                  label: LocaleKeys.global_components_checkbox_label.tr(),
                   value: value,
                   enabled: false,
                 ),

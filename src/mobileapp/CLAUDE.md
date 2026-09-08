@@ -3,7 +3,8 @@
 - `make gen-api-client`: Generate the Dio client from backend Swagger.
 - `make check-api-client`: Check that the committed API client is current.
 - `make check-generated`: Detect stale API client, Riverpod, and Freezed output without modifying the working tree.
-- `make gen-code`: Generate Riverpod and Freezed files.
+- `make gen-code`: Generate Riverpod, Freezed, and localization key files.
+- `make gen-locale-keys`: Generate typed localization keys from `assets/translations/en.json`.
 - `make analyze`: Analyze the generated package and Flutter app.
 - `make test`: Run Flutter tests with coverage.
 - `make verify`: Run all required mobile checks.
@@ -15,6 +16,7 @@ Do not manually edit:
 - `api-client/**`
 - `lib/**/*.g.dart`
 - `lib/**/*.freezed.dart`
+- `lib/generated/locale_keys.g.dart`
 
 Backend `.api` files under `../backend/api` are the API source of truth. Change backend contracts, Riverpod annotations, Freezed declarations, or generator configuration and regenerate instead.
 
@@ -30,9 +32,10 @@ Backend `.api` files under `../backend/api` are the API source of truth. Change 
 # Localization workflow
 
 1. Keep matching keys in `assets/translations/en.json` and `assets/translations/vi.json`.
-2. Use EasyLocalization from presentation code instead of hardcoded user-facing text.
-3. When adding a locale, update `lib/core/constants/locale_constants.dart` and asset configuration as needed.
-4. Add tests for behavior that depends on translated output or locale selection.
+2. Use generated `LocaleKeys` with EasyLocalization from presentation code instead of raw translation keys or hardcoded user-facing text.
+3. Run `make gen-locale-keys` after adding, removing, or renaming translation keys.
+4. When adding a locale, update `lib/core/constants/locale_constants.dart` and asset configuration as needed.
+5. Add tests for behavior that depends on translated output or locale selection.
 
 # Feature workflow
 

@@ -5,6 +5,7 @@ import 'package:mobileapp/core/theme/app_radius.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/buttons/buttons.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class ButtonGroupSection extends StatelessWidget {
   const ButtonGroupSection({super.key});
@@ -23,8 +24,8 @@ class ButtonGroupSection extends StatelessWidget {
     ];
 
     return ComponentCard(
-      title: 'global_components.button_group_title'.tr(),
-      description: 'global_components.button_group_desc'.tr(),
+      title: LocaleKeys.global_components_button_group_title.tr(),
+      description: LocaleKeys.global_components_button_group_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -51,11 +52,11 @@ class ButtonGroupSection extends StatelessWidget {
                 alignment: alignment,
                 children: [
                   AppButton.secondary(
-                    label: 'global_components.cancel'.tr(),
+                    label: LocaleKeys.global_components_cancel.tr(),
                     onPressed: () {},
                   ),
                   AppButton.primary(
-                    label: 'global_components.confirm'.tr(),
+                    label: LocaleKeys.global_components_confirm.tr(),
                     onPressed: () {},
                   ),
                 ],

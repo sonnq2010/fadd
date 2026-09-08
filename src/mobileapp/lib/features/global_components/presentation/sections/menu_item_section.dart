@@ -4,6 +4,7 @@ import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/navigation/navigation.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class MenuItemSection extends StatefulWidget {
   const MenuItemSection({super.key});
@@ -21,8 +22,8 @@ class _MenuItemSectionState extends State<MenuItemSection> {
     final typography = context.typography;
 
     return ComponentCard(
-      title: 'global_components.menu_item_title'.tr(),
-      description: 'global_components.menu_item_desc'.tr(),
+      title: LocaleKeys.global_components_menu_item_title.tr(),
+      description: LocaleKeys.global_components_menu_item_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -56,7 +57,7 @@ class _MenuItemSectionState extends State<MenuItemSection> {
               bottom: AppSpacing.sm,
             ),
             child: Text(
-              'global_components.menu_sample_title'.tr(),
+              LocaleKeys.global_components_menu_sample_title.tr(),
               style: typography.labelLarge.withColor(colors.text.primary),
             ),
           ),

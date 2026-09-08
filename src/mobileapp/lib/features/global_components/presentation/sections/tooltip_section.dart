@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/feedback/feedback.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class TooltipSection extends StatelessWidget {
   const TooltipSection({super.key});
@@ -10,8 +11,8 @@ class TooltipSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ComponentCard(
-      title: 'global_components.tooltip_title'.tr(),
-      description: 'global_components.tooltip_desc'.tr(),
+      title: LocaleKeys.global_components_tooltip_title.tr(),
+      description: LocaleKeys.global_components_tooltip_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [

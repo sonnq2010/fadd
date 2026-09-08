@@ -4,6 +4,7 @@ import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/selection/selection.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class SwitchSection extends StatefulWidget {
   const SwitchSection({super.key});
@@ -21,8 +22,8 @@ class _SwitchSectionState extends State<SwitchSection> {
     final typography = context.typography;
 
     return ComponentCard(
-      title: 'global_components.switch_title'.tr(),
-      description: 'global_components.switch_desc'.tr(),
+      title: LocaleKeys.global_components_switch_title.tr(),
+      description: LocaleKeys.global_components_switch_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,12 +43,12 @@ class _SwitchSectionState extends State<SwitchSection> {
             runSpacing: AppSpacing.md,
             children: [
               AppSwitch(
-                label: 'global_components.switch_label'.tr(),
+                label: LocaleKeys.global_components_switch_label.tr(),
                 value: false,
                 onChanged: (_) {},
               ),
               AppSwitch(
-                label: 'global_components.switch_label'.tr(),
+                label: LocaleKeys.global_components_switch_label.tr(),
                 value: false,
                 enabled: false,
                 onChanged: (_) {},
@@ -72,12 +73,12 @@ class _SwitchSectionState extends State<SwitchSection> {
             runSpacing: AppSpacing.md,
             children: [
               AppSwitch(
-                label: 'global_components.switch_label'.tr(),
+                label: LocaleKeys.global_components_switch_label.tr(),
                 value: true,
                 onChanged: (_) {},
               ),
               AppSwitch(
-                label: 'global_components.switch_label'.tr(),
+                label: LocaleKeys.global_components_switch_label.tr(),
                 value: true,
                 enabled: false,
                 onChanged: (_) {},
@@ -99,7 +100,7 @@ class _SwitchSectionState extends State<SwitchSection> {
           ),
           AppSwitch(
             label:
-                '${'global_components.switch_label'.tr()} ($_interactiveValue)',
+                '${LocaleKeys.global_components_switch_label.tr()} ($_interactiveValue)',
             value: _interactiveValue,
             onChanged: (val) {
               setState(() {

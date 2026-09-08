@@ -3,10 +3,10 @@ import 'dart:ui';
 abstract class LocaleConstants {
   static const String translationsPath = 'assets/translations';
 
-  static const List<Locale> supportedLocales = [
-    Locale('en', 'US'),
-    Locale('vi', 'VN'),
-  ];
+  static const Locale english = Locale('en');
+  static const Locale vietnamese = Locale('vi');
 
-  static const Locale fallbackLocale = Locale('vi', 'VN');
+  static const List<Locale> supportedLocales = [english, vietnamese];
+
+  static const Locale fallbackLocale = vietnamese;
 }

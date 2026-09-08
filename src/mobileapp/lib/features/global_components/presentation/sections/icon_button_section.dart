@@ -5,6 +5,7 @@ import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/buttons/buttons.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class IconButtonSection extends StatelessWidget {
   const IconButtonSection({super.key});
@@ -21,8 +22,8 @@ class IconButtonSection extends StatelessWidget {
     ];
 
     return ComponentCard(
-      title: 'global_components.icon_button_title'.tr(),
-      description: 'global_components.icon_button_desc'.tr(),
+      title: LocaleKeys.global_components_icon_button_title.tr(),
+      description: LocaleKeys.global_components_icon_button_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

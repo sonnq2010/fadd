@@ -4,6 +4,7 @@ import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/inputs/inputs.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class SearchFieldSection extends StatelessWidget {
   const SearchFieldSection({super.key});
@@ -20,8 +21,8 @@ class SearchFieldSection extends StatelessWidget {
     ];
 
     return ComponentCard(
-      title: 'global_components.search_title'.tr(),
-      description: 'global_components.search_desc'.tr(),
+      title: LocaleKeys.global_components_search_title.tr(),
+      description: LocaleKeys.global_components_search_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -44,7 +45,8 @@ class SearchFieldSection extends StatelessWidget {
                 SizedBox(
                   width: 240,
                   child: AppSearchField(
-                    placeholder: 'global_components.search_placeholder'.tr(),
+                    placeholder: LocaleKeys.global_components_search_placeholder
+                        .tr(),
                     size: size,
                   ),
                 ),
@@ -53,7 +55,8 @@ class SearchFieldSection extends StatelessWidget {
                   width: 240,
                   child: AppSearchField(
                     initialValue: 'Search query',
-                    placeholder: 'global_components.search_placeholder'.tr(),
+                    placeholder: LocaleKeys.global_components_search_placeholder
+                        .tr(),
                     size: size,
                   ),
                 ),
@@ -61,7 +64,8 @@ class SearchFieldSection extends StatelessWidget {
                 SizedBox(
                   width: 240,
                   child: AppSearchField(
-                    placeholder: 'global_components.search_placeholder'.tr(),
+                    placeholder: LocaleKeys.global_components_search_placeholder
+                        .tr(),
                     enabled: false,
                     size: size,
                   ),

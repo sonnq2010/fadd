@@ -4,6 +4,7 @@ import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/buttons/buttons.dart';
 import 'package:mobileapp/core/widgets/overlays/overlays.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class ModalSection extends StatelessWidget {
   const ModalSection({super.key});
@@ -11,17 +12,17 @@ class ModalSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ComponentCard(
-      title: 'global_components.modal_title'.tr(),
-      description: 'global_components.modal_desc'.tr(),
+      title: LocaleKeys.global_components_modal_title.tr(),
+      description: LocaleKeys.global_components_modal_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Static modal card
           AppModalCard(
-            title: 'global_components.modal_sample_title'.tr(),
-            description: 'global_components.modal_sample_desc'.tr(),
-            cancelLabel: 'global_components.cancel'.tr(),
-            confirmLabel: 'global_components.modal_delete'.tr(),
+            title: LocaleKeys.global_components_modal_sample_title.tr(),
+            description: LocaleKeys.global_components_modal_sample_desc.tr(),
+            cancelLabel: LocaleKeys.global_components_cancel.tr(),
+            confirmLabel: LocaleKeys.global_components_modal_delete.tr(),
             onClose: () {},
             onCancel: () {},
             onConfirm: () {},
@@ -35,10 +36,11 @@ class ModalSection extends StatelessWidget {
               showAppModal<void>(
                 context: context,
                 child: AppModalCard(
-                  title: 'global_components.modal_sample_title'.tr(),
-                  description: 'global_components.modal_sample_desc'.tr(),
-                  cancelLabel: 'global_components.cancel'.tr(),
-                  confirmLabel: 'global_components.modal_delete'.tr(),
+                  title: LocaleKeys.global_components_modal_sample_title.tr(),
+                  description: LocaleKeys.global_components_modal_sample_desc
+                      .tr(),
+                  cancelLabel: LocaleKeys.global_components_cancel.tr(),
+                  confirmLabel: LocaleKeys.global_components_modal_delete.tr(),
                   onClose: () => Navigator.of(context).pop(),
                   onCancel: () => Navigator.of(context).pop(),
                   onConfirm: () => Navigator.of(context).pop(),

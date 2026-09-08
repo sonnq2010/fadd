@@ -4,6 +4,7 @@ import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/layout/app_divider.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class DividerSection extends StatelessWidget {
   const DividerSection({super.key});
@@ -14,13 +15,13 @@ class DividerSection extends StatelessWidget {
     final typography = context.typography;
 
     return ComponentCard(
-      title: 'global_components.divider_title'.tr(),
-      description: 'global_components.divider_desc'.tr(),
+      title: LocaleKeys.global_components_divider_title.tr(),
+      description: LocaleKeys.global_components_divider_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'global_components.divider_with_label'.tr(),
+            LocaleKeys.global_components_divider_with_label.tr(),
             style: typography.labelSmall.withColor(colors.text.secondary),
           ),
           const SizedBox(height: AppSpacing.sm),
@@ -30,7 +31,7 @@ class DividerSection extends StatelessWidget {
           ),
           const SizedBox(height: AppSpacing.lg),
           Text(
-            'global_components.divider_horizontal'.tr(),
+            LocaleKeys.global_components_divider_horizontal.tr(),
             style: typography.labelSmall.withColor(colors.text.secondary),
           ),
           const SizedBox(height: AppSpacing.sm),
@@ -40,7 +41,7 @@ class DividerSection extends StatelessWidget {
           ),
           const SizedBox(height: AppSpacing.lg),
           Text(
-            'global_components.divider_vertical'.tr(),
+            LocaleKeys.global_components_divider_vertical.tr(),
             style: typography.labelSmall.withColor(colors.text.secondary),
           ),
           const SizedBox(height: AppSpacing.sm),

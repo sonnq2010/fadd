@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/selection/app_chip.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class ChipSection extends StatefulWidget {
   const ChipSection({super.key});
@@ -17,8 +18,8 @@ class _ChipSectionState extends State<ChipSection> {
   @override
   Widget build(BuildContext context) {
     return ComponentCard(
-      title: 'global_components.chip_title'.tr(),
-      description: 'global_components.chip_desc'.tr(),
+      title: LocaleKeys.global_components_chip_title.tr(),
+      description: LocaleKeys.global_components_chip_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

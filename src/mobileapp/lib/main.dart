@@ -5,6 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:mobileapp/core/app/app.dart';
 import 'package:mobileapp/core/app/observer.dart';
 import 'package:mobileapp/core/configs/app_config.dart';
+import 'package:mobileapp/core/constants/locale_constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +39,12 @@ void main() async {
   runApp(
     ProviderScope(
       observers: [Observer()],
-      child: const App(),
+      child: EasyLocalization(
+        path: LocaleConstants.translationsPath,
+        supportedLocales: LocaleConstants.supportedLocales,
+        fallbackLocale: LocaleConstants.fallbackLocale,
+        child: const App(),
+      ),
     ),
   );
 }

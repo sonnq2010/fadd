@@ -5,6 +5,7 @@ import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/inputs/inputs.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class InputFieldSection extends StatelessWidget {
   const InputFieldSection({super.key});
@@ -21,8 +22,8 @@ class InputFieldSection extends StatelessWidget {
     ];
 
     return ComponentCard(
-      title: 'global_components.input_title'.tr(),
-      description: 'global_components.input_desc'.tr(),
+      title: LocaleKeys.global_components_input_title.tr(),
+      description: LocaleKeys.global_components_input_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -45,9 +46,10 @@ class InputFieldSection extends StatelessWidget {
                 SizedBox(
                   width: 280,
                   child: AppInputField(
-                    label: 'global_components.input_label'.tr(),
-                    placeholder: 'global_components.input_placeholder'.tr(),
-                    helperText: 'global_components.input_helper'.tr(),
+                    label: LocaleKeys.global_components_input_label.tr(),
+                    placeholder: LocaleKeys.global_components_input_placeholder
+                        .tr(),
+                    helperText: LocaleKeys.global_components_input_helper.tr(),
                     leadingIcon: LucideIcons.search,
                     trailingIcon: LucideIcons.x,
                     size: size,
@@ -57,9 +59,9 @@ class InputFieldSection extends StatelessWidget {
                 SizedBox(
                   width: 280,
                   child: AppInputField(
-                    label: 'global_components.input_label'.tr(),
+                    label: LocaleKeys.global_components_input_label.tr(),
                     initialValue: 'Value text',
-                    helperText: 'global_components.input_helper'.tr(),
+                    helperText: LocaleKeys.global_components_input_helper.tr(),
                     leadingIcon: LucideIcons.search,
                     trailingIcon: LucideIcons.x,
                     size: size,
@@ -69,9 +71,9 @@ class InputFieldSection extends StatelessWidget {
                 SizedBox(
                   width: 280,
                   child: AppInputField(
-                    label: 'global_components.input_label'.tr(),
+                    label: LocaleKeys.global_components_input_label.tr(),
                     initialValue: 'Value text',
-                    errorText: 'global_components.input_error'.tr(),
+                    errorText: LocaleKeys.global_components_input_error.tr(),
                     leadingIcon: LucideIcons.search,
                     trailingIcon: LucideIcons.x,
                     size: size,
@@ -81,9 +83,10 @@ class InputFieldSection extends StatelessWidget {
                 SizedBox(
                   width: 280,
                   child: AppInputField(
-                    label: 'global_components.input_label'.tr(),
-                    placeholder: 'global_components.input_placeholder'.tr(),
-                    helperText: 'global_components.input_helper'.tr(),
+                    label: LocaleKeys.global_components_input_label.tr(),
+                    placeholder: LocaleKeys.global_components_input_placeholder
+                        .tr(),
+                    helperText: LocaleKeys.global_components_input_helper.tr(),
                     leadingIcon: LucideIcons.search,
                     trailingIcon: LucideIcons.x,
                     enabled: false,

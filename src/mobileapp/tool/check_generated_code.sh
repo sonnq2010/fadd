@@ -41,7 +41,7 @@ find "$TEMP_MOBILE/lib" -type f \( -name '*.g.dart' -o -name '*.freezed.dart' \)
 (
   cd "$TEMP_MOBILE"
   fvm dart pub get
-  fvm dart run build_runner build --delete-conflicting-outputs
+  make gen-code
 )
 
 copy_generated "$TEMP_MOBILE" "$GENERATED_OUTPUT"

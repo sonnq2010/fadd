@@ -4,6 +4,7 @@ import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/inputs/inputs.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class SliderSection extends StatefulWidget {
   const SliderSection({super.key});
@@ -21,8 +22,8 @@ class _SliderSectionState extends State<SliderSection> {
     final typography = context.typography;
 
     return ComponentCard(
-      title: 'global_components.slider_title'.tr(),
-      description: 'global_components.slider_desc'.tr(),
+      title: LocaleKeys.global_components_slider_title.tr(),
+      description: LocaleKeys.global_components_slider_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

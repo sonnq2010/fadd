@@ -13,6 +13,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapp/core/theme/providers/theme_mode_provider.dart';
+import 'package:mobileapp/core/constants/locale_constants.dart';
 import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/features/global_components/presentation/sections/button_group_section.dart';
@@ -37,6 +38,7 @@ import 'package:mobileapp/features/global_components/presentation/sections/top_a
 import 'package:mobileapp/features/global_components/presentation/sections/side_nav_item_section.dart';
 import 'package:mobileapp/features/global_components/presentation/sections/tab_item_section.dart';
 import 'package:mobileapp/features/global_components/presentation/sections/textarea_field_section.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class GlobalComponentsScreen extends ConsumerWidget {
   const GlobalComponentsScreen({super.key});
@@ -51,7 +53,7 @@ class GlobalComponentsScreen extends ConsumerWidget {
       backgroundColor: colors.background.primary,
       appBar: AppBar(
         title: Text(
-          'global_components.title'.tr(),
+          LocaleKeys.global_components_title.tr(),
           style: typography.headingH3.withColor(colors.text.primary),
         ),
         backgroundColor: colors.background.secondary,
@@ -66,24 +68,24 @@ class GlobalComponentsScreen extends ConsumerWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 value: ThemeMode.light,
-                child: Text('global_components.light'.tr()),
+                child: Text(LocaleKeys.global_components_light.tr()),
               ),
               PopupMenuItem(
                 value: ThemeMode.dark,
-                child: Text('global_components.dark'.tr()),
+                child: Text(LocaleKeys.global_components_dark.tr()),
               ),
               PopupMenuItem(
                 value: ThemeMode.system,
-                child: Text('global_components.system'.tr()),
+                child: Text(LocaleKeys.global_components_system.tr()),
               ),
             ],
           ),
           IconButton(
             icon: Icon(Icons.language, color: colors.icon.primary),
             onPressed: () {
-              final newLocale = context.locale.languageCode == 'en'
-                  ? const Locale('vi')
-                  : const Locale('en');
+              final newLocale = context.locale == LocaleConstants.english
+                  ? LocaleConstants.vietnamese
+                  : LocaleConstants.english;
               context.setLocale(newLocale);
             },
           ),

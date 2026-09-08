@@ -1,7 +1,11 @@
-.PHONY: gen-code gen-api-client check-api-client check-code check-generated analyze test verify
+.PHONY: gen-code gen-locale-keys gen-api-client check-api-client check-code check-generated analyze test verify
 
 gen-code:
 	fvm dart run build_runner build --delete-conflicting-outputs
+	$(MAKE) gen-locale-keys
+
+gen-locale-keys:
+	fvm dart run easy_localization:generate -S assets/translations -s en.json -O lib/generated -o locale_keys.g.dart -f keys -u
 
 gen-api-client:
 	./tool/generate_api_client.sh

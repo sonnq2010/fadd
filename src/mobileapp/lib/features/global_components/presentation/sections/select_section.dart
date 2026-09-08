@@ -4,6 +4,7 @@ import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/inputs/inputs.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class SelectSection extends StatelessWidget {
   const SelectSection({super.key});
@@ -30,8 +31,8 @@ class SelectSection extends StatelessWidget {
     ];
 
     return ComponentCard(
-      title: 'global_components.select_title'.tr(),
-      description: 'global_components.select_desc'.tr(),
+      title: LocaleKeys.global_components_select_title.tr(),
+      description: LocaleKeys.global_components_select_desc.tr(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -54,9 +55,10 @@ class SelectSection extends StatelessWidget {
                 SizedBox(
                   width: 280,
                   child: AppSelect<String>(
-                    label: 'global_components.select_label'.tr(),
-                    placeholder: 'global_components.select_placeholder'.tr(),
-                    helperText: 'global_components.select_helper'.tr(),
+                    label: LocaleKeys.global_components_select_label.tr(),
+                    placeholder: LocaleKeys.global_components_select_placeholder
+                        .tr(),
+                    helperText: LocaleKeys.global_components_select_helper.tr(),
                     items: sampleItems,
                     size: size,
                   ),
@@ -65,9 +67,9 @@ class SelectSection extends StatelessWidget {
                 SizedBox(
                   width: 280,
                   child: AppSelect<String>(
-                    label: 'global_components.select_label'.tr(),
+                    label: LocaleKeys.global_components_select_label.tr(),
                     value: 'opt1',
-                    helperText: 'global_components.select_helper'.tr(),
+                    helperText: LocaleKeys.global_components_select_helper.tr(),
                     items: sampleItems,
                     size: size,
                   ),
@@ -76,9 +78,9 @@ class SelectSection extends StatelessWidget {
                 SizedBox(
                   width: 280,
                   child: AppSelect<String>(
-                    label: 'global_components.select_label'.tr(),
+                    label: LocaleKeys.global_components_select_label.tr(),
                     value: 'opt1',
-                    errorText: 'global_components.select_error'.tr(),
+                    errorText: LocaleKeys.global_components_select_error.tr(),
                     items: sampleItems,
                     size: size,
                   ),
@@ -87,9 +89,10 @@ class SelectSection extends StatelessWidget {
                 SizedBox(
                   width: 280,
                   child: AppSelect<String>(
-                    label: 'global_components.select_label'.tr(),
-                    placeholder: 'global_components.select_placeholder'.tr(),
-                    helperText: 'global_components.select_helper'.tr(),
+                    label: LocaleKeys.global_components_select_label.tr(),
+                    placeholder: LocaleKeys.global_components_select_placeholder
+                        .tr(),
+                    helperText: LocaleKeys.global_components_select_helper.tr(),
                     items: sampleItems,
                     enabled: false,
                     size: size,

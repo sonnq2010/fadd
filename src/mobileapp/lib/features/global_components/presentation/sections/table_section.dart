@@ -8,6 +8,7 @@ import 'package:mobileapp/core/widgets/data_display/app_avatar.dart';
 import 'package:mobileapp/core/widgets/data_display/app_badge.dart';
 import 'package:mobileapp/core/widgets/data_display/app_table.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class TableSection extends StatefulWidget {
   const TableSection({super.key});
@@ -52,8 +53,8 @@ class _TableSectionState extends State<TableSection> {
     final typography = context.typography;
 
     return ComponentCard(
-      title: 'global_components.table_title'.tr(),
-      description: 'global_components.table_desc'.tr(),
+      title: LocaleKeys.global_components_table_title.tr(),
+      description: LocaleKeys.global_components_table_desc.tr(),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: SizedBox(
@@ -86,7 +87,7 @@ class _TableSectionState extends State<TableSection> {
                 header: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('global_components.table_col_name'.tr()),
+                    Text(LocaleKeys.global_components_table_col_name.tr()),
                     const SizedBox(width: AppSpacing.xs),
                     Icon(
                       LucideIcons.chevronDown,
@@ -101,7 +102,7 @@ class _TableSectionState extends State<TableSection> {
                 header: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('global_components.table_col_status'.tr()),
+                    Text(LocaleKeys.global_components_table_col_status.tr()),
                     const SizedBox(width: AppSpacing.xs),
                     Icon(
                       LucideIcons.chevronDown,
@@ -116,7 +117,7 @@ class _TableSectionState extends State<TableSection> {
                 header: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('global_components.table_col_role'.tr()),
+                    Text(LocaleKeys.global_components_table_col_role.tr()),
                     const SizedBox(width: AppSpacing.xs),
                     Icon(
                       LucideIcons.chevronDown,

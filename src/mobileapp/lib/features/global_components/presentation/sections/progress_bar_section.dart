@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/feedback/feedback.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class ProgressBarSection extends StatelessWidget {
   const ProgressBarSection({super.key});
@@ -10,8 +11,8 @@ class ProgressBarSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ComponentCard(
-      title: 'global_components.progress_bar_title'.tr(),
-      description: 'global_components.progress_bar_desc'.tr(),
+      title: LocaleKeys.global_components_progress_bar_title.tr(),
+      description: LocaleKeys.global_components_progress_bar_desc.tr(),
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 280.0),
         child: Column(
@@ -20,19 +21,22 @@ class ProgressBarSection extends StatelessWidget {
             AppProgressBar(
               value: 0.6,
               state: AppProgressBarState.defaultState,
-              label: 'global_components.progress_bar_sample_label'.tr(),
+              label: LocaleKeys.global_components_progress_bar_sample_label
+                  .tr(),
             ),
             const SizedBox(height: AppSpacing.md),
             AppProgressBar(
               value: 0.6,
               state: AppProgressBarState.success,
-              label: 'global_components.progress_bar_sample_label'.tr(),
+              label: LocaleKeys.global_components_progress_bar_sample_label
+                  .tr(),
             ),
             const SizedBox(height: AppSpacing.md),
             AppProgressBar(
               value: 0.6,
               state: AppProgressBarState.error,
-              label: 'global_components.progress_bar_sample_label'.tr(),
+              label: LocaleKeys.global_components_progress_bar_sample_label
+                  .tr(),
             ),
           ],
         ),

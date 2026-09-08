@@ -4,6 +4,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:mobileapp/core/widgets/buttons/buttons.dart';
 import 'package:mobileapp/core/widgets/navigation/navigation.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
+import 'package:mobileapp/generated/locale_keys.g.dart';
 
 class NavBarSection extends StatefulWidget {
   const NavBarSection({super.key});
@@ -18,8 +19,8 @@ class _NavBarSectionState extends State<NavBarSection> {
   @override
   Widget build(BuildContext context) {
     return ComponentCard(
-      title: 'global_components.nav_bar_title'.tr(),
-      description: 'global_components.nav_bar_desc'.tr(),
+      title: LocaleKeys.global_components_nav_bar_title.tr(),
+      description: LocaleKeys.global_components_nav_bar_desc.tr(),
       child: AppNavBar(
         brandTitle: 'Acme',
         tabs: const ['Tab label', 'Tab label', 'Tab label'],
