@@ -8,15 +8,24 @@ describe('InputField public contract', () => {
   it('generates the three Figma size contracts', () => {
     expect(inputFieldBoxVariants({ size: 'large' })).toContain('h-12')
     expect(inputFieldBoxVariants({ size: 'large' })).toContain('px-4')
+    expect(inputFieldBoxVariants({ size: 'large' })).toContain(
+      'text-body-medium',
+    )
     expect(inputFieldBoxVariants({ size: 'medium' })).toContain('h-10')
     expect(inputFieldBoxVariants({ size: 'medium' })).toContain('px-3')
+    expect(inputFieldBoxVariants({ size: 'medium' })).toContain(
+      'text-body-small',
+    )
     expect(inputFieldBoxVariants({ size: 'small' })).toContain('h-9')
-    expect(inputFieldBoxVariants({ size: 'small' })).toContain('rounded-xs')
+    expect(inputFieldBoxVariants({ size: 'small' })).toContain(
+      'text-body-small',
+    )
+    expect(inputFieldBoxVariants({ size: 'small' })).toContain('rounded-md')
   })
 
   it('generates default, error, and disabled state styles', () => {
     expect(inputFieldBoxVariants({ state: 'default' })).toContain(
-      'focus-within:ring-[3px]',
+      'focus-within:border-border-focus',
     )
     expect(inputFieldBoxVariants({ state: 'error' })).toContain(
       'border-border-error',

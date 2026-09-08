@@ -6,7 +6,7 @@ import 'package:mobileapp/core/theme/app_radius.dart';
 
 enum AppCheckboxValue { unchecked, checked, indeterminate }
 
-class AppCheckbox extends StatelessWidget {
+class AppCheckbox extends StatefulWidget {
   const AppCheckbox({
     super.key,
     this.value = AppCheckboxValue.unchecked,
@@ -20,18 +20,31 @@ class AppCheckbox extends StatelessWidget {
   final String? label;
   final bool enabled;
 
+  @override
+  State<AppCheckbox> createState() => _AppCheckboxState();
+}
+
+class _AppCheckboxState extends State<AppCheckbox> {
+  bool _isHovered = false;
+
   void _handleTap() {
-    if (!enabled || onChanged == null) return;
-    switch (value) {
+    if (!widget.enabled || widget.onChanged == null) return;
+    switch (widget.value) {
       case AppCheckboxValue.unchecked:
-        onChanged!(AppCheckboxValue.checked);
+        widget.onChanged!(AppCheckboxValue.checked);
         break;
       case AppCheckboxValue.checked:
-        onChanged!(AppCheckboxValue.unchecked);
+        widget.onChanged!(AppCheckboxValue.unchecked);
         break;
       case AppCheckboxValue.indeterminate:
-        onChanged!(AppCheckboxValue.checked);
+        widget.onChanged!(AppCheckboxValue.checked);
         break;
+    }
+  }
+
+  void _setHovered(bool value) {
+    if (_isHovered != value) {
+      setState(() => _isHovered = value);
     }
   }
 
@@ -44,60 +57,70 @@ class AppCheckbox extends StatelessWidget {
     Border? border;
     Color iconColor;
 
-    if (!enabled) {
-      if (value == AppCheckboxValue.unchecked) {
-        boxBgColor = colors.background.disabled;
-        border = Border.all(color: colors.border.disabled, width: 1.5);
-        iconColor = Colors.transparent;
-      } else {
-        boxBgColor = colors.background.disabled;
-        border = null;
-        iconColor = colors.icon.disabled;
-      }
+    if (!widget.enabled) {
+      boxBgColor = colors.background.disabled;
+      border = widget.value == AppCheckboxValue.unchecked
+          ? Border.all(color: colors.border.disabled, width: 1.5)
+          : null;
+      iconColor = widget.value == AppCheckboxValue.unchecked
+          ? Colors.transparent
+          : colors.icon.disabled;
+    } else if (widget.value == AppCheckboxValue.unchecked) {
+      boxBgColor = colors.background.primary;
+      border = Border.all(
+        color: _isHovered ? colors.border.brand : colors.border.defaultColor,
+        width: 1.5,
+      );
+      iconColor = Colors.transparent;
     } else {
-      if (value == AppCheckboxValue.unchecked) {
-        boxBgColor = colors.background.primary;
-        border = Border.all(color: colors.border.defaultColor, width: 1.5);
-        iconColor = Colors.transparent;
-      } else {
-        boxBgColor = colors.background.brand;
-        border = null;
-        iconColor = colors.text.onBrand;
-      }
+      boxBgColor = _isHovered
+          ? colors.background.brandHover
+          : colors.background.brand;
+      border = null;
+      iconColor = colors.text.onBrand;
     }
 
-    final labelColor = enabled ? colors.text.primary : colors.text.disabled;
+    final labelColor = widget.enabled
+        ? colors.text.primary
+        : colors.text.disabled;
 
-    return GestureDetector(
-      onTap: enabled ? _handleTap : null,
-      behavior: HitTestBehavior.opaque,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            width: 20,
-            height: 20,
-            decoration: BoxDecoration(
-              color: boxBgColor,
-              borderRadius: BorderRadius.circular(AppRadius.xs), // 2px radius
-              border: border,
+    return MouseRegion(
+      cursor: widget.enabled && widget.onChanged != null
+          ? SystemMouseCursors.click
+          : MouseCursor.defer,
+      onEnter: widget.enabled ? (_) => _setHovered(true) : null,
+      onExit: widget.enabled ? (_) => _setHovered(false) : null,
+      child: GestureDetector(
+        onTap: widget.enabled ? _handleTap : null,
+        behavior: HitTestBehavior.opaque,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 20,
+              height: 20,
+              decoration: BoxDecoration(
+                color: boxBgColor,
+                borderRadius: BorderRadius.circular(AppRadius.xs),
+                border: border,
+              ),
+              alignment: Alignment.center,
+              child: widget.value == AppCheckboxValue.checked
+                  ? Icon(LucideIcons.check, size: 14, color: iconColor)
+                  : widget.value == AppCheckboxValue.indeterminate
+                  ? Icon(LucideIcons.minus, size: 14, color: iconColor)
+                  : null,
             ),
-            alignment: Alignment.center,
-            child: value == AppCheckboxValue.checked
-                ? Icon(LucideIcons.check, size: 14, color: iconColor)
-                : value == AppCheckboxValue.indeterminate
-                ? Icon(LucideIcons.minus, size: 14, color: iconColor)
-                : null,
-          ),
-          if (label != null) ...[
-            const Gap(8),
-            Text(
-              label!,
-              style: typography.bodyMedium.withColor(labelColor),
-            ),
+            if (widget.label != null) ...[
+              const Gap(8),
+              Text(
+                widget.label!,
+                style: typography.bodySmall.withColor(labelColor),
+              ),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }

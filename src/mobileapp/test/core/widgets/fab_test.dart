@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:mobileapp/core/theme/app_color.dart';
 import 'package:mobileapp/core/theme/app_theme.dart';
 import 'package:mobileapp/core/widgets/buttons/app_fab.dart';
 
@@ -78,6 +79,73 @@ void main() {
       );
 
       expect(find.byType(Tooltip), findsOneWidget);
+    });
+
+    testWidgets('uses semantic backgrounds for pressed and focused states', (
+      tester,
+    ) async {
+      for (final (theme, colors) in [
+        (AppTheme.light, AppColors.light),
+        (AppTheme.dark, AppColors.dark),
+      ]) {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            AppFab(icon: LucideIcons.plus, onPressed: () {}),
+            theme: theme,
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final button = tester.widget<ElevatedButton>(
+          find.byType(ElevatedButton),
+        );
+        final backgroundColor = button.style?.backgroundColor;
+
+        expect(
+          backgroundColor?.resolve({
+            WidgetState.pressed,
+            WidgetState.hovered,
+            WidgetState.focused,
+          }),
+          colors.background.brandPressed,
+        );
+        expect(
+          backgroundColor?.resolve({WidgetState.focused}),
+          colors.background.brandHover,
+        );
+        expect(
+          button.style?.overlayColor?.resolve({WidgetState.pressed}),
+          colors.text.onBrand.withValues(alpha: 0.12),
+        );
+      }
+    });
+
+    testWidgets('disabled background takes precedence over pressed', (
+      tester,
+    ) async {
+      for (final (theme, colors) in [
+        (AppTheme.light, AppColors.light),
+        (AppTheme.dark, AppColors.dark),
+      ]) {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            const AppFab(icon: LucideIcons.plus, onPressed: null),
+            theme: theme,
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final button = tester.widget<ElevatedButton>(
+          find.byType(ElevatedButton),
+        );
+        final actualColor = button.style?.backgroundColor?.resolve({
+          WidgetState.disabled,
+          WidgetState.pressed,
+          WidgetState.hovered,
+        });
+
+        expect(actualColor, colors.background.disabled);
+      }
     });
   });
 }

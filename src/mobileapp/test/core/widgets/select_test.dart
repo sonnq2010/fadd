@@ -13,7 +13,9 @@ void main() {
   Widget buildTestableWidget(Widget widget, {ThemeData? theme}) {
     return MaterialApp(
       theme: theme ?? AppTheme.light,
-      home: Scaffold(body: Center(child: SizedBox(width: 300, child: widget))),
+      home: Scaffold(
+        body: Center(child: SizedBox(width: 300, child: widget)),
+      ),
     );
   }
 
@@ -83,7 +85,9 @@ void main() {
       expect(dropdown.onChanged, isNull);
     });
 
-    testWidgets('renders all 3 sizes with correct container heights', (tester) async {
+    testWidgets('renders all 3 sizes with correct container heights', (
+      tester,
+    ) async {
       for (final (size, expectedHeight) in [
         (AppSelectSize.large, 48.0),
         (AppSelectSize.medium, 40.0),
@@ -105,6 +109,40 @@ void main() {
           ),
         );
         expect(container.constraints?.maxHeight ?? 0, expectedHeight);
+      }
+    });
+
+    testWidgets('uses revised radius and typography contracts', (tester) async {
+      for (final (size, expectedFontSize) in [
+        (AppSelectSize.large, 16.0),
+        (AppSelectSize.medium, 14.0),
+        (AppSelectSize.small, 14.0),
+      ]) {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            AppSelect<String>(size: size, items: testItems),
+          ),
+        );
+
+        final dropdown = tester.widget<DropdownButton<String>>(
+          find.byType(DropdownButton<String>),
+        );
+        final hint = dropdown.hint! as Text;
+        expect(hint.style?.fontSize, expectedFontSize);
+
+        if (size == AppSelectSize.small) {
+          final container = tester.widget<Container>(
+            find
+                .descendant(
+                  of: find.byType(AppSelect<String>),
+                  matching: find.byType(Container),
+                )
+                .first,
+          );
+          final decoration = container.decoration! as BoxDecoration;
+          final radius = decoration.borderRadius! as BorderRadius;
+          expect(radius.topLeft.x, 8.0);
+        }
       }
     });
   });

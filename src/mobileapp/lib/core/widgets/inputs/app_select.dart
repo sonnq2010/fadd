@@ -95,7 +95,7 @@ class _AppSelectState<T> extends State<AppSelect<T>> {
       borderColor = colors.border.error;
       boxShadow = null;
     } else if (_isFocused) {
-      borderColor = colors.border.brand;
+      borderColor = colors.border.focus;
       boxShadow = AppShadows.focusRing;
     } else {
       borderColor = colors.border.defaultColor;
@@ -115,11 +115,9 @@ class _AppSelectState<T> extends State<AppSelect<T>> {
     TextStyle textStyle;
     switch (widget.size) {
       case AppSelectSize.large:
-        textStyle = typography.bodyLarge;
-        break;
-      case AppSelectSize.medium:
         textStyle = typography.bodyMedium;
         break;
+      case AppSelectSize.medium:
       case AppSelectSize.small:
         textStyle = typography.bodySmall;
         break;
@@ -237,7 +235,7 @@ const Map<AppSelectSize, _SelectTokens> _selectTokens = {
   ),
   AppSelectSize.small: _SelectTokens(
     height: 36,
-    radius: AppRadius.sm,
+    radius: AppRadius.md,
     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
   ),
 };

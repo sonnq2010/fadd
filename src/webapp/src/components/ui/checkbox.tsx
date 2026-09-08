@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { clsx } from 'clsx'
 import { Check, Minus } from 'lucide-react'
 import { Checkbox as CheckboxPrimitive } from 'radix-ui'
 
@@ -32,9 +33,9 @@ function Checkbox({
       className={cn(
         'peer inline-flex size-5 shrink-0 items-center justify-center rounded-xs border-[1.5px] border-solid transition-all outline-none',
         'border-border-default bg-bg-primary hover:border-border-brand focus-visible:ring-border-brand/45 focus-visible:ring-[3px]',
-        'data-[state=checked]:border-bg-brand data-[state=checked]:bg-bg-brand data-[state=checked]:text-text-on-brand data-[state=checked]:hover:bg-bg-brand-hover',
-        'data-[state=indeterminate]:border-bg-brand data-[state=indeterminate]:bg-bg-brand data-[state=indeterminate]:text-text-on-brand data-[state=indeterminate]:hover:bg-bg-brand-hover',
-        'disabled:border-border-disabled disabled:bg-bg-disabled disabled:text-text-disabled data-[state=checked]:disabled:bg-bg-disabled data-[state=checked]:disabled:text-text-disabled data-[state=indeterminate]:disabled:bg-bg-disabled data-[state=indeterminate]:disabled:text-text-disabled disabled:cursor-not-allowed',
+        'data-[state=checked]:border-bg-brand data-[state=checked]:bg-bg-brand data-[state=checked]:text-text-on-brand data-[state=checked]:hover:border-bg-brand-hover data-[state=checked]:hover:bg-bg-brand-hover',
+        'data-[state=indeterminate]:border-bg-brand data-[state=indeterminate]:bg-bg-brand data-[state=indeterminate]:text-text-on-brand data-[state=indeterminate]:hover:border-bg-brand-hover data-[state=indeterminate]:hover:bg-bg-brand-hover',
+        'disabled:border-border-disabled disabled:bg-bg-disabled disabled:text-text-disabled data-[state=checked]:disabled:bg-bg-disabled data-[state=checked]:disabled:text-text-disabled data-[state=indeterminate]:disabled:bg-bg-disabled data-[state=indeterminate]:disabled:text-text-disabled disabled:cursor-not-allowed data-[state=checked]:disabled:border-transparent data-[state=indeterminate]:disabled:border-transparent',
         className,
       )}
       {...props}
@@ -61,8 +62,8 @@ function Checkbox({
       {control}
       <label
         htmlFor={checkboxId}
-        className={cn(
-          'text-base font-normal select-none md:text-sm',
+        className={clsx(
+          'text-body-small select-none',
           disabled
             ? 'text-text-disabled cursor-not-allowed'
             : 'text-text-primary cursor-pointer',

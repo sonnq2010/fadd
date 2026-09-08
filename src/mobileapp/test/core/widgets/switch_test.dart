@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_theme.dart';
 import 'package:mobileapp/core/widgets/selection/selection.dart';
 
@@ -42,7 +44,9 @@ void main() {
       expect(find.byType(AppSwitch), findsOneWidget);
     });
 
-    testWidgets('tapping off switch triggers onChanged with true', (tester) async {
+    testWidgets('tapping off switch triggers onChanged with true', (
+      tester,
+    ) async {
       bool? updated;
       await tester.pumpWidget(
         buildTestableWidget(
@@ -58,7 +62,9 @@ void main() {
       expect(updated, isTrue);
     });
 
-    testWidgets('tapping on switch triggers onChanged with false', (tester) async {
+    testWidgets('tapping on switch triggers onChanged with false', (
+      tester,
+    ) async {
       bool? updated;
       await tester.pumpWidget(
         buildTestableWidget(
@@ -89,6 +95,39 @@ void main() {
 
       await tester.tap(find.text('Disabled switch'));
       expect(updated, isNull);
+    });
+
+    testWidgets('uses body small label and revised hover colors', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestableWidget(
+          AppSwitch(
+            value: true,
+            label: 'Hover switch',
+            onChanged: (_) {},
+          ),
+        ),
+      );
+
+      final label = tester.widget<Text>(find.text('Hover switch'));
+      expect(label.style?.fontSize, 14.0);
+
+      final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+      await mouse.addPointer();
+      await mouse.moveTo(tester.getCenter(find.byType(AppSwitch)));
+      await tester.pump();
+
+      final track = tester.widget<AnimatedContainer>(
+        find.descendant(
+          of: find.byType(AppSwitch),
+          matching: find.byType(AnimatedContainer),
+        ),
+      );
+      final decoration = track.decoration! as BoxDecoration;
+      final colors = tester.element(find.byType(AppSwitch)).colors;
+      expect(decoration.color, colors.background.brandHover);
+      await mouse.removePointer();
     });
   });
 }

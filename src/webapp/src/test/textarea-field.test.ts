@@ -10,7 +10,7 @@ import {
 describe('TextareaField public contract', () => {
   it('generates default, error, and disabled state styles', () => {
     expect(textareaFieldBoxVariants({ state: 'default' })).toContain(
-      'focus-within:ring-[3px]',
+      'focus-within:border-border-focus',
     )
     expect(textareaFieldBoxVariants({ state: 'error' })).toContain(
       'border-border-error',
@@ -18,6 +18,16 @@ describe('TextareaField public contract', () => {
     expect(textareaFieldBoxVariants({ state: 'disabled' })).toContain(
       'bg-bg-disabled',
     )
+  })
+
+  it('uses the revised typography and vertical resize contract', () => {
+    const markup = renderToStaticMarkup(
+      createElement(TextareaField, { placeholder: 'Write a note' }),
+    )
+
+    expect(markup).toContain('min-h-24')
+    expect(markup).toContain('resize-y')
+    expect(markup).toContain('text-body-small')
   })
 
   it('connects label, placeholder, and helper text', () => {

@@ -22,7 +22,10 @@ export function ComponentDemo({
           <p className="text-muted-foreground mt-1 text-sm">{description}</p>
         )}
       </div>
-      <div className="overflow-x-auto p-1 -m-1" data-testid="component-demo-content">
+      <div
+        className="-m-1 overflow-x-auto p-1"
+        data-testid="component-demo-content"
+      >
         {children}
       </div>
     </section>

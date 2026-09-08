@@ -43,7 +43,7 @@ export function InputFieldShowcase() {
 
               <StateExample label="Focus">
                 <InputField
-                  className="border-border-brand ring-border-brand/45 ring-[3px]"
+                  className="border-border-focus ring-border-focus/45 ring-[3px]"
                   helperText={t(
                     ($) => $.globalComponents.inputField.helperText,
                   )}

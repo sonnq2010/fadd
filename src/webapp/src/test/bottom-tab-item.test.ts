@@ -15,6 +15,8 @@ describe('MobileBottomTabItem public contract', () => {
 
     expect(markup).toContain('Home')
     expect(markup).toContain('text-text-tertiary')
+    expect(markup).toContain('w-[67.5px]')
+    expect(markup).toContain('text-label-medium')
   })
 
   it('renders active state with brand text color', () => {
@@ -39,6 +41,10 @@ describe('MobileBottomTabItem public contract', () => {
 
     expect(markup).toContain('w-[375px]')
     expect(markup).toContain('border-border-subtle')
+    expect(markup).toContain('gap-3')
+    expect(markup).toContain('px-4')
+    expect(markup).toContain('pt-2')
+    expect(markup).toContain('pb-6')
     expect(markup).toContain('Home')
     expect(markup).toContain('Search')
     expect(markup).toContain('Profile')

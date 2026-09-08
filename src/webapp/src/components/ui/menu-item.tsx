@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { clsx } from 'clsx'
 import { Check } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
@@ -36,9 +37,9 @@ function MenuItem({
       aria-selected={selected}
       aria-disabled={disabled}
       onClick={disabled ? undefined : onClick}
-      className={cn(
-        'flex w-full cursor-pointer items-center gap-2 rounded-xs px-3 py-2 text-base transition-colors select-none md:text-sm',
-        selected && 'bg-bg-selected text-text-brand hover:bg-bg-selected/90',
+      className={clsx(
+        'text-body-medium flex w-full cursor-pointer items-center gap-2 rounded-sm px-3 py-2 transition-colors select-none',
+        selected && 'bg-bg-selected text-text-brand',
         !selected &&
           !destructive &&
           !disabled &&

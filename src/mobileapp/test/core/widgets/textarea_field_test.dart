@@ -7,7 +7,9 @@ void main() {
   Widget buildTestableWidget(Widget widget, {ThemeData? theme}) {
     return MaterialApp(
       theme: theme ?? AppTheme.light,
-      home: Scaffold(body: Center(child: SizedBox(width: 320, child: widget))),
+      home: Scaffold(
+        body: Center(child: SizedBox(width: 320, child: widget)),
+      ),
     );
   }
 
@@ -57,7 +59,9 @@ void main() {
       expect(changed, 'Line 1\nLine 2\nLine 3');
     });
 
-    testWidgets('disabled field sets TextField enabled to false', (tester) async {
+    testWidgets('disabled field sets TextField enabled to false', (
+      tester,
+    ) async {
       await tester.pumpWidget(
         buildTestableWidget(
           const AppTextareaField(
@@ -84,6 +88,27 @@ void main() {
         ),
       );
       expect(container.constraints?.minHeight, 96.0);
+    });
+
+    testWidgets('uses body small typography and 8px radius', (tester) async {
+      await tester.pumpWidget(
+        buildTestableWidget(const AppTextareaField()),
+      );
+
+      final textField = tester.widget<TextField>(find.byType(TextField));
+      expect(textField.style?.fontSize, 14.0);
+
+      final container = tester.widget<Container>(
+        find
+            .descendant(
+              of: find.byType(AppTextareaField),
+              matching: find.byType(Container),
+            )
+            .first,
+      );
+      final decoration = container.decoration! as BoxDecoration;
+      final radius = decoration.borderRadius! as BorderRadius;
+      expect(radius.topLeft.x, 8.0);
     });
   });
 }

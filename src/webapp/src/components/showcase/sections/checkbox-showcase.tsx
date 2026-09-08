@@ -39,7 +39,11 @@ export function CheckboxShowcase() {
               <StateExample label="Hover">
                 <Checkbox
                   checked={val.checked}
-                  className="border-border-brand"
+                  className={
+                    val.checked
+                      ? 'border-bg-brand-hover bg-bg-brand-hover'
+                      : 'border-border-brand'
+                  }
                   label={t(($) => $.globalComponents.checkbox.label)}
                 />
               </StateExample>

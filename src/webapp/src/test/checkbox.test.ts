@@ -18,6 +18,12 @@ describe('Checkbox public contract', () => {
     expect(markup).toContain('I agree')
     expect(markup).toContain('size-5')
     expect(markup).toContain('rounded-xs')
+    expect(markup).toContain('text-body-small')
+    expect(markup).toContain('hover:border-border-brand')
+    expect(markup).toContain('data-[state=checked]:hover:bg-bg-brand-hover')
+    expect(markup).toContain(
+      'data-[state=indeterminate]:hover:bg-bg-brand-hover',
+    )
   })
 
   it('renders disabled state and disabled label style', () => {

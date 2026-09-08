@@ -9,13 +9,13 @@ const searchFieldVariants = cva(
   {
     variants: {
       size: {
-        large: 'h-12 rounded-md px-4 py-3 text-lg',
-        medium: 'h-10 rounded-md px-3 py-2 text-base',
-        small: 'h-9 rounded-xs px-2 py-1 text-sm',
+        large: 'h-12 rounded-md px-4 py-3 text-body-medium',
+        medium: 'h-10 rounded-md px-3 py-2 text-body-small',
+        small: 'h-9 rounded-md px-2 py-1 text-body-small',
       },
       state: {
         default:
-          'border-border-default focus-within:border-border-brand focus-within:ring-[3px] focus-within:ring-border-brand/45',
+          'border-border-default focus-within:border-border-focus focus-within:ring-[3px] focus-within:ring-border-focus/45',
         disabled:
           'cursor-not-allowed border-border-disabled bg-bg-disabled text-text-disabled',
       },
@@ -75,7 +75,7 @@ const SearchField = React.forwardRef<HTMLInputElement, SearchFieldProps>(
 
     return (
       <div
-        className={cn(searchFieldVariants({ size, state, className }))}
+        className={searchFieldVariants({ size, state, className })}
         data-slot="search-field"
       >
         <span

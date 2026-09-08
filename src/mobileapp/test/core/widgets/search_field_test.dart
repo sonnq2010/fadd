@@ -8,7 +8,9 @@ void main() {
   Widget buildTestableWidget(Widget widget, {ThemeData? theme}) {
     return MaterialApp(
       theme: theme ?? AppTheme.light,
-      home: Scaffold(body: Center(child: SizedBox(width: 300, child: widget))),
+      home: Scaffold(
+        body: Center(child: SizedBox(width: 300, child: widget)),
+      ),
     );
   }
 
@@ -28,7 +30,9 @@ void main() {
       expect(find.byIcon(LucideIcons.x), findsNothing);
     });
 
-    testWidgets('shows clear icon when filled and clicking it clears text', (tester) async {
+    testWidgets('shows clear icon when filled and clicking it clears text', (
+      tester,
+    ) async {
       var cleared = false;
       await tester.pumpWidget(
         buildTestableWidget(
@@ -63,7 +67,9 @@ void main() {
       expect(textField.enabled, isFalse);
     });
 
-    testWidgets('renders all 3 sizes with correct container heights', (tester) async {
+    testWidgets('renders all 3 sizes with correct container heights', (
+      tester,
+    ) async {
       for (final (size, expectedHeight) in [
         (AppSearchFieldSize.large, 48.0),
         (AppSearchFieldSize.medium, 40.0),
@@ -79,6 +85,37 @@ void main() {
           find.byType(Container),
         );
         expect(container.constraints?.maxHeight ?? 0, expectedHeight);
+      }
+    });
+
+    testWidgets('uses revised radius and typography contracts', (tester) async {
+      for (final (size, expectedFontSize) in [
+        (AppSearchFieldSize.large, 16.0),
+        (AppSearchFieldSize.medium, 14.0),
+        (AppSearchFieldSize.small, 14.0),
+      ]) {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            AppSearchField(size: size),
+          ),
+        );
+
+        final textField = tester.widget<TextField>(find.byType(TextField));
+        expect(textField.style?.fontSize, expectedFontSize);
+
+        if (size == AppSearchFieldSize.small) {
+          final container = tester.widget<Container>(
+            find
+                .descendant(
+                  of: find.byType(AppSearchField),
+                  matching: find.byType(Container),
+                )
+                .first,
+          );
+          final decoration = container.decoration! as BoxDecoration;
+          final radius = decoration.borderRadius! as BorderRadius;
+          expect(radius.topLeft.x, 8.0);
+        }
       }
     });
   });

@@ -16,15 +16,24 @@ describe('SelectField public contract', () => {
   it('generates the three Figma size contracts', () => {
     expect(selectFieldBoxVariants({ size: 'large' })).toContain('h-12')
     expect(selectFieldBoxVariants({ size: 'large' })).toContain('px-4')
+    expect(selectFieldBoxVariants({ size: 'large' })).toContain(
+      'text-body-medium',
+    )
     expect(selectFieldBoxVariants({ size: 'medium' })).toContain('h-10')
     expect(selectFieldBoxVariants({ size: 'medium' })).toContain('px-3')
+    expect(selectFieldBoxVariants({ size: 'medium' })).toContain(
+      'text-body-small',
+    )
     expect(selectFieldBoxVariants({ size: 'small' })).toContain('h-9')
-    expect(selectFieldBoxVariants({ size: 'small' })).toContain('rounded-xs')
+    expect(selectFieldBoxVariants({ size: 'small' })).toContain(
+      'text-body-small',
+    )
+    expect(selectFieldBoxVariants({ size: 'small' })).toContain('rounded-md')
   })
 
   it('generates default, error, and disabled state styles', () => {
     expect(selectFieldBoxVariants({ state: 'default' })).toContain(
-      'focus-within:ring-[3px]',
+      'focus-within:border-border-focus',
     )
     expect(selectFieldBoxVariants({ state: 'error' })).toContain(
       'border-border-error',

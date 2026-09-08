@@ -16,6 +16,8 @@ describe('MenuItem public contract', () => {
     expect(markup).toContain('Cut')
     expect(markup).toContain('⌘X')
     expect(markup).toContain('text-text-primary')
+    expect(markup).toContain('text-body-medium')
+    expect(markup).toContain('hover:bg-bg-secondary-hover')
   })
 
   it('renders selected menu item with checkmark and brand styling', () => {
@@ -29,6 +31,9 @@ describe('MenuItem public contract', () => {
     expect(markup).toContain('Show line numbers')
     expect(markup).toContain('bg-bg-selected')
     expect(markup).toContain('text-text-brand')
+    expect(markup.indexOf('<svg')).toBeLessThan(
+      markup.indexOf('Show line numbers'),
+    )
   })
 
   it('renders destructive variant', () => {

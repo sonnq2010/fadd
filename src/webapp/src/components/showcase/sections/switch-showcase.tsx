@@ -30,7 +30,7 @@ export function SwitchShowcase() {
             <StateExample label="Hover">
               <Switch
                 checked={false}
-                className="bg-border-strong/80"
+                className="bg-border-strong"
                 label={t(($) => $.globalComponents.switch.label)}
               />
             </StateExample>

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mobileapp/core/router/app_router.dart';
+import 'package:mobileapp/core/widgets/buttons/buttons.dart';
 
 class SplashScreen extends ConsumerWidget {
   const SplashScreen({super.key});
@@ -8,7 +11,19 @@ class SplashScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Center(
-        child: Text('Splash Screen'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('Splash Screen'),
+            AppButton.primary(
+              label: 'Showcase',
+              onPressed: () {
+                context.go(AppRoutes.globalComponents.path);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

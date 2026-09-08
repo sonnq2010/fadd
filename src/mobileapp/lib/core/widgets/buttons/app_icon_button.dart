@@ -114,14 +114,32 @@ class AppIconButton extends StatelessWidget {
         if (states.contains(WidgetState.disabled)) {
           return resolvedBackground;
         }
+        if (states.contains(WidgetState.pressed)) {
+          return variantColors.pressedBackground;
+        }
         if (states.contains(WidgetState.hovered) ||
             states.contains(WidgetState.focused)) {
-          return variantColors.hoverBackground ?? resolvedBackground;
+          return variantColors.hoverBackground;
         }
         return resolvedBackground;
       }),
       foregroundColor: WidgetStatePropertyAll(resolvedForeground),
       iconColor: WidgetStatePropertyAll(resolvedForeground),
+      overlayColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.disabled)) {
+          return Colors.transparent;
+        }
+        if (states.contains(WidgetState.pressed)) {
+          return resolvedForeground.withValues(alpha: 0.12);
+        }
+        if (states.contains(WidgetState.hovered)) {
+          return resolvedForeground.withValues(alpha: 0.08);
+        }
+        if (states.contains(WidgetState.focused)) {
+          return resolvedForeground.withValues(alpha: 0.10);
+        }
+        return null;
+      }),
       elevation: const WidgetStatePropertyAll(0),
     );
 
@@ -193,14 +211,16 @@ class _IconButtonVariantColors {
   const _IconButtonVariantColors({
     required this.background,
     required this.foreground,
+    required this.hoverBackground,
+    required this.pressedBackground,
     this.border,
-    this.hoverBackground,
   });
 
   final Color background;
   final Color foreground;
+  final Color hoverBackground;
+  final Color pressedBackground;
   final Color? border;
-  final Color? hoverBackground;
 }
 
 _IconButtonVariantColors _iconButtonColorsFor(
@@ -213,6 +233,7 @@ _IconButtonVariantColors _iconButtonColorsFor(
         background: colors.background.brand,
         foreground: colors.text.onBrand,
         hoverBackground: colors.background.brandHover,
+        pressedBackground: colors.background.brandPressed,
       );
     case AppButtonVariant.secondary:
       return _IconButtonVariantColors(
@@ -220,6 +241,7 @@ _IconButtonVariantColors _iconButtonColorsFor(
         foreground: colors.text.primary,
         border: colors.border.defaultColor,
         hoverBackground: colors.background.secondaryHover,
+        pressedBackground: colors.background.secondaryHover,
       );
     case AppButtonVariant.outline:
       return _IconButtonVariantColors(
@@ -227,18 +249,21 @@ _IconButtonVariantColors _iconButtonColorsFor(
         foreground: colors.text.brand,
         border: colors.border.brand,
         hoverBackground: colors.background.brandSubtle,
+        pressedBackground: colors.background.brandSubtle,
       );
     case AppButtonVariant.ghost:
       return _IconButtonVariantColors(
         background: Colors.transparent,
         foreground: colors.text.primary,
         hoverBackground: colors.background.secondaryHover,
+        pressedBackground: colors.background.secondaryHover,
       );
     case AppButtonVariant.destructive:
       return _IconButtonVariantColors(
         background: colors.background.error,
         foreground: colors.text.onBrand,
         hoverBackground: colors.background.errorHover,
+        pressedBackground: colors.background.errorPressed,
       );
     case AppButtonVariant.destructiveOutline:
       return _IconButtonVariantColors(
@@ -246,6 +271,7 @@ _IconButtonVariantColors _iconButtonColorsFor(
         foreground: colors.text.error,
         border: colors.border.error,
         hoverBackground: colors.background.errorSubtle,
+        pressedBackground: colors.background.errorSubtle,
       );
   }
 }

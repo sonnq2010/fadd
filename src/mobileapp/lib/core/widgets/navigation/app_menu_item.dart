@@ -6,7 +6,7 @@ import 'package:mobileapp/core/theme/app_radius.dart';
 import 'package:mobileapp/core/theme/app_shadow.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 
-class AppMenuItem extends StatelessWidget {
+class AppMenuItem extends StatefulWidget {
   const AppMenuItem({
     super.key,
     required this.label,
@@ -27,73 +27,94 @@ class AppMenuItem extends StatelessWidget {
   final VoidCallback? onTap;
 
   @override
+  State<AppMenuItem> createState() => _AppMenuItemState();
+}
+
+class _AppMenuItemState extends State<AppMenuItem> {
+  bool _isHovered = false;
+
+  void _setHovered(bool value) {
+    if (_isHovered != value) {
+      setState(() => _isHovered = value);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final colors = context.colors;
     final typography = context.typography;
 
     final Color bgColor;
-    if (selected) {
+    if (widget.selected) {
       bgColor = colors.background.selected;
+    } else if (_isHovered && !widget.disabled && !widget.destructive) {
+      bgColor = colors.background.secondaryHover;
     } else {
       bgColor = Colors.transparent;
     }
 
     final Color textColor;
-    if (disabled) {
+    if (widget.disabled) {
       textColor = colors.text.disabled;
-    } else if (destructive) {
+    } else if (widget.destructive) {
       textColor = colors.text.error;
-    } else if (selected) {
+    } else if (widget.selected) {
       textColor = colors.text.brand;
     } else {
       textColor = colors.text.primary;
     }
 
-    final Color shortcutColor = disabled
+    final Color shortcutColor = widget.disabled
         ? colors.text.disabled
         : colors.text.tertiary;
 
-    Widget? leading = leadingIcon;
-    if (leading == null && selected) {
+    Widget? leading = widget.leadingIcon;
+    if (leading == null && widget.selected) {
       leading = Icon(LucideIcons.check, size: 16, color: textColor);
     }
 
-    return InkWell(
-      onTap: disabled ? null : onTap,
-      borderRadius: BorderRadius.circular(AppRadius.sm),
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.md,
-          vertical: AppSpacing.sm,
-        ),
-        decoration: BoxDecoration(
-          color: bgColor,
-          borderRadius: BorderRadius.circular(AppRadius.sm),
-        ),
-        child: Row(
-          children: [
-            if (leading != null) ...[
-              IconTheme(
-                data: IconThemeData(size: 16, color: textColor),
-                child: leading,
+    return MouseRegion(
+      cursor: widget.disabled ? MouseCursor.defer : SystemMouseCursors.click,
+      onEnter: widget.disabled ? null : (_) => _setHovered(true),
+      onExit: widget.disabled ? null : (_) => _setHovered(false),
+      child: InkWell(
+        onTap: widget.disabled ? null : widget.onTap,
+        borderRadius: BorderRadius.circular(AppRadius.sm),
+        hoverColor: Colors.transparent,
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSpacing.md,
+            vertical: AppSpacing.sm,
+          ),
+          decoration: BoxDecoration(
+            color: bgColor,
+            borderRadius: BorderRadius.circular(AppRadius.sm),
+          ),
+          child: Row(
+            children: [
+              if (leading != null) ...[
+                IconTheme(
+                  data: IconThemeData(size: 16, color: textColor),
+                  child: leading,
+                ),
+                const Gap(AppSpacing.sm),
+              ],
+              Expanded(
+                child: Text(
+                  widget.label,
+                  style: typography.bodyMedium.withColor(textColor),
+                ),
               ),
-              const Gap(AppSpacing.sm),
+              if (widget.shortcut != null) ...[
+                const Gap(AppSpacing.sm),
+                Text(
+                  widget.shortcut!,
+                  style: typography.caption.withColor(shortcutColor),
+                ),
+              ],
             ],
-            Expanded(
-              child: Text(
-                label,
-                style: typography.bodyMedium.withColor(textColor),
-              ),
-            ),
-            if (shortcut != null) ...[
-              const Gap(AppSpacing.sm),
-              Text(
-                shortcut!,
-                style: typography.caption.withColor(shortcutColor),
-              ),
-            ],
-          ],
+          ),
         ),
       ),
     );

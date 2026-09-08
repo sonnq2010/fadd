@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
+import { clsx } from 'clsx'
 import { ChevronDown } from 'lucide-react'
 import type { Select as SelectPrimitive } from 'radix-ui'
 
@@ -17,13 +18,13 @@ const selectFieldBoxVariants = cva(
   {
     variants: {
       size: {
-        large: 'h-12 rounded-md px-4 py-3 text-lg',
-        medium: 'h-10 rounded-md px-3 py-2 text-base',
-        small: 'h-9 rounded-xs px-2 py-1 text-sm',
+        large: 'h-12 rounded-md px-4 py-3 text-body-medium',
+        medium: 'h-10 rounded-md px-3 py-2 text-body-small',
+        small: 'h-9 rounded-md px-2 py-1 text-body-small',
       },
       state: {
         default:
-          'border-border-default focus-within:border-border-brand focus-within:ring-[3px] focus-within:ring-border-brand/45',
+          'border-border-default focus-within:border-border-focus focus-within:ring-[3px] focus-within:ring-border-focus/45',
         error: 'border-border-error',
         disabled:
           'cursor-not-allowed border-border-disabled bg-bg-disabled text-text-disabled',
@@ -108,12 +109,19 @@ export function SelectField({
                 ? `${selectId}-helper`
                 : undefined
           }
-          className={cn(
+          className={clsx(
             selectFieldBoxVariants({ size, state, className }),
             'box-border shadow-none [&>svg]:hidden', // Hide the inner trigger's built-in icon so we use custom chevron
           )}
         >
-          <SelectValue placeholder={placeholder} />
+          <span
+            className={
+              size === 'large' ? 'text-body-medium' : 'text-body-small'
+            }
+            data-slot="select-field-value"
+          >
+            <SelectValue placeholder={placeholder} />
+          </span>
           <span
             aria-hidden="true"
             className={cn(

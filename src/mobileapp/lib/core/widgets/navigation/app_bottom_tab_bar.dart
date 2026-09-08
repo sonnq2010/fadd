@@ -34,25 +34,28 @@ class AppBottomTabItem extends StatelessWidget {
 
     final contentColor = isActive ? colors.text.brand : colors.text.tertiary;
 
-    return InkWell(
-      onTap: onTap,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            size: 22.0,
-            color: contentColor,
-          ),
-          const Gap(AppSpacing.xs),
-          Text(
-            label,
-            style: typography.caption.withColor(contentColor),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ],
+    return SizedBox(
+      width: 67.5,
+      child: InkWell(
+        onTap: onTap,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              size: 22.0,
+              color: contentColor,
+            ),
+            const Gap(AppSpacing.xs),
+            Text(
+              label,
+              style: typography.labelMedium.withColor(contentColor),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -92,7 +95,8 @@ class AppBottomTabBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          for (var i = 0; i < items.length; i++)
+          for (var i = 0; i < items.length; i++) ...[
+            if (i > 0) const Gap(AppSpacing.md),
             Expanded(
               child: AppBottomTabItem(
                 icon: items[i].icon,
@@ -101,6 +105,7 @@ class AppBottomTabBar extends StatelessWidget {
                 onTap: () => onTap(i),
               ),
             ),
+          ],
         ],
       ),
     );

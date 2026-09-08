@@ -8,3 +8,7 @@
 - [ ] Text area lỗi vị trí cái phóng to thu nhỏ
 - [ ] input loại small ko có border radius
 - [ ] Avatar status indicator lỗi
+- [. ] Radio disable
+- [. ] checkbox disable
+- [. ] Input error, input disable 
+- [  ] Select disable

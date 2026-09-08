@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:mobileapp/core/theme/app_theme.dart';
 import 'package:mobileapp/core/widgets/navigation/app_menu_item.dart';
@@ -8,7 +10,9 @@ void main() {
   Widget buildTestableWidget(Widget widget, {ThemeData? theme}) {
     return MaterialApp(
       theme: theme ?? AppTheme.light,
-      home: Scaffold(body: Center(child: SizedBox(width: 220, child: widget))),
+      home: Scaffold(
+        body: Center(child: SizedBox(width: 220, child: widget)),
+      ),
     );
   }
 
@@ -70,6 +74,45 @@ void main() {
 
       await tester.tap(find.text('Paste'));
       expect(tapped, isFalse);
+    });
+
+    testWidgets('uses body medium, leading check, and hover background', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestableWidget(
+          AppMenuItem(label: 'Hover item', onTap: () {}),
+        ),
+      );
+
+      final label = tester.widget<Text>(find.text('Hover item'));
+      expect(label.style?.fontSize, 16.0);
+
+      final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+      await mouse.addPointer();
+      await mouse.moveTo(tester.getCenter(find.byType(AppMenuItem)));
+      await tester.pump();
+
+      final container = tester.widget<Container>(
+        find.descendant(
+          of: find.byType(AppMenuItem),
+          matching: find.byType(Container),
+        ),
+      );
+      final decoration = container.decoration! as BoxDecoration;
+      final colors = tester.element(find.byType(AppMenuItem)).colors;
+      expect(decoration.color, colors.background.secondaryHover);
+      await mouse.removePointer();
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          const AppMenuItem(label: 'Selected', selected: true),
+        ),
+      );
+      expect(
+        tester.getCenter(find.byIcon(LucideIcons.check)).dx,
+        lessThan(tester.getCenter(find.text('Selected')).dx),
+      );
     });
   });
 }

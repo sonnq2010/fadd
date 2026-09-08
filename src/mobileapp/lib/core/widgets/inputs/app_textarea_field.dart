@@ -107,7 +107,7 @@ class _AppTextareaFieldState extends State<AppTextareaField> {
       borderColor = colors.border.error;
       boxShadow = null;
     } else if (_isFocused) {
-      borderColor = colors.border.brand;
+      borderColor = colors.border.focus;
       boxShadow = AppShadows.focusRing;
     } else {
       borderColor = colors.border.defaultColor;
@@ -153,7 +153,7 @@ class _AppTextareaFieldState extends State<AppTextareaField> {
             keyboardType: TextInputType.multiline,
             onChanged: widget.onChanged,
             onSubmitted: widget.onSubmitted,
-            style: typography.bodyMedium.withColor(textColor),
+            style: typography.bodySmall.withColor(textColor),
             decoration: InputDecoration(
               isDense: true,
               contentPadding: EdgeInsets.zero,
@@ -163,7 +163,7 @@ class _AppTextareaFieldState extends State<AppTextareaField> {
               errorBorder: InputBorder.none,
               disabledBorder: InputBorder.none,
               hintText: widget.placeholder,
-              hintStyle: typography.bodyMedium.withColor(hintColor),
+              hintStyle: typography.bodySmall.withColor(hintColor),
             ),
           ),
         ),

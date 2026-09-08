@@ -19,6 +19,10 @@ describe('Switch public contract', () => {
     expect(markup).toContain('w-10')
     expect(markup).toContain('h-[22px]')
     expect(markup).toContain('size-[18px]')
+    expect(markup).toContain('text-body-small')
+    expect(markup).toContain('data-[state=unchecked]:hover:bg-border-strong')
+    expect(markup).toContain('data-[state=checked]:hover:bg-bg-brand-hover')
+    expect(markup).toContain('bg-icon-on-brand')
   })
 
   it('renders disabled state with disabled label style', () => {

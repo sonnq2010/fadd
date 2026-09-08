@@ -8,15 +8,18 @@ describe('SearchField public contract', () => {
   it('generates the three Figma size contracts', () => {
     expect(searchFieldVariants({ size: 'large' })).toContain('h-12')
     expect(searchFieldVariants({ size: 'large' })).toContain('px-4')
+    expect(searchFieldVariants({ size: 'large' })).toContain('text-body-medium')
     expect(searchFieldVariants({ size: 'medium' })).toContain('h-10')
     expect(searchFieldVariants({ size: 'medium' })).toContain('px-3')
+    expect(searchFieldVariants({ size: 'medium' })).toContain('text-body-small')
     expect(searchFieldVariants({ size: 'small' })).toContain('h-9')
-    expect(searchFieldVariants({ size: 'small' })).toContain('rounded-xs')
+    expect(searchFieldVariants({ size: 'small' })).toContain('text-body-small')
+    expect(searchFieldVariants({ size: 'small' })).toContain('rounded-md')
   })
 
   it('generates default and disabled state styles', () => {
     expect(searchFieldVariants({ state: 'default' })).toContain(
-      'focus-within:ring-[3px]',
+      'focus-within:border-border-focus',
     )
     expect(searchFieldVariants({ state: 'disabled' })).toContain(
       'bg-bg-disabled',

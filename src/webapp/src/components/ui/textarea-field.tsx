@@ -4,12 +4,12 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const textareaFieldBoxVariants = cva(
-  'flex w-full items-start overflow-hidden border-[1.5px] border-solid bg-bg-primary transition-all outline-none',
+  'flex w-full items-start border-[1.5px] border-solid bg-bg-primary transition-all outline-none',
   {
     variants: {
       state: {
         default:
-          'border-border-default focus-within:border-border-brand focus-within:ring-[3px] focus-within:ring-border-brand/45',
+          'border-border-default focus-within:border-border-focus focus-within:ring-[3px] focus-within:ring-border-focus/45',
         error: 'border-border-error',
         disabled:
           'cursor-not-allowed border-border-disabled bg-bg-disabled text-text-disabled',
@@ -85,9 +85,7 @@ const TextareaField = React.forwardRef<HTMLTextAreaElement, TextareaFieldProps>(
                   ? `${textareaId}-helper`
                   : undefined
             }
-            className={cn(
-              'text-text-primary placeholder:text-text-placeholder disabled:text-text-disabled h-full w-full min-w-0 resize-y bg-transparent text-base outline-none disabled:cursor-not-allowed',
-            )}
+            className="text-text-primary placeholder:text-text-placeholder disabled:text-text-disabled text-body-small h-full w-full min-w-0 resize-y bg-transparent outline-none disabled:cursor-not-allowed"
             data-slot="textarea-field-input"
             {...props}
           />

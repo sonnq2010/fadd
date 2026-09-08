@@ -5,7 +5,7 @@ import 'package:mobileapp/core/theme/app_radius.dart';
 import 'package:mobileapp/core/theme/app_shadow.dart';
 
 /// Text input field for forms:
-/// Sizes: Small (36px, radius 4), Medium (40px, radius 8), Large (48px, radius 8).
+/// Sizes: Small (36px), Medium (40px), Large (48px), all with 8px radius.
 /// States: Default, Focus, Filled, Error, Disabled.
 /// Features: label, helper / error text, leading / trailing icon.
 
@@ -128,7 +128,7 @@ class _AppInputFieldState extends State<AppInputField> {
       borderColor = colors.border.error;
       boxShadow = null;
     } else if (_isFocused) {
-      borderColor = colors.border.brand;
+      borderColor = colors.border.focus;
       boxShadow = AppShadows.focusRing;
     } else {
       borderColor = colors.border.defaultColor;
@@ -150,11 +150,9 @@ class _AppInputFieldState extends State<AppInputField> {
     TextStyle textStyle;
     switch (widget.size) {
       case AppInputSize.large:
-        textStyle = typography.bodyLarge;
-        break;
-      case AppInputSize.medium:
         textStyle = typography.bodyMedium;
         break;
+      case AppInputSize.medium:
       case AppInputSize.small:
         textStyle = typography.bodySmall;
         break;
@@ -280,7 +278,7 @@ const Map<AppInputSize, _InputTokens> _inputTokens = {
   ),
   AppInputSize.small: _InputTokens(
     height: 36,
-    radius: AppRadius.sm, // 4px from Figma
+    radius: AppRadius.md, // 8px from Figma
     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
   ),
 };

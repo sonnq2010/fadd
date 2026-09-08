@@ -12,6 +12,9 @@ describe('SideNavItem public contract', () => {
 
     expect(markup).toContain('Dashboard')
     expect(markup).toContain('text-text-secondary')
+    expect(markup).toContain('text-body-small')
+    expect(markup).toContain('hover:bg-bg-secondary-hover')
+    expect(markup).toContain('hover:text-text-primary')
   })
 
   it('renders active state with brand text and selected background', () => {

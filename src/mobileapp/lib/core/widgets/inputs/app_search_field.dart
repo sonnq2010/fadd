@@ -115,7 +115,7 @@ class _AppSearchFieldState extends State<AppSearchField> {
       borderColor = colors.border.disabled;
       boxShadow = null;
     } else if (_isFocused) {
-      borderColor = colors.border.brand;
+      borderColor = colors.border.focus;
       boxShadow = AppShadows.focusRing;
     } else {
       borderColor = colors.border.defaultColor;
@@ -131,11 +131,9 @@ class _AppSearchFieldState extends State<AppSearchField> {
     TextStyle textStyle;
     switch (widget.size) {
       case AppSearchFieldSize.large:
-        textStyle = typography.bodyLarge;
-        break;
-      case AppSearchFieldSize.medium:
         textStyle = typography.bodyMedium;
         break;
+      case AppSearchFieldSize.medium:
       case AppSearchFieldSize.small:
         textStyle = typography.bodySmall;
         break;
@@ -228,7 +226,7 @@ const Map<AppSearchFieldSize, _SearchTokens> _searchTokens = {
   ),
   AppSearchFieldSize.small: _SearchTokens(
     height: 36,
-    radius: AppRadius.sm,
+    radius: AppRadius.md,
     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
   ),
 };

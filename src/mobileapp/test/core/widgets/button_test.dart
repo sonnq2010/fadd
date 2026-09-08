@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:mobileapp/core/theme/app_color.dart';
 import 'package:mobileapp/core/theme/app_theme.dart';
 import 'package:mobileapp/core/widgets/buttons/buttons.dart';
 
@@ -77,6 +78,138 @@ void main() {
       expect(find.byIcon(LucideIcons.arrowLeft), findsOneWidget);
       expect(find.byIcon(LucideIcons.arrowRight), findsOneWidget);
       expect(find.text('With Icons'), findsOneWidget);
+    });
+
+    testWidgets('uses pressed backgrounds for every variant', (tester) async {
+      for (final (theme, colors) in [
+        (AppTheme.light, AppColors.light),
+        (AppTheme.dark, AppColors.dark),
+      ]) {
+        final cases = <(Widget, Color)>[
+          (
+            AppButton.primary(label: 'Primary', onPressed: () {}),
+            colors.background.brandPressed,
+          ),
+          (
+            AppButton.secondary(label: 'Secondary', onPressed: () {}),
+            colors.background.secondaryHover,
+          ),
+          (
+            AppButton.outline(label: 'Outline', onPressed: () {}),
+            colors.background.brandSubtle,
+          ),
+          (
+            AppButton.ghost(label: 'Ghost', onPressed: () {}),
+            colors.background.secondaryHover,
+          ),
+          (
+            AppButton.destructive(label: 'Destructive', onPressed: () {}),
+            colors.background.errorPressed,
+          ),
+          (
+            AppButton.destructiveOutline(
+              label: 'Destructive Outline',
+              onPressed: () {},
+            ),
+            colors.background.errorSubtle,
+          ),
+        ];
+
+        for (final (widget, expectedColor) in cases) {
+          await tester.pumpWidget(buildTestableWidget(widget, theme: theme));
+          await tester.pumpAndSettle();
+
+          final button = tester.widget<ElevatedButton>(
+            find.byType(ElevatedButton),
+          );
+          final actualColor = button.style?.backgroundColor?.resolve({
+            WidgetState.pressed,
+            WidgetState.hovered,
+            WidgetState.focused,
+          });
+
+          expect(actualColor, expectedColor);
+        }
+      }
+    });
+
+    testWidgets('uses variant foreground colors for splash', (tester) async {
+      for (final (theme, colors) in [
+        (AppTheme.light, AppColors.light),
+        (AppTheme.dark, AppColors.dark),
+      ]) {
+        final cases = <(Widget, Color)>[
+          (
+            AppButton.primary(label: 'Primary', onPressed: () {}),
+            colors.text.onBrand,
+          ),
+          (
+            AppButton.secondary(label: 'Secondary', onPressed: () {}),
+            colors.text.primary,
+          ),
+          (
+            AppButton.outline(label: 'Outline', onPressed: () {}),
+            colors.text.brand,
+          ),
+          (
+            AppButton.ghost(label: 'Ghost', onPressed: () {}),
+            colors.text.primary,
+          ),
+          (
+            AppButton.destructive(label: 'Destructive', onPressed: () {}),
+            colors.text.onBrand,
+          ),
+          (
+            AppButton.destructiveOutline(
+              label: 'Destructive Outline',
+              onPressed: () {},
+            ),
+            colors.text.error,
+          ),
+        ];
+
+        for (final (widget, splashColor) in cases) {
+          await tester.pumpWidget(buildTestableWidget(widget, theme: theme));
+          await tester.pumpAndSettle();
+
+          final button = tester.widget<ElevatedButton>(
+            find.byType(ElevatedButton),
+          );
+
+          expect(
+            button.style?.overlayColor?.resolve({WidgetState.pressed}),
+            splashColor.withValues(alpha: 0.12),
+          );
+        }
+      }
+    });
+
+    testWidgets('disabled background takes precedence over pressed', (
+      tester,
+    ) async {
+      for (final (theme, colors) in [
+        (AppTheme.light, AppColors.light),
+        (AppTheme.dark, AppColors.dark),
+      ]) {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            const AppButton.primary(label: 'Disabled', onPressed: null),
+            theme: theme,
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final button = tester.widget<ElevatedButton>(
+          find.byType(ElevatedButton),
+        );
+        final actualColor = button.style?.backgroundColor?.resolve({
+          WidgetState.disabled,
+          WidgetState.pressed,
+          WidgetState.hovered,
+        });
+
+        expect(actualColor, colors.background.disabled);
+      }
     });
   });
 }

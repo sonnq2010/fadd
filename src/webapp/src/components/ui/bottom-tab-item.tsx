@@ -26,7 +26,7 @@ function MobileBottomTabItem({
     <button
       aria-selected={isActive}
       className={cn(
-        'flex flex-1 flex-col items-center gap-1 bg-transparent text-center transition-colors outline-none select-none',
+        'flex w-[67.5px] min-w-0 flex-col items-center gap-1 bg-transparent text-center transition-colors outline-none select-none',
         'focus-visible:ring-border-brand/45 focus-visible:ring-[3px]',
         isActive
           ? 'text-text-brand [&_svg]:text-text-brand'
@@ -45,9 +45,7 @@ function MobileBottomTabItem({
           {icon}
         </span>
       )}
-      <span className="text-[11px] leading-[17px] font-normal tracking-normal whitespace-nowrap">
-        {label}
-      </span>
+      <span className="text-label-medium w-full truncate">{label}</span>
     </button>
   )
 }
@@ -83,6 +81,7 @@ function MobileBottomTabBar({
     >
       {items.map((item, index) => (
         <MobileBottomTabItem
+          className="flex-1"
           icon={item.icon}
           isActive={selectedIndex === index}
           key={index}

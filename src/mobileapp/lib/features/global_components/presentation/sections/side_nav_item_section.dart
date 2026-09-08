@@ -44,6 +44,13 @@ class SideNavItemSection extends StatelessWidget {
                 ),
               ),
               _StatePreview(
+                label: 'Hover',
+                child: AppSideNavItem(
+                  icon: LucideIcons.house,
+                  label: 'Nav item',
+                ),
+              ),
+              _StatePreview(
                 label: 'Active',
                 child: AppSideNavItem(
                   icon: LucideIcons.house,

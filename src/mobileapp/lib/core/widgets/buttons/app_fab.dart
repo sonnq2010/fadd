@@ -37,6 +37,7 @@ class AppFab extends StatelessWidget {
         ? appColors.text.disabled
         : appColors.text.onBrand;
     final hoverBackground = appColors.background.brandHover;
+    final pressedBackground = appColors.background.brandPressed;
 
     Widget button = Container(
       width: tokens.dimension,
@@ -63,7 +64,11 @@ class AppFab extends StatelessWidget {
             if (states.contains(WidgetState.disabled)) {
               return background;
             }
-            if (states.contains(WidgetState.hovered)) {
+            if (states.contains(WidgetState.pressed)) {
+              return pressedBackground;
+            }
+            if (states.contains(WidgetState.hovered) ||
+                states.contains(WidgetState.focused)) {
               return hoverBackground;
             }
             return background;

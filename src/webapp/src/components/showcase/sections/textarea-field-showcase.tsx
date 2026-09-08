@@ -23,7 +23,7 @@ export function TextareaFieldShowcase() {
 
         <StateExample label="Focus">
           <TextareaField
-            className="border-border-brand ring-border-brand/45 ring-[3px]"
+            className="border-border-focus ring-border-focus/45 ring-[3px]"
             helperText={t(($) => $.globalComponents.textareaField.helperText)}
             label={t(($) => $.globalComponents.textareaField.label)}
             placeholder={t(($) => $.globalComponents.textareaField.placeholder)}

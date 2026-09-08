@@ -36,7 +36,7 @@ export function SearchFieldShowcase() {
 
               <StateExample label="Focus">
                 <SearchField
-                  className="border-border-brand ring-border-brand/45 ring-[3px]"
+                  className="border-border-focus ring-border-focus/45 ring-[3px]"
                   placeholder={t(
                     ($) => $.globalComponents.searchField.placeholder,
                   )}
