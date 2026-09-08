@@ -5,19 +5,27 @@ import { Switch as SwitchPrimitive } from 'radix-ui'
 
 import { cn } from '@/lib/utils'
 
-function Switch({
-  className,
-  size = 'default',
-  ...props
-}: React.ComponentProps<typeof SwitchPrimitive.Root> & {
-  size?: 'sm' | 'default'
-}) {
-  return (
+export interface SwitchProps extends React.ComponentProps<
+  typeof SwitchPrimitive.Root
+> {
+  label?: string
+}
+
+function Switch({ className, id, label, disabled, ...props }: SwitchProps) {
+  const generatedId = React.useId()
+  const switchId = id ?? (label ? generatedId : undefined)
+
+  const control = (
     <SwitchPrimitive.Root
+      id={switchId}
       data-slot="switch"
-      data-size={size}
+      disabled={disabled}
       className={cn(
-        'peer group/switch focus-visible:border-ring focus-visible:ring-ring/50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input dark:data-[state=unchecked]:bg-input/80 inline-flex shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-[1.15rem] data-[size=default]:w-8 data-[size=sm]:h-3.5 data-[size=sm]:w-6',
+        'peer inline-flex h-[22px] w-10 shrink-0 cursor-pointer items-center rounded-full p-[2px] transition-colors outline-none',
+        'focus-visible:ring-border-brand/45 focus-visible:ring-[3px]',
+        'data-[state=unchecked]:bg-border-strong data-[state=unchecked]:hover:bg-border-strong/80',
+        'data-[state=checked]:bg-bg-brand data-[state=checked]:hover:bg-bg-brand-hover',
+        'disabled:bg-bg-disabled data-[state=checked]:disabled:bg-bg-disabled disabled:cursor-not-allowed',
         className,
       )}
       {...props}
@@ -25,10 +33,32 @@ function Switch({
       <SwitchPrimitive.Thumb
         data-slot="switch-thumb"
         className={cn(
-          'bg-background dark:data-[state=checked]:bg-primary-foreground dark:data-[state=unchecked]:bg-foreground pointer-events-none block rounded-full ring-0 transition-transform group-data-[size=default]/switch:size-4 group-data-[size=sm]/switch:size-3 data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0',
+          'pointer-events-none block size-[18px] rounded-full bg-white shadow-xs transition-transform duration-200',
+          'data-[state=checked]:translate-x-[18px] data-[state=unchecked]:translate-x-0',
         )}
       />
     </SwitchPrimitive.Root>
+  )
+
+  if (!label) {
+    return control
+  }
+
+  return (
+    <div className="inline-flex items-center gap-2">
+      {control}
+      <label
+        htmlFor={switchId}
+        className={cn(
+          'text-base font-normal select-none md:text-sm',
+          disabled
+            ? 'text-text-disabled cursor-not-allowed'
+            : 'text-text-primary cursor-pointer',
+        )}
+      >
+        {label}
+      </label>
+    </div>
   )
 }
 

@@ -528,9 +528,3 @@ class AppColors extends ThemeExtension<AppColors> {
     );
   }
 }
-
-/// Helper extension: `context.colors.background.brand`
-extension AppColorsX on BuildContext {
-  AppColors get colors =>
-      Theme.of(this).extension<AppColors>() ?? AppColors.light;
-}

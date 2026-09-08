@@ -1,3 +1,10 @@
 # Issues
 
-- [ ]
+- [ ] Flutter chưa setup generate locale keys
+- [ ] Bỏ cái nào ko có trong design system ra khỏi webapp
+- [ ] Refactor tên file tên components của mobile app
+- [ ] Dùng component Design System để replace UI hiện có của mobileapp và webapp
+- [ ] Tooltip lỗi
+- [ ] Text area lỗi vị trí cái phóng to thu nhỏ
+- [ ] input loại small ko có border radius
+- [ ] Avatar status indicator lỗi

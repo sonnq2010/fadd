@@ -1,0 +1,185 @@
+{
+  "accordion": {
+    "desc": "",
+    "itemContent": "",
+    "itemTitle": "",
+    "title": "Mục mở rộng (Accordion)"
+  },
+  "alert": {
+    "desc": "",
+    "errorMsg": "",
+    "infoMsg": "",
+    "successMsg": "",
+    "title": "Thông báo (Alert)",
+    "warningMsg": ""
+  },
+  "avatar": {
+    "desc": "",
+    "title": "Ảnh đại diện (Avatar)"
+  },
+  "badge": {
+    "desc": "",
+    "title": "Huy hiệu (Badge)"
+  },
+  "bottomTabItem": {
+    "desc": "",
+    "title": "Mục tab dưới di động & Thanh tab dưới"
+  },
+  "breadcrumb": {
+    "desc": "",
+    "designSystem": "",
+    "home": "",
+    "projects": "",
+    "title": "Đường dẫn (Breadcrumb)"
+  },
+  "button": {
+    "desc": "",
+    "title": "Nút bấm"
+  },
+  "buttonGroup": {
+    "cancel": "",
+    "confirm": "",
+    "desc": "",
+    "title": "Nhóm nút bấm"
+  },
+  "card": {
+    "desc": "",
+    "title": "Thẻ thông tin (Card)"
+  },
+  "checkbox": {
+    "desc": "",
+    "label": "",
+    "title": "Hộp kiểm (Checkbox)"
+  },
+  "chip": {
+    "desc": "Lựa chọn tương tác được (filter, tag input) — khác Badge chỉ hiển thị trạng thái. Selected có checkmark, có thể thêm nút xóa.",
+    "title": "Thẻ chọn (Chip)"
+  },
+  "dark": "Tối",
+  "divider": {
+    "desc": "Đường phân cách nội dung/section. Có biến thể ngang, dọc, và ngang kèm label ở giữa.",
+    "horizontal": "Ngang (Horizontal)",
+    "title": "Đường phân cách (Divider)",
+    "vertical": "Dọc (Vertical)",
+    "withLabel": "Kèm nhãn (With Label)"
+  },
+  "fab": {
+    "desc": "",
+    "title": "FAB"
+  },
+  "iconButton": {
+    "desc": "",
+    "title": "Nút biểu tượng"
+  },
+  "inputField": {
+    "desc": "",
+    "errorText": "",
+    "filledValue": "",
+    "helperText": "",
+    "label": "",
+    "placeholder": "",
+    "title": "Trường nhập liệu"
+  },
+  "light": "Sáng",
+  "menuItem": {
+    "desc": "",
+    "sampleTitle": "",
+    "title": "Mục menu (Menu Item)"
+  },
+  "mobileActionSheet": {
+    "desc": "",
+    "title": "Bảng hành động di động (Action Sheet)"
+  },
+  "mobileTopAppBar": {
+    "desc": "",
+    "title": "Thanh tiêu đề ứng dụng di động (Top App Bar)"
+  },
+  "modal": {
+    "delete": "",
+    "desc": "",
+    "openModal": "",
+    "sampleDesc": "",
+    "sampleTitle": "",
+    "title": "Hộp thoại (Modal / Dialog)"
+  },
+  "navBar": {
+    "desc": "",
+    "title": "Thanh điều hướng trên (Nav Bar)"
+  },
+  "pagination": {
+    "desc": "",
+    "title": "Phân trang (Pagination)"
+  },
+  "progressBar": {
+    "desc": "Chỉ báo tiến trình tuyến tính cho tải tệp, hoàn thành tác vụ, v.v. Hiển thị ở mức 60% với nhãn tùy chọn.",
+    "sampleLabel": "Đang tải lên file.pdf",
+    "title": "Thanh tiến trình (Progress Bar)"
+  },
+  "radio": {
+    "desc": "",
+    "label": "",
+    "title": "Nút chọn duy nhất (Radio)"
+  },
+  "searchField": {
+    "desc": "",
+    "filledValue": "",
+    "placeholder": "",
+    "title": "Ô tìm kiếm (Search Field)"
+  },
+  "select": {
+    "desc": "Dropdown chọn 1 giá trị từ danh sách. Cùng chiều cao với Input field (36/40/48px).",
+    "errorText": "Thông báo lỗi hiển thị ở đây",
+    "helperText": "Nội dung hỗ trợ",
+    "label": "Nhãn",
+    "placeholder": "Chọn một tùy chọn",
+    "title": "Hộp chọn (Select)"
+  },
+  "sideNavItem": {
+    "desc": "",
+    "title": "Mục thanh bên (Side Nav Item)"
+  },
+  "slider": {
+    "desc": "",
+    "title": "Thanh trượt (Slider)"
+  },
+  "stepper": {
+    "account": "Tài khoản",
+    "desc": "1 bước trong quy trình nhiều bước (checkout, onboarding). Completed hiện checkmark thay vì số.",
+    "payment": "Thanh toán",
+    "review": "Xem lại",
+    "shipping": "Giao hàng",
+    "title": "Các bước tiến trình (Stepper)"
+  },
+  "switch": {
+    "desc": "",
+    "label": "",
+    "title": "Công tắc (Switch)"
+  },
+  "tabItem": {
+    "desc": "",
+    "title": "Mục tab (Tab Item)"
+  },
+  "table": {
+    "colName": "Tên",
+    "colRole": "Vai trò",
+    "colStatus": "Trạng thái",
+    "desc": "Ghép từ Checkbox, Avatar, Badge, Icon Button có sẵn — không tạo component rời cho từng cell.",
+    "title": "Bảng dữ liệu (Table)"
+  },
+  "textareaField": {
+    "desc": "",
+    "errorText": "",
+    "filledValue": "",
+    "helperText": "",
+    "invalidValue": "",
+    "label": "",
+    "placeholder": "",
+    "title": "Vùng nhập văn bản (Textarea Field)"
+  },
+  "title": "Các thành phần dùng chung",
+  "tooltip": {
+    "desc": "",
+    "text": "",
+    "title": "Gợi ý (Tooltip)"
+  }
+}

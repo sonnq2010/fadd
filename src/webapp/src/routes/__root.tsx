@@ -5,10 +5,11 @@ import {
   Scripts,
   createRootRouteWithContext,
 } from '@tanstack/react-router'
-import type { ReactNode } from 'react'
+import { useEffect, type ReactNode } from 'react'
 
 import { Footer } from '@/components/layout/footer'
 import { Header } from '@/components/layout/header'
+import i18n, { initializeBrowserLanguage } from '@/i18n/config'
 import { NotFoundPage } from '@/components/not-found'
 import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
@@ -24,6 +25,19 @@ export const Route = createRootRouteWithContext<{
 
 function AppShell() {
   const { queryClient } = Route.useRouteContext()
+
+  useEffect(() => {
+    const updateDocumentLanguage = (language: string) => {
+      document.documentElement.lang = language
+    }
+
+    i18n.on('languageChanged', updateDocumentLanguage)
+    void initializeBrowserLanguage()
+
+    return () => {
+      i18n.off('languageChanged', updateDocumentLanguage)
+    }
+  }, [])
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -59,7 +73,7 @@ function RootDocument({ children }: { children: ReactNode }) {
           rel="stylesheet"
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <Scripts />
       </body>

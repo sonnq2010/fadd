@@ -7,7 +7,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { supportedLanguages, type SupportedLanguage } from '@/i18n/config'
+import {
+  persistLanguage,
+  supportedLanguages,
+  type SupportedLanguage,
+} from '@/i18n/config'
 
 function isSupportedLanguage(language: string): language is SupportedLanguage {
   return supportedLanguages.some((supported) => supported === language)
@@ -22,6 +26,7 @@ export function LanguageSwitcher() {
 
   const changeLanguage = (language: string) => {
     if (isSupportedLanguage(language)) {
+      persistLanguage(language)
       void i18n.changeLanguage(language)
     }
   }

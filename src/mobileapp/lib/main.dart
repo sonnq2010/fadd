@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:mobileapp/core/app/app.dart';
+import 'package:mobileapp/core/app/observer.dart';
 import 'package:mobileapp/core/configs/app_config.dart';
 
 void main() async {
@@ -33,6 +35,10 @@ void main() async {
     // ),
   );
 
-  // ignore: missing_provider_scope
-  runApp(const App());
+  runApp(
+    ProviderScope(
+      observers: [Observer()],
+      child: const App(),
+    ),
+  );
 }

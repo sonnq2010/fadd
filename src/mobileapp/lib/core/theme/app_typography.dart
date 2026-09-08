@@ -134,6 +134,7 @@ class AppTypography extends ThemeExtension<AppTypography> {
       fontWeight: FontWeight.w400,
       letterSpacing: 0.0,
       color: _baseLightColor,
+      decoration: TextDecoration.underline,
     ),
     labelLarge: TextStyle(
       fontFamily: fontFamily,
@@ -261,6 +262,7 @@ class AppTypography extends ThemeExtension<AppTypography> {
       fontWeight: FontWeight.w400,
       letterSpacing: 0.0,
       color: _baseDarkColor,
+      decoration: TextDecoration.underline,
     ),
     labelLarge: TextStyle(
       fontFamily: fontFamily,

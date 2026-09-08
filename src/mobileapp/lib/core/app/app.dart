@@ -3,22 +3,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapp/core/constants/locale_constants.dart';
 import 'package:mobileapp/core/router/app_router.dart';
-import 'package:mobileapp/core/app/observer.dart';
+import 'package:mobileapp/core/theme/app_theme.dart';
+import 'package:mobileapp/core/theme/providers/theme_mode_provider.dart';
 
-class App extends StatelessWidget {
+class App extends ConsumerWidget {
   const App({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return ProviderScope(
-      observers: [Observer()],
-      child: EasyLocalization(
-        path: LocaleConstants.translationsPath,
-        supportedLocales: LocaleConstants.supportedLocales,
-        fallbackLocale: LocaleConstants.fallbackLocale,
-        child: MaterialApp.router(
-          routerConfig: AppRouter.config,
-        ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(appThemeModeProvider);
+
+    return EasyLocalization(
+      path: LocaleConstants.translationsPath,
+      supportedLocales: LocaleConstants.supportedLocales,
+      fallbackLocale: LocaleConstants.fallbackLocale,
+      child: MaterialApp.router(
+        routerConfig: AppRouter.config,
+        theme: AppTheme.light,
+        darkTheme: AppTheme.dark,
+        themeMode: themeMode,
       ),
     );
   }

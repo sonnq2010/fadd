@@ -8,17 +8,17 @@
   --font-heading: var(--font-heading-family);
 
   /* Spacing Tokens */
-  --spacing-2xs: 2px;
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 12px;
-  --spacing-lg: 16px;
-  --spacing-xl: 20px;
-  --spacing-2xl: 24px;
-  --spacing-3xl: 32px;
-  --spacing-4xl: 40px;
-  --spacing-5xl: 48px;
-  --spacing-6xl: 64px;
+  --spacing-app-2xs: 2px;
+  --spacing-app-xs: 4px;
+  --spacing-app-sm: 8px;
+  --spacing-app-md: 12px;
+  --spacing-app-lg: 16px;
+  --spacing-app-xl: 20px;
+  --spacing-app-2xl: 24px;
+  --spacing-app-3xl: 32px;
+  --spacing-app-4xl: 40px;
+  --spacing-app-5xl: 48px;
+  --spacing-app-6xl: 64px;
 
   /* Border Radius Tokens */
   --radius-none: 0px;

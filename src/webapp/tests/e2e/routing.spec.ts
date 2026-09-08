@@ -43,6 +43,26 @@ test('renders route content only after client startup', async ({
   await expect(page.getByRole('heading', { name: 'About' })).toBeVisible()
 })
 
+test('hydrates safely with a stored Vietnamese preference', async ({
+  page,
+}) => {
+  const browserErrors: string[] = []
+
+  page.on('pageerror', (error) => browserErrors.push(error.message))
+  page.on('console', (message) => {
+    if (message.type() === 'error') browserErrors.push(message.text())
+  })
+  await page.addInitScript(() => localStorage.setItem('app-language', 'vi'))
+
+  await page.goto('/global-components')
+
+  await expect(
+    page.getByRole('heading', { level: 1, name: 'Thành phần dùng chung' }),
+  ).toBeVisible()
+  await expect(page.locator('html')).toHaveAttribute('lang', 'vi')
+  expect(browserErrors, browserErrors.join('\n')).toEqual([])
+})
+
 test('switches and persists the interface language', async ({ page }) => {
   await page.goto('/')
   await expect(

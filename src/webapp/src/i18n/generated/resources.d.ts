@@ -5,6 +5,191 @@ export default interface Resources {
     "seoDescription": "Application information",
     "seoTitle": "About | Application"
   },
+  "globalComponents": {
+    "accordion": {
+      "desc": "accordion.desc",
+      "itemContent": "accordion.itemContent",
+      "itemTitle": "accordion.itemTitle",
+      "title": "Accordion"
+    },
+    "alert": {
+      "desc": "alert.desc",
+      "errorMsg": "alert.errorMsg",
+      "infoMsg": "alert.infoMsg",
+      "successMsg": "alert.successMsg",
+      "title": "Alert",
+      "warningMsg": "alert.warningMsg"
+    },
+    "avatar": {
+      "desc": "avatar.desc",
+      "title": "Avatar"
+    },
+    "badge": {
+      "desc": "badge.desc",
+      "title": "Badge"
+    },
+    "bottomTabItem": {
+      "desc": "bottomTabItem.desc",
+      "title": "Mobile Bottom Tab Item & Bar"
+    },
+    "breadcrumb": {
+      "desc": "breadcrumb.desc",
+      "designSystem": "breadcrumb.designSystem",
+      "home": "breadcrumb.home",
+      "projects": "breadcrumb.projects",
+      "title": "Breadcrumb"
+    },
+    "button": {
+      "desc": "button.desc",
+      "title": "Button"
+    },
+    "buttonGroup": {
+      "cancel": "buttonGroup.cancel",
+      "confirm": "buttonGroup.confirm",
+      "desc": "buttonGroup.desc",
+      "title": "Button Group"
+    },
+    "card": {
+      "desc": "card.desc",
+      "title": "Card"
+    },
+    "checkbox": {
+      "desc": "checkbox.desc",
+      "label": "checkbox.label",
+      "title": "Checkbox"
+    },
+    "chip": {
+      "desc": "Interactive selectable pill for filters or tag input (unlike Badge, which is display-only). Selected shows a leading checkmark. Optional trailing close/remove icon.",
+      "title": "Chip"
+    },
+    "dark": "Dark",
+    "divider": {
+      "desc": "Separates content or sections. Horizontal, Vertical, or Horizontal with a centered label (e.g. \"OR\").",
+      "horizontal": "Horizontal",
+      "title": "Divider",
+      "vertical": "Vertical",
+      "withLabel": "With Label"
+    },
+    "fab": {
+      "desc": "fab.desc",
+      "title": "FAB"
+    },
+    "iconButton": {
+      "desc": "iconButton.desc",
+      "title": "Icon Button"
+    },
+    "inputField": {
+      "desc": "inputField.desc",
+      "errorText": "Error message goes here",
+      "filledValue": "Filled value",
+      "helperText": "Helper text",
+      "label": "Label",
+      "placeholder": "Placeholder text",
+      "title": "Input Field"
+    },
+    "light": "Light",
+    "menuItem": {
+      "desc": "menuItem.desc",
+      "sampleTitle": "menuItem.sampleTitle",
+      "title": "Menu Item"
+    },
+    "mobileActionSheet": {
+      "desc": "mobileActionSheet.desc",
+      "title": "Mobile Action Sheet"
+    },
+    "mobileTopAppBar": {
+      "desc": "mobileTopAppBar.desc",
+      "title": "Mobile Top App Bar"
+    },
+    "modal": {
+      "delete": "modal.delete",
+      "desc": "modal.desc",
+      "openModal": "modal.openModal",
+      "sampleDesc": "modal.sampleDesc",
+      "sampleTitle": "modal.sampleTitle",
+      "title": "Modal / Dialog"
+    },
+    "navBar": {
+      "desc": "navBar.desc",
+      "title": "Nav Bar"
+    },
+    "pagination": {
+      "desc": "pagination.desc",
+      "title": "Pagination"
+    },
+    "progressBar": {
+      "desc": "Linear progress indicator for uploads, task completion, etc. Shown at 60% with optional label.",
+      "sampleLabel": "Uploading file.pdf",
+      "title": "Progress Bar"
+    },
+    "radio": {
+      "desc": "radio.desc",
+      "label": "radio.label",
+      "title": "Radio"
+    },
+    "searchField": {
+      "desc": "searchField.desc",
+      "filledValue": "searchField.filledValue",
+      "placeholder": "searchField.placeholder",
+      "title": "Search Field"
+    },
+    "select": {
+      "desc": "Dropdown select a single value from list. Same height scale as Input field (36/40/48px).",
+      "errorText": "Error message goes here",
+      "helperText": "Helper text",
+      "label": "Label",
+      "placeholder": "Select an option",
+      "title": "Select"
+    },
+    "sideNavItem": {
+      "desc": "sideNavItem.desc",
+      "title": "Side Nav Item"
+    },
+    "slider": {
+      "desc": "slider.desc",
+      "title": "Slider"
+    },
+    "stepper": {
+      "account": "Account",
+      "desc": "A single step in a multi-step flow (checkout, onboarding). Completed shows a checkmark instead of the step number.",
+      "payment": "Payment",
+      "review": "Review",
+      "shipping": "Shipping",
+      "title": "Stepper"
+    },
+    "switch": {
+      "desc": "switch.desc",
+      "label": "switch.label",
+      "title": "Switch"
+    },
+    "tabItem": {
+      "desc": "tabItem.desc",
+      "title": "Tab Item"
+    },
+    "table": {
+      "colName": "Name",
+      "colRole": "Role",
+      "colStatus": "Status",
+      "desc": "Data table composed of existing components: Checkbox for row select, Avatar + text for name, Badge for status, Icon Button for row actions.",
+      "title": "Table"
+    },
+    "textareaField": {
+      "desc": "textareaField.desc",
+      "errorText": "textareaField.errorText",
+      "filledValue": "textareaField.filledValue",
+      "helperText": "textareaField.helperText",
+      "invalidValue": "textareaField.invalidValue",
+      "label": "textareaField.label",
+      "placeholder": "textareaField.placeholder",
+      "title": "Textarea Field"
+    },
+    "title": "Global Components",
+    "tooltip": {
+      "desc": "tooltip.desc",
+      "text": "tooltip.text",
+      "title": "Tooltip"
+    }
+  },
   "home": {
     "heading": "Landing page",
     "seoDescription": "Application landing page",
