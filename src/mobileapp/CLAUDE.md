@@ -16,7 +16,7 @@ Do not manually edit:
 - `api-client/**`
 - `lib/**/*.g.dart`
 - `lib/**/*.freezed.dart`
-- `lib/generated/locale_keys.g.dart`
+- `lib/core/l10n/locale_keys.g.dart`
 
 Backend `.api` files under `../backend/api` are the API source of truth. Change backend contracts, Riverpod annotations, Freezed declarations, or generator configuration and regenerate instead.
 

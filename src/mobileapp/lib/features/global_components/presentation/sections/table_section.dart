@@ -8,7 +8,7 @@ import 'package:mobileapp/core/widgets/data_display/app_avatar.dart';
 import 'package:mobileapp/core/widgets/data_display/app_badge.dart';
 import 'package:mobileapp/core/widgets/data_display/app_table.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
-import 'package:mobileapp/generated/locale_keys.g.dart';
+import 'package:mobileapp/core/l10n/locale_keys.g.dart';
 
 class TableSection extends StatefulWidget {
   const TableSection({super.key});

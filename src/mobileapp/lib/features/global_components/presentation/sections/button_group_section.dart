@@ -5,7 +5,7 @@ import 'package:mobileapp/core/theme/app_radius.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/buttons/buttons.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
-import 'package:mobileapp/generated/locale_keys.g.dart';
+import 'package:mobileapp/core/l10n/locale_keys.g.dart';
 
 class ButtonGroupSection extends StatelessWidget {
   const ButtonGroupSection({super.key});

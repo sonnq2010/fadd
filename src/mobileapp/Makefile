@@ -5,7 +5,7 @@ gen-code:
 	$(MAKE) gen-locale-keys
 
 gen-locale-keys:
-	fvm dart run easy_localization:generate -S assets/translations -s en.json -O lib/generated -o locale_keys.g.dart -f keys -u
+	fvm dart run easy_localization:generate -S assets/translations -s en.json -O lib/core/l10n -o locale_keys.g.dart -f keys -u
 
 gen-api-client:
 	./tool/generate_api_client.sh

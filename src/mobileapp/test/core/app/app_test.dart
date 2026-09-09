@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mobileapp/core/app/app.dart';
 import 'package:mobileapp/core/constants/locale_constants.dart';
-import 'package:mobileapp/generated/locale_keys.g.dart';
+import 'package:mobileapp/core/l10n/locale_keys.g.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {

@@ -4,7 +4,7 @@ import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/layout/app_divider.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
-import 'package:mobileapp/generated/locale_keys.g.dart';
+import 'package:mobileapp/core/l10n/locale_keys.g.dart';
 
 class DividerSection extends StatelessWidget {
   const DividerSection({super.key});

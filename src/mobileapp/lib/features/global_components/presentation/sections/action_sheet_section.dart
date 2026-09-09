@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileapp/core/widgets/navigation/navigation.dart';
 import 'package:mobileapp/features/global_components/presentation/widgets/component_card.dart';
-import 'package:mobileapp/generated/locale_keys.g.dart';
+import 'package:mobileapp/core/l10n/locale_keys.g.dart';
 
 class ActionSheetSection extends StatelessWidget {
   const ActionSheetSection({super.key});

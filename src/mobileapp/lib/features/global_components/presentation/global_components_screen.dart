@@ -38,7 +38,7 @@ import 'package:mobileapp/features/global_components/presentation/sections/top_a
 import 'package:mobileapp/features/global_components/presentation/sections/side_nav_item_section.dart';
 import 'package:mobileapp/features/global_components/presentation/sections/tab_item_section.dart';
 import 'package:mobileapp/features/global_components/presentation/sections/textarea_field_section.dart';
-import 'package:mobileapp/generated/locale_keys.g.dart';
+import 'package:mobileapp/core/l10n/locale_keys.g.dart';
 
 class GlobalComponentsScreen extends ConsumerWidget {
   const GlobalComponentsScreen({super.key});
