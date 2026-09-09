@@ -77,7 +77,7 @@ export function SelectField({
   const state = disabled ? 'disabled' : isError ? 'error' : 'default'
 
   return (
-    <div className="flex w-full flex-col gap-1.5" data-slot="select-field">
+    <div className="flex w-full flex-col gap-1" data-slot="select-field">
       {label ? (
         <label
           htmlFor={selectId}

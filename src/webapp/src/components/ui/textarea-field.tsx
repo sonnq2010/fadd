@@ -51,7 +51,7 @@ const TextareaField = React.forwardRef<HTMLTextAreaElement, TextareaFieldProps>(
     const state = disabled ? 'disabled' : isError ? 'error' : 'default'
 
     return (
-      <div className="flex w-full flex-col gap-1.5" data-slot="textarea-field">
+      <div className="flex w-full flex-col gap-1" data-slot="textarea-field">
         {label ? (
           <label
             htmlFor={textareaId}

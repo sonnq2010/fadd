@@ -64,7 +64,7 @@ const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
     const state = disabled ? 'disabled' : isError ? 'error' : 'default'
 
     return (
-      <div className="flex w-full flex-col gap-1.5" data-slot="input-field">
+      <div className="flex w-full flex-col gap-1" data-slot="input-field">
         {label ? (
           <label
             htmlFor={inputId}
