@@ -21,7 +21,6 @@ abstract class AppRadius {
 
   /// 24.0 px (radius/2xl)
   static const double s2xl = 24.0;
-  static const double xxl = 24.0;
 
   /// 9999.0 px (radius/full)
   static const double full = 9999.0;

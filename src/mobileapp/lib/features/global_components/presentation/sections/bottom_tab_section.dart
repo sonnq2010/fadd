@@ -41,7 +41,7 @@ class _BottomTabSectionState extends State<BottomTabSection> {
           ),
           const Gap(AppSpacing.sm),
           Wrap(
-            spacing: AppSpacing.xxl,
+            spacing: AppSpacing.s2xl,
             children: const [
               _StatePreview(
                 label: 'Default',

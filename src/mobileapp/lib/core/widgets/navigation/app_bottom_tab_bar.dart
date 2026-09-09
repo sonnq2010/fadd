@@ -89,7 +89,7 @@ class AppBottomTabBar extends StatelessWidget {
       ),
       padding: const EdgeInsets.only(
         top: AppSpacing.sm,
-        bottom: AppSpacing.xxl,
+        bottom: AppSpacing.s2xl,
         left: AppSpacing.lg,
         right: AppSpacing.lg,
       ),

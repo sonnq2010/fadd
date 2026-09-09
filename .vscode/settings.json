@@ -1,8 +1,5 @@
 {
-  "dart.flutterSdkPath": "src/mobileapp/.fvm/versions/3.35.7",
-  "dart.projectSearchPaths": [
-    "src/mobileapp"
-  ],
+  "dart.flutterSdkPath": "src/mobileapp/.fvm/versions/3.41.6",
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
@@ -13,5 +10,4 @@
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": "offWithInlineSuggestions"
   },
-  "makefile.configureOnOpen": false
 }

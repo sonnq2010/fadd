@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_radius.dart';
+import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/inputs/app_focus_ring.dart';
 
 /// Text input field for forms:
@@ -167,7 +168,7 @@ class _AppInputFieldState extends State<AppInputField> {
             widget.label!,
             style: labelStyle.withColor(labelColor),
           ),
-          const Gap(6), // 6px gap from Figma
+          const Gap(AppSpacing.xs),
         ],
         AppFocusRing(
           visible: isEnabled && !isError && _isFocused,
@@ -189,7 +190,7 @@ class _AppInputFieldState extends State<AppInputField> {
                     size: 16, // 16px icon from Figma
                     color: iconColor,
                   ),
-                  const Gap(8), // 8px gap
+                  const Gap(AppSpacing.sm), // 8px gap
                 ],
                 Expanded(
                   child: TextField(
@@ -218,7 +219,7 @@ class _AppInputFieldState extends State<AppInputField> {
                   ),
                 ),
                 if (widget.trailingIcon != null) ...[
-                  const Gap(8), // 8px gap
+                  const Gap(AppSpacing.sm), // 8px gap
                   GestureDetector(
                     onTap: isEnabled ? widget.onTrailingIconPressed : null,
                     child: Icon(
@@ -233,13 +234,13 @@ class _AppInputFieldState extends State<AppInputField> {
           ),
         ),
         if (isError) ...[
-          const Gap(6),
+          const Gap(AppSpacing.xs),
           Text(
             widget.errorText!,
             style: typography.caption.withColor(colors.text.error),
           ),
         ] else if (widget.helperText != null) ...[
-          const Gap(6),
+          const Gap(AppSpacing.xs),
           Text(
             widget.helperText!,
             style: typography.caption.withColor(

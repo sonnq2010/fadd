@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:mobileapp/core/extensions/build_context_extension.dart';
+import 'package:mobileapp/core/theme/app_spacing.dart';
 
 class AppSwitch extends StatefulWidget {
   const AppSwitch({
@@ -94,7 +95,7 @@ class _AppSwitchState extends State<AppSwitch> {
               ),
             ),
             if (widget.label != null) ...[
-              const Gap(8),
+              const Gap(AppSpacing.sm),
               Text(
                 widget.label!,
                 style: typography.bodySmall.withColor(labelColor),

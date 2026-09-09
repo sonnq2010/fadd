@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:mobileapp/core/extensions/build_context_extension.dart';
+import 'package:mobileapp/core/theme/app_spacing.dart';
 
 class AppRadio<T> extends StatelessWidget {
   const AppRadio({
@@ -78,7 +79,7 @@ class AppRadio<T> extends StatelessWidget {
                 : null,
           ),
           if (label != null) ...[
-            const Gap(8),
+            const Gap(AppSpacing.sm),
             Text(
               label!,
               style: typography.bodyMedium.withColor(labelColor),

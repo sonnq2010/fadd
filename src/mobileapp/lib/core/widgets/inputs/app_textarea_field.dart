@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_radius.dart';
+import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/inputs/app_focus_ring.dart';
 
 class AppTextareaField extends StatefulWidget {
@@ -127,7 +128,7 @@ class _AppTextareaFieldState extends State<AppTextareaField> {
             widget.label!,
             style: labelStyle.withColor(labelColor),
           ),
-          const Gap(6),
+          const Gap(AppSpacing.xs),
         ],
         AppFocusRing(
           visible: isEnabled && !isError && _isFocused,
@@ -166,13 +167,13 @@ class _AppTextareaFieldState extends State<AppTextareaField> {
           ),
         ),
         if (isError) ...[
-          const Gap(6),
+          const Gap(AppSpacing.xs),
           Text(
             widget.errorText!,
             style: typography.caption.withColor(colors.text.error),
           ),
         ] else if (widget.helperText != null) ...[
-          const Gap(6),
+          const Gap(AppSpacing.xs),
           Text(
             widget.helperText!,
             style: typography.caption.withColor(

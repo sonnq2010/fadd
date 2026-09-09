@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_radius.dart';
+import 'package:mobileapp/core/theme/app_spacing.dart';
 import 'package:mobileapp/core/widgets/inputs/app_focus_ring.dart';
 
 enum AppSearchFieldSize { large, medium, small }
@@ -159,7 +160,7 @@ class _AppSearchFieldState extends State<AppSearchField> {
               size: 16,
               color: iconColor,
             ),
-            const Gap(8),
+            const Gap(AppSpacing.sm),
             Expanded(
               child: TextField(
                 controller: _controller,
@@ -184,7 +185,7 @@ class _AppSearchFieldState extends State<AppSearchField> {
               ),
             ),
             if (_hasText && isEnabled) ...[
-              const Gap(8),
+              const Gap(AppSpacing.sm),
               GestureDetector(
                 onTap: _clear,
                 child: Icon(

@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:mobileapp/core/extensions/build_context_extension.dart';
 import 'package:mobileapp/core/theme/app_radius.dart';
+import 'package:mobileapp/core/theme/app_spacing.dart';
 
 enum AppCheckboxValue { unchecked, checked, indeterminate }
 
@@ -113,7 +114,7 @@ class _AppCheckboxState extends State<AppCheckbox> {
                   : null,
             ),
             if (widget.label != null) ...[
-              const Gap(8),
+              const Gap(AppSpacing.sm),
               Text(
                 widget.label!,
                 style: typography.bodySmall.withColor(labelColor),

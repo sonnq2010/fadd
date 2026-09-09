@@ -38,7 +38,7 @@ class AppNavBar extends StatelessWidget {
         ),
       ),
       padding: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.xxl,
+        horizontal: AppSpacing.s2xl,
         vertical: 12.0,
       ),
       child: Row(
@@ -61,7 +61,7 @@ class AppNavBar extends StatelessWidget {
                         .withColor(colors.text.primary),
                   ),
                   if (tabs.isNotEmpty) ...[
-                    const Gap(AppSpacing.xxl),
+                    const Gap(AppSpacing.s2xl),
                     AppTabs(
                       tabs: tabs,
                       selectedIndex: selectedTabIndex,

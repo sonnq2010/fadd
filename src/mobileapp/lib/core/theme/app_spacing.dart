@@ -21,15 +21,12 @@ abstract class AppSpacing {
 
   /// 24.0 px (spacing/2xl)
   static const double s2xl = 24.0;
-  static const double xxl = 24.0;
 
   /// 32.0 px (spacing/3xl)
   static const double s3xl = 32.0;
-  static const double xxxl = 32.0;
 
   /// 40.0 px (spacing/4xl)
   static const double s4xl = 40.0;
-  static const double xxxxl = 40.0;
 
   /// 48.0 px (spacing/5xl)
   static const double s5xl = 48.0;

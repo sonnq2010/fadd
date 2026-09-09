@@ -1,5 +1,5 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.35.7",
+  "dart.flutterSdkPath": ".fvm/versions/3.41.6",
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
@@ -9,5 +9,5 @@
     "editor.selectionHighlight": false,
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": "off"
-  },
+  }
 }
