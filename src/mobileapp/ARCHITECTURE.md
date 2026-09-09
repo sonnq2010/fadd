@@ -20,6 +20,8 @@ mobileapp/
 │   │   ├── configs/                 # compile-time application configuration
 │   │   ├── constants/               # shared constants and locale definitions
 │   │   ├── exceptions/              # shared failure model and exception mapping
+│   │   ├── extensions/              # extensions goes here
+│   │   ├── l10n/                    # generated LocaleKeys
 │   │   ├── network/                 # generated API and Supabase composition
 │   │   ├── router/                  # routes and GoRouter configuration
 │   │   ├── storage/                 # application storage contract and adapter
