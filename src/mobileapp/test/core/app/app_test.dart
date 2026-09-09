@@ -31,7 +31,7 @@ void main() {
     await tester.pumpAndSettle();
 
     var materialApp = tester.widget<MaterialApp>(find.byType(MaterialApp));
-    var appContext = tester.element(find.byType(MaterialApp));
+    final appContext = tester.element(find.byType(MaterialApp));
 
     expect(materialApp.locale, LocaleConstants.english);
     expect(materialApp.supportedLocales, LocaleConstants.supportedLocales);
