@@ -2,7 +2,7 @@
 
 ## Overview
 
-`src/mobileapp` is a Flutter 3.35.7 application built with Dart 3.9.2 for Android, iOS, and web. It uses Riverpod and Freezed for dependency composition and state, GoRouter for navigation, EasyLocalization for English and Vietnamese resources, Supabase for backend services, and a Dio/built_value client generated from the backend API contract. Shared infrastructure lives under `lib/core`, while application behavior is organized by feature under `lib/features` with data, domain, and presentation layers where needed.
+`src/mobileapp` is a Flutter 3.41.6 application built with Dart 3.11.4 for Android, iOS, and web. It uses Riverpod and Freezed for dependency composition and state, GoRouter for navigation, EasyLocalization for English and Vietnamese resources, Supabase for backend services, and a Dio/built_value client generated from the backend API contract. Shared infrastructure lives under `lib/core`, while application behavior is organized by feature under `lib/features` with data, domain, and presentation layers where needed.
 
 ## Project structure
 
