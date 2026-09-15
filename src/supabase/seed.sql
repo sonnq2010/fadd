@@ -1,0 +1,1 @@
+-- Deterministic and idempotent; safe to replay on every `supabase db reset`.
