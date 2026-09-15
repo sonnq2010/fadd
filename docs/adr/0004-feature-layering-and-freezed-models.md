@@ -1,0 +1,5 @@
+# Feature slices use use cases, Freezed models, and a lint-enforced layering
+
+Each feature under `lib/features/<feature>` follows domain → data → presentation. Presentation screens and their providers depend only on domain use cases; repository calls are confined to `domain/use_cases/**`. Domain entities and presentation states are Freezed unions/classes, generated with `make gen-code`. One screen-scoped provider (an `AsyncValue`/sealed-state Notifier) owns each screen and routes every operation through a use case. Notifier classes are named `XxxNotifier` and pin their provider handle with `@Riverpod(name: 'xxxProvider')`, so call sites use `xxxProvider` without a redundant `Notifier` suffix in the provider name.
+
+The rules are enforced by `tool/app_lints` (`avoid_data_layer_in_presentation`, `require_freezed_for_feature_models`) and the `test/architecture/clean_architecture_test.dart` gate, so `make verify` fails when a screen imports a repository/data source or a model is hand-written. This costs a use case per operation and a generator step, and buys testable seams, uniform state handling, and no silent drift from hand-rolled `copyWith`/`==`.

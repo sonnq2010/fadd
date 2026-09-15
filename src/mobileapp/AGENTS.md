@@ -51,3 +51,14 @@ Backend `.api` files under `../backend/api` are the API source of truth. Change 
 10. Follow the API client workflow for remote operations and add HTTP integration tests for consumed operations.
 11. Add end-to-end tests for cross-component behavior.
 12. Run the repository-root `make verify` before completion; do not skip required test levels.
+
+# Clean architecture guardrails
+
+These are enforced by `tool/app_lints` (custom_lint) and
+`test/architecture/clean_architecture_test.dart`; `make verify` fails if broken.
+
+1. **Presentation never touches repositories or data sources.** Screens and presentation providers must import domain use cases only. Importing `/data/`, `/data_sources/` or `/domain/repositories/` from a `presentation/` file is an error (`avoid_data_layer_in_presentation`).
+2. **One screen provider owns the screen state.** A screen reads one Notifier that exposes an `AsyncValue`/sealed state and whose methods call use cases. Do not scatter several providers for one screen or call repositories inline. Name the class `XxxNotifier` and pin the provider handle with `@Riverpod(name: 'xxxProvider')`, so screens always use `xxxProvider` / `xxxProvider.notifier` and the provider name never grows a redundant `Notifier` suffix.
+3. **Every write goes through a use case.** Use cases live under `domain/use_cases/` and expose a Riverpod provider; they are the only layer allowed to call repository methods.
+4. **Entities and presentation states use Freezed.** `domain/entities/**` and `presentation/states/**` classes must be annotated with `@freezed` (`require_freezed_for_feature_models`). Keep public class names stable where tests depend on them via `= ClassName` unions.
+5. Run `make gen-code` after adding or changing Freezed/Riverpod sources, then `make verify`.
