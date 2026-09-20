@@ -1,0 +1,4 @@
+interface:
+  display_name: "Docs to Figma"
+  short_description: "Review a focused UI overview before building Figma"
+  default_prompt: "Use $docs-to-figma to turn docs/SRS.md and related docs into a verified interactive UI overview, ask for my approval, then build matching editable screens through Figma MCP."
