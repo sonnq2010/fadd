@@ -43,6 +43,12 @@
       "skillPath": "skills/eval-harness/SKILL.md",
       "computedHash": "4ac1247dc6e4018ccefaf4714e4516fe675d48c77886568e6e8dae34a016360d"
     },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "89496d5dd00f4810205f351759594fc2742bf8eea85a2f2b2d1de59f4bd91576"
+    },
     "gcp-cloud-architect": {
       "source": "alirezarezvani/claude-skills",
       "sourceType": "github",
@@ -78,12 +84,6 @@
       "sourceType": "github",
       "skillPath": "skills/engineering/tdd/SKILL.md",
       "computedHash": "3ba0443442024d075ea30205faa586511d526534f7cbfcb9e6bfacbbeacec739"
-    },
-    "teach": {
-      "source": "mattpocock/skills",
-      "sourceType": "github",
-      "skillPath": "skills/productivity/teach/SKILL.md",
-      "computedHash": "68999bb1a241384b2f921f3321d779b7d05eb6089077b70d88cee2aee3d75ccc"
     },
     "terraform-style-guide": {
       "source": "hashicorp/agent-skills",
